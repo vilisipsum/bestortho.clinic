@@ -131,7 +131,7 @@ export default function BookingModal({ isOpen, onClose, defaultReason = '' }: Bo
               >
                 <Phone className="w-4 h-4 mx-auto text-brand-700 mb-1" />
                 <span className="text-xs font-bold text-slate-900 block">Call Direct</span>
-                <span className="text-[11px] text-slate-500 font-medium">{siteConfig.phoneDisplay}</span>
+                <span className="text-xs text-slate-500 font-medium">{siteConfig.phoneDisplay}</span>
               </a>
 
               <a
@@ -142,13 +142,13 @@ export default function BookingModal({ isOpen, onClose, defaultReason = '' }: Bo
               >
                 <MessageCircle className="w-4 h-4 mx-auto text-emerald-700 mb-1" />
                 <span className="text-xs font-bold text-emerald-900 block">WhatsApp</span>
-                <span className="text-[11px] text-emerald-700 font-medium">Instant Response</span>
+                <span className="text-xs text-emerald-700 font-medium">Instant Response</span>
               </a>
             </div>
 
             <div className="relative flex py-2 items-center mb-4">
               <div className="flex-grow border-t border-slate-200"></div>
-              <span className="flex-shrink mx-3 text-xs font-semibold text-slate-400 uppercase tracking-wider">or online request</span>
+              <span className="flex-shrink mx-3 text-xs font-semibold text-slate-500">or online request</span>
               <div className="flex-grow border-t border-slate-200"></div>
             </div>
 
@@ -156,7 +156,7 @@ export default function BookingModal({ isOpen, onClose, defaultReason = '' }: Bo
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold uppercase text-slate-700 mb-1">
+                  <label className="block text-xs font-bold text-slate-700 mb-1">
                     Full Name *
                   </label>
                   <input
@@ -173,7 +173,7 @@ export default function BookingModal({ isOpen, onClose, defaultReason = '' }: Bo
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase text-slate-700 mb-1">
+                  <label className="block text-xs font-bold text-slate-700 mb-1">
                     Mobile Phone (10 digits) *
                   </label>
                   <input
@@ -192,7 +192,7 @@ export default function BookingModal({ isOpen, onClose, defaultReason = '' }: Bo
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold uppercase text-slate-700 mb-1">
+                  <label className="block text-xs font-bold text-slate-700 mb-1">
                     Preferred Date *
                   </label>
                   <input
@@ -208,7 +208,7 @@ export default function BookingModal({ isOpen, onClose, defaultReason = '' }: Bo
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase text-slate-700 mb-1">
+                  <label className="block text-xs font-bold text-slate-700 mb-1">
                     Preferred Slot *
                   </label>
                   <select
@@ -224,7 +224,7 @@ export default function BookingModal({ isOpen, onClose, defaultReason = '' }: Bo
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase text-slate-700 mb-1">
+                <label className="block text-xs font-bold text-slate-700 mb-1">
                   Reason for Consultation *
                 </label>
                 <select
@@ -243,7 +243,7 @@ export default function BookingModal({ isOpen, onClose, defaultReason = '' }: Bo
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase text-slate-700 mb-1">
+                <label className="block text-xs font-bold text-slate-700 mb-1">
                   Optional Notes (Symptoms, Duration)
                 </label>
                 <textarea
@@ -273,7 +273,7 @@ export default function BookingModal({ isOpen, onClose, defaultReason = '' }: Bo
                 <span>{isSubmitting ? 'Submitting Request...' : 'Submit Appointment Request'}</span>
               </button>
 
-              <p className="text-[11px] text-center text-slate-500 font-medium">
+              <p className="text-xs text-center text-slate-500 font-medium">
                 By submitting, you agree to be contacted via phone or WhatsApp for appointment scheduling.
               </p>
             </form>

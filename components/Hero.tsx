@@ -11,7 +11,7 @@ interface HeroProps {
 
 export default function Hero({ onOpenBooking }: HeroProps) {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-white via-slate-50/60 to-slate-100/50 pt-10 pb-16 lg:pt-16 lg:pb-24 border-b border-slate-200">
+    <section className="relative overflow-hidden bg-gradient-to-b from-white via-slate-50/60 to-slate-100/50 pt-10 pb-16 lg:pt-16 lg:pb-24">
       {/* Subtle Architectural Grid Background Accent */}
       <div 
         className="absolute inset-0 opacity-[0.03] pointer-events-none -z-0"
@@ -52,9 +52,9 @@ export default function Hero({ onOpenBooking }: HeroProps) {
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-brand-950 tracking-tight leading-[1.12] mb-6 font-display">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-brand-950 tracking-tight leading-[1.3] mb-6 font-display">
               Orthopaedic Care, <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-700 via-brand-600 to-sky-600">
+              <span className="text-brand-900">
                 Built Around Your Recovery.
               </span>
             </h1>
@@ -101,9 +101,9 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                   <Award className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-slate-900 tracking-wide uppercase">
+                  <span className="block text-sm font-bold text-slate-900">
                     12+ Years Experience
-                  </h4>
+                  </span>
                   <p className="text-xs text-slate-500">
                     Orthopaedic & Joint Care
                   </p>
@@ -115,9 +115,9 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-slate-900 tracking-wide uppercase">
+                  <span className="block text-sm font-bold text-slate-900">
                     Sikandra, Agra
-                  </h4>
+                  </span>
                   <p className="text-xs text-slate-500">
                     Dedicated Outpatient Clinic
                   </p>
@@ -129,9 +129,9 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                   <BookOpen className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-slate-900 tracking-wide uppercase">
+                  <span className="block text-sm font-bold text-slate-900">
                     Patient Education
-                  </h4>
+                  </span>
                   <p className="text-xs text-slate-500">
                     Condition & Rehab Guides
                   </p>
@@ -141,59 +141,54 @@ export default function Hero({ onOpenBooking }: HeroProps) {
 
           </div>
 
-          {/* Right Column: Doctor Portrait Editorial Composition */}
+          {/* Right Column: Doctor Portrait Clean Single-Layer Card */}
           <div className="lg:col-span-5">
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
-              {/* Main Medical Specialist Card */}
-              <div className="bg-white rounded-3xl border border-slate-200/90 shadow-elevated overflow-hidden p-6 sm:p-7">
+              {/* Main Medical Specialist Single-Layer Card */}
+              <div className="bg-white rounded-3xl border border-slate-200/90 shadow-card p-6 sm:p-7 flex flex-col justify-between">
                 
-                {/* Visual Frame for Authentic Doctor Photography */}
-                <div className="relative aspect-[4/5] rounded-2xl border border-slate-200 bg-gradient-to-b from-slate-50 to-slate-100/60 overflow-hidden flex flex-col justify-between p-6">
-                  
-                  {/* Status Tag */}
-                  <div className="flex justify-between items-start">
-                    <span className="px-3 py-1 rounded-full text-xs font-semibold bg-white border border-slate-200 text-brand-900 shadow-sm">
-                      Consultant Orthopaedic Specialist
-                    </span>
-                    <span className="w-7 h-7 rounded-full bg-emerald-100 border border-emerald-300 flex items-center justify-center text-xs font-bold text-emerald-800">
-                      ✓
-                    </span>
-                  </div>
+                {/* Status Header */}
+                <div className="flex justify-between items-center pb-4 mb-4 border-b border-slate-100">
+                  <span className="px-3 py-1 rounded-full text-xs font-semibold bg-brand-50 border border-brand-200 text-brand-900">
+                    Consultant Orthopaedic Specialist
+                  </span>
+                  <span className="w-7 h-7 rounded-full bg-emerald-100 border border-emerald-300 flex items-center justify-center text-xs font-bold text-emerald-800">
+                    ✓
+                  </span>
+                </div>
 
-                  {/* Reserved Portrait Space (Clearly labeled PHOTO NEEDED per compliance) */}
-                  <div className="my-auto py-8 px-4 rounded-xl bg-white border border-dashed border-slate-300 text-center shadow-sm">
-                    <div className="w-14 h-14 mx-auto mb-3 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center text-brand-700">
-                      <UserCheck className="w-7 h-7" />
-                    </div>
-                    <span className="inline-block px-2.5 py-0.5 rounded bg-slate-800 text-white text-[11px] font-semibold tracking-wider uppercase mb-1.5">
-                      PHOTO NEEDED
-                    </span>
-                    <p className="text-sm font-bold text-slate-900">
-                      Official Clinic Portrait
-                    </p>
-                    <p className="text-xs text-slate-500 max-w-xs mx-auto mt-1">
-                      Dr. Gaurav Sharma authentic clinic headshot reserved. No synthetic doctor imagery used.
-                    </p>
+                {/* Reserved Portrait Area */}
+                <div className="py-10 px-4 rounded-2xl bg-slate-50 text-center mb-5">
+                  <div className="w-14 h-14 mx-auto mb-3 rounded-2xl bg-blue-100/70 flex items-center justify-center text-brand-700">
+                    <UserCheck className="w-7 h-7" />
                   </div>
+                  <span className="inline-block px-2.5 py-0.5 rounded bg-slate-800 text-white text-xs font-semibold tracking-wide mb-1.5">
+                    Official Clinic Portrait
+                  </span>
+                  <p className="text-sm font-bold text-slate-900">
+                    Reserved for Dr. Gaurav Sharma
+                  </p>
+                  <p className="text-xs text-slate-500 max-w-xs mx-auto mt-1">
+                    Authentic clinic photography only. No synthetic or stock doctor imagery used.
+                  </p>
+                </div>
 
-                  {/* Doctor Card Caption */}
-                  <div className="bg-white rounded-xl border border-slate-200 p-3.5 shadow-sm">
-                    <h3 className="text-base font-bold text-brand-950 font-display leading-tight">
-                      {doctorProfile.name}
-                    </h3>
-                    <p className="text-xs font-semibold text-brand-700">
-                      {doctorProfile.formalTitle}
-                    </p>
-                    <p className="text-[11px] text-slate-500 mt-0.5">
-                      Sikandra, Agra • Consultation by Prior Appointment
-                    </p>
-                  </div>
-
+                {/* Doctor Bio Details */}
+                <div className="pt-2">
+                  <h2 className="text-xl font-bold text-brand-950 font-display leading-tight">
+                    {doctorProfile.name}
+                  </h2>
+                  <p className="text-xs font-semibold text-brand-700 mt-0.5">
+                    {doctorProfile.formalTitle}
+                  </p>
+                  <p className="text-xs text-slate-500 mt-1">
+                    Sikandra, Agra • Consultation by Prior Appointment
+                  </p>
                 </div>
 
                 {/* Sub-card badges */}
-                <div className="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-medium text-slate-600">
+                <div className="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-medium text-slate-600">
                   <span className="flex items-center gap-1.5 text-emerald-700 font-semibold">
                     <Clock className="w-3.5 h-3.5" />
                     OPD Mon–Sat & Sun

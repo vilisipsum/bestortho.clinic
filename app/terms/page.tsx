@@ -8,7 +8,7 @@ export default function TermsPage() {
     <>
       <Header />
 
-      <section className="py-12 md:py-16 border-b border-slate-200 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <span className="pill-badge bg-blue-50 text-brand-700 border-blue-200 text-xs mb-3">
             Practice Terms
@@ -27,7 +27,7 @@ export default function TermsPage() {
           
           <div className="card-medical bg-white p-8 sm:p-12 space-y-8 text-slate-700 text-sm sm:text-base leading-relaxed">
             
-            <div className="p-4 rounded-xl bg-amber-50 border border-amber-200 flex items-start gap-3">
+            <div className="p-4 rounded-xl bg-amber-50/80 flex items-start gap-3">
               <AlertTriangle className="w-5 h-5 text-amber-700 flex-shrink-0 mt-0.5" />
               <div className="text-xs sm:text-sm text-slate-800">
                 <strong>CRITICAL MEDICAL NOTICE:</strong> Content on BestOrtho.clinic is for general health literacy and outpatient practice coordination. It is not an online diagnostic service, emergency triage channel, or prescription generator.

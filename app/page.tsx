@@ -55,7 +55,7 @@ export default function HomePage() {
       <LocationCard onOpenBooking={() => setIsBookingOpen(true)} />
 
       {/* 10. FAQS SECTION */}
-      <section className="py-16 md:py-24 border-b border-slate-200 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div>

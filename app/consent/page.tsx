@@ -8,7 +8,7 @@ export default function ConsentPolicyPage() {
     <>
       <Header />
 
-      <section className="py-12 md:py-16 border-b border-slate-200 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <span className="pill-badge bg-emerald-50 text-emerald-700 border-emerald-200 text-xs mb-3">
             Clinical Ethics Standard
@@ -27,7 +27,7 @@ export default function ConsentPolicyPage() {
           
           <div className="card-medical bg-white p-8 sm:p-12 space-y-8 text-slate-700 text-sm sm:text-base leading-relaxed">
             
-            <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 flex items-start gap-3">
+            <div className="p-4 rounded-xl bg-emerald-50/80 flex items-start gap-3">
               <ShieldCheck className="w-5 h-5 text-emerald-700 flex-shrink-0 mt-0.5" />
               <div className="text-xs sm:text-sm text-slate-800 font-medium">
                 <strong>Ethics First:</strong> We believe patient dignity, privacy, and informed consent are fundamental to trustworthy medical practice. We do not hire actors, generate synthetic patient testimonials, or publish clinical experiences without explicit consent.
@@ -83,7 +83,7 @@ export default function ConsentPolicyPage() {
               <p>
                 For questions regarding patient media policies or to submit a consent revocation request, contact our clinic privacy desk:
               </p>
-              <div className="mt-3 p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs sm:text-sm font-semibold text-slate-800 space-y-1">
+              <div className="mt-3 p-4 rounded-xl bg-slate-50/80 text-xs sm:text-sm font-semibold text-slate-800 space-y-1">
                 <p>Ethics & Privacy Coordinator: Dr. Gaurav Sharma Orthopaedic Clinic</p>
                 <p>Clinic Address: {siteConfig.primaryAddress.street}, {siteConfig.locationSummary}</p>
                 <p>Contact: {siteConfig.phoneDisplay} • Email: care@bestortho.clinic</p>

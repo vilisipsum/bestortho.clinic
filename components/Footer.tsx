@@ -7,9 +7,9 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-brand-950 text-white border-t border-brand-900 mt-20">
+    <footer className="bg-brand-950 text-white mt-20">
       {/* Top Banner Accent */}
-      <div className="bg-brand-900 py-3 px-4 border-b border-brand-800 text-slate-200 text-center font-medium text-xs sm:text-sm tracking-wide">
+      <div className="bg-brand-900 py-3 px-4 text-brand-100 text-center font-medium text-xs sm:text-sm tracking-wide">
         Evidence-Conscious Orthopaedic Consultations • Sikandra, Agra • Consultation by Appointment
       </div>
 
@@ -29,13 +29,13 @@ export default function Footer() {
               <h3 className="text-base font-bold text-brand-200 mb-2">
                 {siteConfig.practiceName}
               </h3>
-              <p className="text-slate-300 text-sm leading-relaxed mb-6 font-normal">
+              <p className="text-brand-100 text-sm leading-relaxed mb-6 font-normal max-w-sm">
                 Consultant Orthopaedic & Musculoskeletal Specialist practice in Sikandra, Agra. 
                 Dedicated to clinical examination, diagnostic clarity, and rehabilitation structured around your individual recovery goals.
               </p>
             </div>
 
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/15 text-xs font-medium text-slate-200 self-start">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 text-xs font-medium text-brand-100 self-start">
               <ShieldCheck className="w-4 h-4 text-emerald-400" />
               <span>Verified Local Medical Practice</span>
             </div>
@@ -43,20 +43,20 @@ export default function Footer() {
 
           {/* Contact & Hours */}
           <div className="lg:col-span-4">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-brand-300 mb-4">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-brand-200 mb-4">
               Clinic Contact & Hours
-            </h4>
-            <div className="flex flex-col gap-3 text-sm text-slate-300">
+            </h3>
+            <div className="flex flex-col gap-3 text-sm text-brand-100">
               <div className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-brand-400 flex-shrink-0 mt-1" />
+                <MapPin className="w-4 h-4 text-brand-300 flex-shrink-0 mt-1" />
                 <div>
                   <p className="font-semibold text-white">{siteConfig.primaryAddress.street}</p>
-                  <p className="text-slate-400 text-xs mt-0.5">{siteConfig.locationSummary}</p>
+                  <p className="text-brand-100 text-xs mt-0.5">{siteConfig.locationSummary}</p>
                   <a
                     href={siteConfig.googleMapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-xs text-brand-300 font-semibold mt-1 hover:underline"
+                    className="inline-flex items-center gap-1 text-xs text-brand-200 font-semibold mt-1 hover:underline"
                   >
                     <span>View on Google Maps</span>
                     <ArrowUpRight className="w-3 h-3" />
@@ -65,10 +65,10 @@ export default function Footer() {
               </div>
 
               <div className="flex items-center gap-3 pt-2">
-                <Phone className="w-4 h-4 text-brand-400 flex-shrink-0" />
+                <Phone className="w-4 h-4 text-brand-300 flex-shrink-0" />
                 <a
                   href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`}
-                  className="font-semibold text-white hover:text-brand-300 transition-colors"
+                  className="font-semibold text-white hover:text-brand-200 transition-colors"
                 >
                   {siteConfig.phoneDisplay}
                 </a>
@@ -87,12 +87,12 @@ export default function Footer() {
               </div>
 
               <div className="flex items-start gap-3 pt-2 border-t border-white/10 mt-2">
-                <Clock className="w-4 h-4 text-brand-400 flex-shrink-0 mt-1" />
+                <Clock className="w-4 h-4 text-brand-300 flex-shrink-0 mt-1" />
                 <div className="text-xs space-y-1">
                   <p className="font-semibold text-white">OPD Consultation Hours:</p>
                   {siteConfig.timings.map((t, idx) => (
-                    <p key={idx} className="text-slate-300">
-                      <span className="font-medium text-slate-200">{t.days}:</span> {t.hours}
+                    <p key={idx} className="text-brand-100">
+                      <span className="font-medium text-white">{t.days}:</span> {t.hours}
                     </p>
                   ))}
                 </div>
@@ -102,37 +102,37 @@ export default function Footer() {
 
           {/* Quick Links & Legal */}
           <div className="lg:col-span-2">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-brand-300 mb-4">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-brand-200 mb-4">
               Explore
-            </h4>
+            </h3>
             <ul className="space-y-2.5 text-sm font-medium">
               <li>
-                <Link href="/about" className="text-slate-300 hover:text-white transition-colors">
+                <Link href="/about" className="text-brand-100 hover:text-white transition-colors">
                   About Dr. Sharma
                 </Link>
               </li>
               <li>
-                <Link href="/#areas-of-care" className="text-slate-300 hover:text-white transition-colors">
+                <Link href="/#areas-of-care" className="text-brand-100 hover:text-white transition-colors">
                   Areas of Care
                 </Link>
               </li>
               <li>
-                <Link href="/patient-stories" className="text-slate-300 hover:text-white transition-colors">
+                <Link href="/patient-stories" className="text-brand-100 hover:text-white transition-colors">
                   Patient Stories
                 </Link>
               </li>
               <li>
-                <Link href="/clinic" className="text-slate-300 hover:text-white transition-colors">
+                <Link href="/clinic" className="text-brand-100 hover:text-white transition-colors">
                   Clinic & Timings
                 </Link>
               </li>
               <li>
-                <Link href="/faq" className="text-slate-300 hover:text-white transition-colors">
+                <Link href="/faq" className="text-brand-100 hover:text-white transition-colors">
                   Patient FAQs
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-slate-300 hover:text-white transition-colors">
+                <Link href="/contact" className="text-brand-100 hover:text-white transition-colors">
                   Book Consultation
                 </Link>
               </li>
@@ -140,22 +140,22 @@ export default function Footer() {
           </div>
 
           <div className="lg:col-span-2">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-brand-300 mb-4">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-brand-200 mb-4">
               Legal & Safety
-            </h4>
+            </h3>
             <ul className="space-y-2.5 text-sm font-medium">
               <li>
-                <Link href="/privacy" className="text-slate-300 hover:text-white transition-colors">
+                <Link href="/privacy" className="text-brand-100 hover:text-white transition-colors">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="text-slate-300 hover:text-white transition-colors">
+                <Link href="/terms" className="text-brand-100 hover:text-white transition-colors">
                   Terms of Service
                 </Link>
               </li>
               <li>
-                <Link href="/consent" className="text-slate-300 hover:text-white transition-colors">
+                <Link href="/consent" className="text-brand-100 hover:text-white transition-colors">
                   Patient Media & Consent
                 </Link>
               </li>
@@ -169,11 +169,11 @@ export default function Footer() {
         </div>
 
         {/* Clinical Disclaimer & Copyright */}
-        <div className="mt-12 pt-8 border-t border-white/10 text-xs text-slate-400 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-center md:text-left max-w-3xl leading-relaxed">
-            <strong className="text-slate-200">Clinical & Regulatory Notice:</strong> Content on BestOrtho.clinic is published for general educational reference and practice orientation. It is not an alternative to in-person medical evaluation. Outpatient appointments do not replace emergency hospital trauma resuscitation.
+        <div className="mt-12 pt-8 border-t border-white/10 text-xs text-brand-100 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-center md:text-left max-w-md leading-relaxed">
+            <strong className="text-white">Clinical & Regulatory Notice:</strong> Content on BestOrtho.clinic is published for general educational reference and practice orientation. It is not an alternative to in-person medical evaluation. Outpatient appointments do not replace emergency hospital trauma resuscitation.
           </p>
-          <p className="font-semibold text-slate-300 whitespace-nowrap">
+          <p className="font-semibold text-brand-100 whitespace-nowrap">
             © {currentYear} BestOrtho.clinic. All rights reserved.
           </p>
         </div>

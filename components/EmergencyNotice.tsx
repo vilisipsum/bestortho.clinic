@@ -12,17 +12,17 @@ export default function EmergencyNotice() {
         
         <div className="space-y-2 flex-grow">
           <div className="flex items-center gap-2">
-            <span className="pill-badge bg-amber-100 text-amber-900 border-amber-200 text-[10px] font-bold">
+            <span className="pill-badge bg-amber-100 text-amber-900 border-amber-200 text-xs font-bold">
               Critical Medical Advisory
             </span>
-            <span className="text-xs font-bold uppercase text-slate-700 tracking-wider">
+            <span className="text-xs font-bold text-slate-700 tracking-wide">
               Emergency & Trauma Protocol
             </span>
           </div>
 
-          <h4 className="text-lg font-bold text-slate-900 font-display">
+          <h3 className="text-lg font-bold text-slate-900 font-display">
             When to Seek Immediate Emergency Hospital Trauma Care
-          </h4>
+          </h3>
 
           <p className="text-sm text-slate-700 leading-relaxed">
             {siteConfig.emergencyPolicy}

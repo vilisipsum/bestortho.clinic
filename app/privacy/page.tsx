@@ -8,7 +8,7 @@ export default function PrivacyPage() {
     <>
       <Header />
 
-      <section className="py-12 md:py-16 border-b border-slate-200 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <span className="pill-badge bg-blue-50 text-brand-700 border-blue-200 text-xs mb-3">
             Legal & Compliance
@@ -27,7 +27,7 @@ export default function PrivacyPage() {
           
           <div className="card-medical bg-white p-8 sm:p-12 space-y-8 text-slate-700 text-sm sm:text-base leading-relaxed">
             
-            <div className="p-4 rounded-xl bg-blue-50/70 border border-blue-200 flex items-start gap-3">
+            <div className="p-4 rounded-xl bg-blue-50/70 flex items-start gap-3">
               <Lock className="w-5 h-5 text-brand-700 flex-shrink-0 mt-0.5" />
               <p className="text-xs sm:text-sm font-medium text-slate-800">
                 <strong>Our Privacy Commitment:</strong> We respect patient confidentiality above all else. This website is an educational and appointment coordination portal. We do not sell patient data, engage in tracking advertising, or collect unnecessary personal medical history through web forms.
@@ -101,7 +101,7 @@ export default function PrivacyPage() {
               <p>
                 If you have questions regarding our privacy practices or wish to update or withdraw any information, please reach out to our clinic administration:
               </p>
-              <div className="mt-3 p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs sm:text-sm font-semibold text-slate-800 space-y-1">
+              <div className="mt-3 p-4 rounded-xl bg-slate-50/80 text-xs sm:text-sm font-semibold text-slate-800 space-y-1">
                 <p>Clinic Administration: Dr. Gaurav Sharma Orthopaedic Clinic</p>
                 <p>Address: {siteConfig.primaryAddress.street}, {siteConfig.locationSummary}</p>
                 <p>Phone: {siteConfig.phoneDisplay} • Email: {siteConfig.email}</p>

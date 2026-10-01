@@ -9,7 +9,7 @@ export default function TestimonialCard() {
   );
 
   return (
-    <section className="py-16 md:py-24 border-b border-slate-200 bg-white">
+    <section className="py-16 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Heading */}
@@ -42,9 +42,9 @@ export default function TestimonialCard() {
               <div className="pt-4 border-t border-slate-200">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h4 className="text-base font-bold text-brand-950 font-display">
+                    <h3 className="text-base font-bold text-brand-950 font-display">
                       {item.displayName}
-                    </h4>
+                    </h3>
                     {item.location && (
                       <p className="text-xs text-slate-500 font-medium">
                         {item.location}
@@ -53,7 +53,7 @@ export default function TestimonialCard() {
                   </div>
 
                   {item.verifiedVisit && (
-                    <span className="pill-badge bg-emerald-50 text-emerald-700 border-emerald-200 text-[10px]">
+                    <span className="pill-badge bg-emerald-50 text-emerald-700 border-emerald-200 text-xs">
                       <CheckCircle2 className="w-3 h-3" />
                       Verified Visit
                     </span>

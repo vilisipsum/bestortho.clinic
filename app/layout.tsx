@@ -1,7 +1,20 @@
 import type { Metadata, Viewport } from 'next';
+import { DM_Sans, Outfit } from 'next/font/google';
 import './globals.css';
 import { defaultMetadata, getClinicSchema } from '@/lib/seo';
 import Footer from '@/components/Footer';
+
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  variable: '--font-sans',
+  display: 'swap',
+});
+
+const outfit = Outfit({
+  subsets: ['latin'],
+  variable: '--font-display',
+  display: 'swap',
+});
 
 export const metadata: Metadata = defaultMetadata;
 
@@ -20,16 +33,16 @@ export default function RootLayout({
   const clinicSchema = getClinicSchema();
 
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className={`scroll-smooth ${dmSans.variable} ${outfit.variable}`}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(clinicSchema) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-slate-50 text-slate-800 antialiased selection:bg-brand-100 selection:text-brand-900">
+      <body className="min-h-screen flex flex-col bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-100 selection:text-brand-900">
         {/* Top Clinical Advisory Bar */}
-        <div className="bg-brand-950 text-slate-200 px-4 py-2 text-center text-xs font-medium border-b border-brand-900 flex items-center justify-center gap-2">
+        <div className="bg-brand-950 text-brand-100 px-4 py-2 text-center text-xs font-medium border-b border-brand-900 flex items-center justify-center gap-2">
           <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
           <span>
             Dr. Gaurav Sharma Orthopaedic Clinic • Sikandra, Agra • Outpatient Consultations by Prior Appointment

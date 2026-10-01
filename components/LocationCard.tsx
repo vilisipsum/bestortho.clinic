@@ -11,7 +11,7 @@ interface LocationCardProps {
 
 export default function LocationCard({ onOpenBooking }: LocationCardProps) {
   return (
-    <section id="clinic-location" className="py-16 md:py-24 border-b border-slate-200 bg-white">
+    <section id="clinic-location" className="py-16 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Heading */}
@@ -52,7 +52,7 @@ export default function LocationCard({ onOpenBooking }: LocationCardProps) {
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold uppercase text-slate-500 tracking-wider">
+                    <h4 className="text-xs font-bold text-slate-600">
                       Clinic Address
                     </h4>
                     <p className="text-base font-bold text-slate-900 mt-0.5">
@@ -73,14 +73,14 @@ export default function LocationCard({ onOpenBooking }: LocationCardProps) {
                     <Clock className="w-5 h-5" />
                   </div>
                   <div className="w-full">
-                    <h4 className="text-xs font-bold uppercase text-slate-500 tracking-wider">
+                    <h4 className="text-xs font-bold text-slate-600">
                       OPD Consultation Timings
                     </h4>
                     <div className="mt-2 space-y-2 text-sm">
                       {siteConfig.timings.map((timing, idx) => (
                         <div
                           key={idx}
-                          className="flex flex-col sm:flex-row sm:items-center justify-between p-2.5 rounded-xl bg-slate-50 border border-slate-200"
+                          className="flex flex-col sm:flex-row sm:items-center justify-between p-2.5 rounded-lg bg-slate-50"
                         >
                           <span className="font-semibold text-slate-900">{timing.days}</span>
                           <span className="text-slate-600 font-medium text-xs sm:text-sm">
@@ -150,7 +150,7 @@ export default function LocationCard({ onOpenBooking }: LocationCardProps) {
                 <AlertTriangle className="w-5 h-5" />
               </div>
               <div className="text-xs text-slate-700 space-y-1">
-                <h5 className="font-bold text-slate-900 uppercase tracking-wider text-xs">
+                <h5 className="font-bold text-slate-900 text-xs">
                   Acute Trauma & Emergency Clarification
                 </h5>
                 <p className="leading-relaxed">
@@ -181,9 +181,9 @@ export default function LocationCard({ onOpenBooking }: LocationCardProps) {
                 </p>
 
                 {/* Map Graphic Box */}
-                <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-subtle mb-6">
+                <div className="rounded-xl bg-white p-5 mb-6">
                   <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-                    <span className="text-xs font-bold uppercase text-slate-700">
+                    <span className="text-xs font-bold text-slate-700">
                       Sikandra Corridor Map
                     </span>
                     <a
@@ -197,12 +197,12 @@ export default function LocationCard({ onOpenBooking }: LocationCardProps) {
                     </a>
                   </div>
 
-                  <div className="my-4 py-8 px-4 rounded-xl bg-slate-50 border border-dashed border-slate-300 text-center">
+                  <div className="my-4 py-6 px-4 rounded-lg bg-slate-50 text-center">
                     <MapPin className="w-8 h-8 text-brand-700 mx-auto mb-2" />
-                    <p className="text-xs font-bold text-brand-950 uppercase tracking-wider">
+                    <p className="text-sm font-bold text-brand-950">
                       Sikandra Crossing, Agra
                     </p>
-                    <p className="text-[11px] text-slate-500 mt-1">
+                    <p className="text-xs text-slate-500 mt-1">
                       Coordinates: 27.2183° N, 77.9482° E
                     </p>
                   </div>
@@ -226,7 +226,7 @@ export default function LocationCard({ onOpenBooking }: LocationCardProps) {
               </div>
 
               {/* Cashless / TPA transparency box */}
-              <div className="p-4 rounded-xl bg-white border border-slate-200 text-xs text-slate-600 flex items-start gap-2.5 shadow-subtle">
+              <div className="p-4 rounded-xl bg-white/80 text-xs text-slate-600 flex items-start gap-2.5">
                 <ShieldCheck className="w-4 h-4 text-brand-600 flex-shrink-0 mt-0.5" />
                 <p>
                   <strong>Insurance & Cashless Information:</strong> Outpatient consultations are payable directly. For hospital-based admissions or elective surgeries, cashless TPA assistance is facilitated at affiliated hospital partner desks.

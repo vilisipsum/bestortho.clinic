@@ -46,7 +46,7 @@ export default function FAQAccordion({ initialCategory = 'All', limit }: FAQAcco
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider transition-all border ${
+              className={`px-4 py-2 rounded-xl text-xs font-semibold tracking-wide transition-all border ${
                 isActive
                   ? 'bg-brand-700 text-white border-brand-700 shadow-sm'
                   : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50 hover:text-slate-900 shadow-subtle'

@@ -15,7 +15,7 @@ export default function FAQPage() {
       <Header onOpenBooking={() => setIsBookingOpen(true)} />
 
       {/* Hero Banner */}
-      <section className="py-12 md:py-16 border-b border-slate-200 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-2 mb-4">
             <span className="pill-badge bg-blue-50 text-brand-700 border-blue-200 text-xs">
@@ -36,7 +36,7 @@ export default function FAQPage() {
       </section>
 
       {/* FAQs List Section */}
-      <section className="py-16 md:py-24 border-b border-slate-200 bg-slate-50">
+      <section className="py-16 md:py-24 bg-slate-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <FAQAccordion />
         </div>

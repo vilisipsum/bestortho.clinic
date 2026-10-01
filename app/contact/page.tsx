@@ -49,7 +49,7 @@ export default function ContactPage() {
       <Header />
 
       {/* Hero Banner */}
-      <section className="py-12 md:py-16 border-b border-slate-200 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-2 mb-4">
             <span className="pill-badge bg-blue-50 text-brand-700 border-blue-200 text-xs">
@@ -70,7 +70,7 @@ export default function ContactPage() {
       </section>
 
       {/* Direct Contact Options & Form Grid */}
-      <section className="py-16 md:py-24 border-b border-slate-200 bg-slate-50">
+      <section className="py-16 md:py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
@@ -94,11 +94,11 @@ export default function ContactPage() {
                     href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`}
                     className="flex items-center gap-4 p-4 rounded-xl bg-slate-50 border border-slate-200 hover:bg-brand-50 hover:border-brand-200 transition-all group"
                   >
-                    <div className="w-11 h-11 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center text-brand-700 group-hover:bg-brand-700 group-hover:text-white transition-colors">
+                    <div className="w-11 h-11 rounded-lg bg-blue-50 flex items-center justify-center text-brand-700 group-hover:bg-brand-700 group-hover:text-white transition-colors">
                       <Phone className="w-5 h-5" />
                     </div>
                     <div>
-                      <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 block">
+                      <span className="text-xs font-semibold text-slate-500 block">
                         Telephone Appointment Desk
                       </span>
                       <span className="text-base font-bold text-brand-950">
@@ -113,11 +113,11 @@ export default function ContactPage() {
                     rel="noopener noreferrer"
                     className="flex items-center gap-4 p-4 rounded-xl bg-emerald-50/50 border border-emerald-200 hover:bg-emerald-50 transition-all group"
                   >
-                    <div className="w-11 h-11 rounded-lg bg-emerald-100 border border-emerald-200 flex items-center justify-center text-emerald-800">
+                    <div className="w-11 h-11 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-800">
                       <MessageCircle className="w-5 h-5" />
                     </div>
                     <div>
-                      <span className="text-xs font-semibold uppercase tracking-wider text-emerald-700 block">
+                      <span className="text-xs font-semibold text-emerald-700 block">
                         WhatsApp Consultation Desk
                       </span>
                       <span className="text-sm font-bold text-emerald-950">
@@ -144,7 +144,7 @@ export default function ContactPage() {
               </div>
 
               <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-subtle text-xs text-slate-600 space-y-2">
-                <div className="flex items-center gap-2 font-bold text-slate-900 uppercase tracking-wider">
+                <div className="flex items-center gap-2 font-bold text-slate-900">
                   <ShieldCheck className="w-4 h-4 text-brand-600" />
                   <span>No Medical Uploads Policy</span>
                 </div>
@@ -157,7 +157,7 @@ export default function ContactPage() {
 
             {/* Right Column: Online Request Form */}
             <div className="lg:col-span-7">
-              <div className="card-medical bg-white p-6 sm:p-10 border border-slate-200 shadow-card">
+              <div className="card-medical bg-white p-6 sm:p-10">
                 
                 {isSubmitted ? (
                   <div className="py-12 text-center space-y-4">
@@ -220,7 +220,7 @@ export default function ContactPage() {
                     <form onSubmit={handleSubmit} className="space-y-4">
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-xs font-bold uppercase text-slate-700 mb-1">
+                          <label className="block text-xs font-bold text-slate-700 mb-1">
                             Patient Full Name *
                           </label>
                           <input
@@ -237,7 +237,7 @@ export default function ContactPage() {
                         </div>
 
                         <div>
-                          <label className="block text-xs font-bold uppercase text-slate-700 mb-1">
+                          <label className="block text-xs font-bold text-slate-700 mb-1">
                             Mobile Phone (10 digits) *
                           </label>
                           <input
@@ -256,7 +256,7 @@ export default function ContactPage() {
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-xs font-bold uppercase text-slate-700 mb-1">
+                          <label className="block text-xs font-bold text-slate-700 mb-1">
                             Preferred Consultation Date *
                           </label>
                           <input
@@ -272,7 +272,7 @@ export default function ContactPage() {
                         </div>
 
                         <div>
-                          <label className="block text-xs font-bold uppercase text-slate-700 mb-1">
+                          <label className="block text-xs font-bold text-slate-700 mb-1">
                             Preferred Time Slot *
                           </label>
                           <select
@@ -288,7 +288,7 @@ export default function ContactPage() {
                       </div>
 
                       <div>
-                        <label className="block text-xs font-bold uppercase text-slate-700 mb-1">
+                        <label className="block text-xs font-bold text-slate-700 mb-1">
                           Reason for Consultation *
                         </label>
                         <select
@@ -307,7 +307,7 @@ export default function ContactPage() {
                       </div>
 
                       <div>
-                        <label className="block text-xs font-bold uppercase text-slate-700 mb-1">
+                        <label className="block text-xs font-bold text-slate-700 mb-1">
                           Symptoms / Prior Treatment Notes (Optional)
                         </label>
                         <textarea
@@ -319,7 +319,7 @@ export default function ContactPage() {
                         />
                       </div>
 
-                      <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-2.5 text-xs text-slate-600">
+                      <div className="p-3 rounded-xl bg-slate-50/80 flex items-start gap-2.5 text-xs text-slate-600">
                         <Lock className="w-4 h-4 text-brand-600 flex-shrink-0 mt-0.5" />
                         <p>
                           <strong>Data Privacy Notice:</strong> Your contact details are collected solely to schedule this clinic consultation and will never be shared with third parties for marketing.

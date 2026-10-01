@@ -10,7 +10,7 @@ export default function VideoSection() {
   const approvedVideos = educationalVideos.filter((v) => v.approved);
 
   return (
-    <section className="py-16 md:py-24 bg-slate-50 border-b border-slate-200">
+    <section className="py-16 md:py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Heading */}
@@ -35,13 +35,13 @@ export default function VideoSection() {
               onClick={() => setActiveVideo(video)}
             >
               <div>
-                {/* Thumbnail Card with Clean Medical Styling */}
-                <div className="relative aspect-video rounded-xl border border-slate-200 bg-slate-900 overflow-hidden mb-4 flex flex-col justify-between p-3.5 group-hover:shadow-subtle transition-all">
+                {/* Thumbnail Frame with Clean Medical Styling */}
+                <div className="relative aspect-video rounded-xl bg-slate-900 overflow-hidden mb-4 flex flex-col justify-between p-3.5 transition-opacity group-hover:opacity-95">
                   <div className="flex items-center justify-between">
-                    <span className="pill-badge bg-white text-slate-800 text-[10px] border-none font-semibold">
+                    <span className="pill-badge bg-white text-slate-800 text-xs border-none font-semibold">
                       {video.category}
                     </span>
-                    <span className="px-2 py-0.5 rounded bg-slate-800/80 text-white text-[11px] font-mono flex items-center gap-1">
+                    <span className="px-2 py-0.5 rounded bg-slate-800/80 text-white text-xs font-mono flex items-center gap-1">
                       <Clock className="w-3 h-3 text-brand-300" />
                       {video.duration}
                     </span>
@@ -53,8 +53,8 @@ export default function VideoSection() {
                   </div>
 
                   {/* Thumbnail Topic Caption */}
-                  <div className="bg-white/95 rounded-md border border-slate-200 p-1.5 text-center">
-                    <p className="text-[10px] font-bold text-slate-900 truncate">
+                  <div className="bg-black/60 rounded-md p-1.5 text-center">
+                    <p className="text-xs font-semibold text-white truncate">
                       {video.title}
                     </p>
                   </div>
@@ -64,7 +64,7 @@ export default function VideoSection() {
                   {video.title}
                 </h3>
 
-                <p className="text-xs text-slate-600 line-clamp-3 leading-relaxed mb-4">
+                <p className="text-sm text-slate-600 line-clamp-3 leading-relaxed mb-4">
                   {video.description}
                 </p>
               </div>
@@ -75,7 +75,7 @@ export default function VideoSection() {
                   <span>Watch Video</span>
                 </span>
                 {video.transcriptAvailable && (
-                  <span className="text-[11px] text-slate-400 flex items-center gap-1 font-normal">
+                  <span className="text-xs text-slate-500 flex items-center gap-1 font-normal">
                     <FileText className="w-3 h-3" />
                     Transcript
                   </span>

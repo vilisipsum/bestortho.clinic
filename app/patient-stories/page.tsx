@@ -17,7 +17,7 @@ export default function PatientStoriesPage() {
       <Header onOpenBooking={() => setIsBookingOpen(true)} />
 
       {/* Hero Banner */}
-      <section className="py-12 md:py-16 border-b border-slate-200 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-2 mb-4">
             <span className="pill-badge bg-emerald-50 text-emerald-700 border-emerald-200 text-xs">

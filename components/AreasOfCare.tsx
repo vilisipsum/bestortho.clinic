@@ -15,7 +15,7 @@ export default function AreasOfCare({ onOpenBooking }: AreasOfCareProps) {
   const [selectedArea, setSelectedArea] = useState<AreaOfCare>(approvedAreas[0] || null);
 
   return (
-    <section id="areas-of-care" className="py-16 md:py-24 border-b border-slate-200 bg-white">
+    <section id="areas-of-care" className="py-16 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -27,7 +27,7 @@ export default function AreasOfCare({ onOpenBooking }: AreasOfCareProps) {
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-brand-950 tracking-tight font-display">
               Areas of Orthopaedic Care
             </h2>
-            <p className="text-base sm:text-lg text-slate-600 font-normal mt-2 max-w-2xl">
+            <p className="text-base sm:text-lg text-slate-600 font-normal mt-2 max-w-xl">
               Focused outpatient evaluations, conservative care protocols, and surgical planning approved for clinical consultation.
             </p>
           </div>
@@ -67,7 +67,7 @@ export default function AreasOfCare({ onOpenBooking }: AreasOfCareProps) {
                 <span className="pill-badge bg-blue-50 text-brand-700 border-blue-200">
                   Clinical Focus
                 </span>
-                <span className="text-xs font-medium text-slate-500 tracking-wide uppercase">
+                <span className="text-xs font-medium text-slate-500 tracking-wide">
                   Outpatient Consultation • Sikandra
                 </span>
               </div>
@@ -95,7 +95,7 @@ export default function AreasOfCare({ onOpenBooking }: AreasOfCareProps) {
               <h3 className="text-2xl sm:text-3xl font-bold text-brand-950 font-display mb-3">
                 {selectedArea.title}
               </h3>
-              <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal max-w-3xl">
+              <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal max-w-xl">
                 {selectedArea.shortExplanation}
               </p>
             </div>
@@ -103,7 +103,7 @@ export default function AreasOfCare({ onOpenBooking }: AreasOfCareProps) {
             {/* Split Content: Who should consider & What patients ask */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
               {/* Who Should Consider */}
-              <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-subtle">
+              <div className="p-6 rounded-xl bg-white">
                 <div className="flex items-center gap-2 mb-4">
                   <div className="w-8 h-8 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center text-brand-700">
                     <Users className="w-4 h-4" />
@@ -123,7 +123,7 @@ export default function AreasOfCare({ onOpenBooking }: AreasOfCareProps) {
               </div>
 
               {/* What Patients Commonly Ask */}
-              <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-subtle">
+              <div className="p-6 rounded-xl bg-white">
                 <div className="flex items-center gap-2 mb-4">
                   <div className="w-8 h-8 rounded-lg bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-700">
                     <HelpCircle className="w-4 h-4" />
@@ -192,13 +192,13 @@ export default function AreasOfCare({ onOpenBooking }: AreasOfCareProps) {
                       behavior: 'smooth',
                     });
                   }}
-                  className="text-xs font-semibold text-brand-700 hover:text-brand-900 flex items-center gap-1 uppercase tracking-wider"
+                  className="text-xs font-semibold text-brand-700 hover:text-brand-900 flex items-center gap-1"
                 >
                   <span>View Care Details</span>
                   <ArrowRight className="w-3 h-3" />
                 </button>
 
-                <span className="text-[11px] font-medium text-slate-400">
+                <span className="text-xs font-medium text-slate-500">
                   Sikandra Clinic
                 </span>
               </div>

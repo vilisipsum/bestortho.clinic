@@ -57,7 +57,7 @@ export default function Header({ onOpenBooking }: HeaderProps) {
                 <span className="text-xl sm:text-2xl font-bold tracking-tight text-brand-950 group-hover:text-brand-700 transition-colors select-none font-display">
                   BestOrtho.clinic
                 </span>
-                <span className="text-[11px] font-medium text-slate-500 hidden sm:block">
+                <span className="text-xs font-medium text-slate-500 hidden sm:block">
                   Dr. Gaurav Sharma • Sikandra, Agra
                 </span>
               </div>

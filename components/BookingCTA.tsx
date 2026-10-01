@@ -11,7 +11,7 @@ interface BookingCTAProps {
 
 export default function BookingCTA({ onOpenBooking }: BookingCTAProps) {
   return (
-    <section className="py-16 md:py-24 border-b border-slate-200 bg-white">
+    <section className="py-16 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="relative rounded-3xl bg-brand-950 text-white p-8 sm:p-12 lg:p-16 shadow-elevated overflow-hidden border border-brand-900">
@@ -27,7 +27,7 @@ export default function BookingCTA({ onOpenBooking }: BookingCTAProps) {
                 <span className="pill-badge bg-emerald-500/20 text-emerald-300 border-emerald-500/30">
                   Direct OPD Access
                 </span>
-                <span className="pill-badge bg-white/10 text-slate-200 border-white/20">
+                <span className="pill-badge bg-brand-900 text-brand-100 border-brand-700">
                   Sikandra, Agra
                 </span>
               </div>
@@ -36,7 +36,7 @@ export default function BookingCTA({ onOpenBooking }: BookingCTAProps) {
                 Schedule Your Orthopaedic Consultation
               </h2>
 
-              <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal max-w-xl mb-8">
+              <p className="text-base sm:text-lg text-brand-100 leading-relaxed font-normal max-w-xl mb-8">
                 Consult with Dr. Gaurav Sharma for diagnostic evaluation of joint pain, sports injuries, or fracture recovery. Morning and evening clinic slots available Monday through Saturday, plus Sunday morning hours.
               </p>
 
@@ -73,41 +73,41 @@ export default function BookingCTA({ onOpenBooking }: BookingCTAProps) {
               </div>
             </div>
 
-            {/* Quick Summary Card */}
+            {/* Quick Summary Panel */}
             <div className="lg:col-span-5">
-              <div className="bg-white/10 backdrop-blur-md rounded-2xl border border-white/15 p-6 sm:p-8 space-y-4 shadow-subtle">
-                <div className="flex items-center gap-3.5 pb-4 border-b border-white/10">
+              <div className="bg-brand-900/80 rounded-2xl p-6 sm:p-8 space-y-4">
+                <div className="flex items-center gap-3.5 pb-4 border-b border-brand-800/80">
                   <div className="w-10 h-10 rounded-xl bg-brand-600 flex items-center justify-center font-bold text-white">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="text-xs uppercase text-slate-400 font-semibold tracking-wider">
+                    <p className="text-xs text-brand-200 font-semibold tracking-wide">
                       Direct Appointment Desk
                     </p>
                     <a
                       href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`}
-                      className="text-lg font-bold text-white hover:text-brand-300 transition-colors"
+                      className="text-lg font-bold text-white hover:text-brand-200 transition-colors"
                     >
                       {siteConfig.phoneDisplay}
                     </a>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3.5 pb-4 border-b border-white/10">
+                <div className="flex items-start gap-3.5 pb-4 border-b border-brand-800">
                   <div className="w-10 h-10 rounded-xl bg-emerald-600 flex items-center justify-center font-bold text-white flex-shrink-0">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="text-xs uppercase text-slate-400 font-semibold tracking-wider">
+                    <p className="text-xs text-brand-200 font-semibold tracking-wide">
                       Clinic Location
                     </p>
-                    <p className="text-sm font-medium text-slate-200">
+                    <p className="text-sm font-medium text-white">
                       {siteConfig.primaryAddress.street}, Sikandra, Agra
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2 text-xs text-slate-300 pt-1">
+                <div className="flex items-center gap-2 text-xs text-brand-200 pt-1">
                   <ShieldCheck className="w-4 h-4 text-emerald-400 flex-shrink-0" />
                   <span>No upfront online payment required • Confirmation by clinic desk</span>
                 </div>

@@ -15,29 +15,29 @@ export default function ConsentNotice() {
             <span className="pill-badge bg-blue-50 text-brand-700 border-blue-200 text-xs">
               Medical Ethics
             </span>
-            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
+            <span className="text-xs font-semibold text-slate-500">
               Privacy & Informed Consent
             </span>
           </div>
 
-          <h4 className="text-xl font-bold text-brand-950 font-display">
+          <h3 className="text-xl font-bold text-brand-950 font-display">
             Our Medical Media & Patient Data Policy
-          </h4>
+          </h3>
 
           <p className="text-sm text-slate-600 leading-relaxed">
             In strict compliance with medical ethics and the Medical Council guidelines, this website never publishes identifiable patient records, surgical videos, or personal narratives without verified, explicit, written informed consent.
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs text-slate-600">
-            <div className="p-3 rounded-xl bg-white border border-slate-200 flex items-center gap-2 shadow-subtle">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs text-slate-700">
+            <div className="p-3 bg-white/70 rounded-lg flex items-center gap-2.5">
               <Lock className="w-4 h-4 text-brand-600 flex-shrink-0" />
               <span>No online record uploads without access-controlled encryption</span>
             </div>
-            <div className="p-3 rounded-xl bg-white border border-slate-200 flex items-center gap-2 shadow-subtle">
+            <div className="p-3 bg-white/70 rounded-lg flex items-center gap-2.5">
               <EyeOff className="w-4 h-4 text-slate-500 flex-shrink-0" />
               <span>Anonymized details upon patient request</span>
             </div>
-            <div className="p-3 rounded-xl bg-white border border-slate-200 flex items-center gap-2 shadow-subtle">
+            <div className="p-3 bg-white/70 rounded-lg flex items-center gap-2.5">
               <FileCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" />
               <span>Right to withdraw consent at any time</span>
             </div>

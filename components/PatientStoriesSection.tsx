@@ -16,7 +16,7 @@ export default function PatientStoriesSection({ maxItems = 3, showAllLink = true
     .slice(0, maxItems);
 
   return (
-    <section className="py-16 md:py-24 bg-slate-50 border-b border-slate-200">
+    <section className="py-16 md:py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Heading */}
@@ -33,7 +33,7 @@ export default function PatientStoriesSection({ maxItems = 3, showAllLink = true
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-brand-950 tracking-tight font-display">
               Patient Recovery Stories
             </h2>
-            <p className="text-base sm:text-lg text-slate-600 font-normal mt-2 max-w-2xl">
+            <p className="text-base sm:text-lg text-slate-600 font-normal mt-2 max-w-xl">
               Documented patient experiences with verified informed consent. We do not use actors, fabricated reviews, or unverified claims.
             </p>
           </div>
@@ -59,14 +59,14 @@ export default function PatientStoriesSection({ maxItems = 3, showAllLink = true
         {/* Ethics & Consent Policy Banner */}
         <div className="mt-12 p-6 rounded-2xl bg-white border border-slate-200 shadow-card flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-start gap-4">
-            <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center flex-shrink-0 text-brand-700 mt-1">
+            <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0 text-brand-700 mt-1">
               <ShieldCheck className="w-5 h-5" />
             </div>
             <div>
-              <h4 className="text-base font-bold text-brand-950 font-display">
+              <h3 className="text-base font-bold text-brand-950 font-display">
                 Patient Privacy & Media Ethics Notice
-              </h4>
-              <p className="text-xs sm:text-sm text-slate-600 mt-0.5 leading-relaxed max-w-2xl">
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 mt-0.5 leading-relaxed max-w-xl">
                 Every case published on BestOrtho.clinic has explicit written consent on file for educational representation. Clinical outcomes vary by age, compliance, severity, and individual biological factors.
               </p>
             </div>

@@ -9,7 +9,7 @@ export default function PracticePhilosophy() {
       step: "01",
       description: "We begin with a careful, unhurried physical examination and imaging review. We explain the bone, joint, or ligament anatomy in everyday language so you know what is causing your symptoms.",
       tag: "Clear Explanation",
-      accent: "bg-blue-50 text-brand-700 border-blue-100",
+      accent: "bg-blue-50 text-brand-700",
     },
     {
       icon: FileText,
@@ -17,7 +17,7 @@ export default function PracticePhilosophy() {
       step: "02",
       description: "Not every joint problem requires surgery. We clearly outline non-surgical choices, medication protocols, targeted physiotherapy, and when surgical intervention is genuinely indicated.",
       tag: "Conservative First",
-      accent: "bg-emerald-50 text-emerald-700 border-emerald-100",
+      accent: "bg-emerald-50 text-emerald-700",
     },
     {
       icon: Compass,
@@ -25,7 +25,7 @@ export default function PracticePhilosophy() {
       step: "03",
       description: "Your work, family life, and physical demands matter. We align on a realistic treatment timeline that fits your schedule, avoiding arbitrary interventions or unverified claims.",
       tag: "Collaborative Plan",
-      accent: "bg-sky-50 text-sky-700 border-sky-100",
+      accent: "bg-sky-50 text-sky-700",
     },
     {
       icon: Activity,
@@ -33,12 +33,12 @@ export default function PracticePhilosophy() {
       step: "04",
       description: "True recovery is measured by functional mobility. We establish structured check-in milestones, guide safe movement retraining, and provide ongoing feedback until you regain confidence.",
       tag: "Milestone Focused",
-      accent: "bg-purple-50 text-purple-700 border-purple-100",
+      accent: "bg-purple-50 text-purple-700",
     },
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-slate-50 border-b border-slate-200">
+    <section className="py-16 md:py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Heading */}
@@ -65,7 +65,7 @@ export default function PracticePhilosophy() {
               >
                 <div>
                   <div className="flex items-center justify-between mb-5">
-                    <div className={`w-11 h-11 rounded-xl border flex items-center justify-center ${pillar.accent}`}>
+                    <div className={`w-11 h-11 rounded-xl flex items-center justify-center ${pillar.accent}`}>
                       <Icon className="w-5 h-5" />
                     </div>
                     <span className="text-xs font-mono font-bold text-slate-400">
@@ -87,7 +87,7 @@ export default function PracticePhilosophy() {
                     <CheckCircle className="w-3.5 h-3.5 text-brand-600" />
                     <span>{pillar.tag}</span>
                   </span>
-                  <span className="text-slate-300 font-mono text-[10px]">
+                  <span className="text-slate-400 font-mono text-xs">
                     0{idx + 1}/04
                   </span>
                 </div>

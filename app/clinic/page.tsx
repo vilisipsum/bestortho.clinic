@@ -17,7 +17,7 @@ export default function ClinicPage() {
       <Header onOpenBooking={() => setIsBookingOpen(true)} />
 
       {/* Hero Banner */}
-      <section className="py-12 md:py-16 border-b border-slate-200 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-2 mb-4">
             <span className="pill-badge bg-blue-50 text-brand-700 border-blue-200 text-xs">
@@ -41,7 +41,7 @@ export default function ClinicPage() {
       <LocationCard onOpenBooking={() => setIsBookingOpen(true)} />
 
       {/* Patient Visit Guidelines & Preparation */}
-      <section className="py-16 border-b border-slate-200 bg-slate-50">
+      <section className="py-16 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="max-w-3xl mb-12">
@@ -59,36 +59,36 @@ export default function ClinicPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             
             <div className="card-medical bg-white p-6">
-              <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-brand-700 mb-4">
-                <FileText className="w-5 h-5" />
+              <div className="flex items-center gap-3 mb-3">
+                <FileText className="w-5 h-5 text-brand-700 flex-shrink-0" />
+                <h3 className="text-lg font-bold text-brand-950 font-display">
+                  1. Bring Previous Scans & Reports
+                </h3>
               </div>
-              <h3 className="text-lg font-bold text-brand-950 font-display mb-2">
-                1. Bring Previous Scans & Reports
-              </h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Bring any existing X-rays, MRI films, CD-ROMs, CT scans, blood test results, or past prescription slips. Comparing historical imaging with present physical symptoms provides critical diagnostic context.
               </p>
             </div>
 
             <div className="card-medical bg-white p-6">
-              <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-700 mb-4">
-                <Clock className="w-5 h-5" />
+              <div className="flex items-center gap-3 mb-3">
+                <Clock className="w-5 h-5 text-emerald-700 flex-shrink-0" />
+                <h3 className="text-lg font-bold text-brand-950 font-display">
+                  2. Arrive 10 Minutes Prior
+                </h3>
               </div>
-              <h3 className="text-lg font-bold text-brand-950 font-display mb-2">
-                2. Arrive 10 Minutes Prior
-              </h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Consultations are coordinated to minimize wait times. Arriving slightly ahead of your scheduled time allows the reception staff to record your vital signs and arrange previous records.
               </p>
             </div>
 
             <div className="card-medical bg-white p-6">
-              <div className="w-10 h-10 rounded-xl bg-sky-50 border border-sky-100 flex items-center justify-center text-sky-700 mb-4">
-                <Car className="w-5 h-5" />
+              <div className="flex items-center gap-3 mb-3">
+                <Car className="w-5 h-5 text-sky-700 flex-shrink-0" />
+                <h3 className="text-lg font-bold text-brand-950 font-display">
+                  3. Accessibility & Parking
+                </h3>
               </div>
-              <h3 className="text-lg font-bold text-brand-950 font-display mb-2">
-                3. Accessibility & Parking
-              </h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 The clinic features ground-floor access, wheelchair-friendly entry pathways, and convenient curbside patient drop-off space directly off the main Sikandra corridor.
               </p>
