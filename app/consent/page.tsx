@@ -8,34 +8,34 @@ export default function ConsentPolicyPage() {
     <>
       <Header />
 
-      <section className="py-12 md:py-16 border-b-2 border-dark/10 bg-white">
+      <section className="py-12 md:py-16 border-b border-slate-200 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="pill-badge bg-accent-lime text-dark text-xs mb-3">
+          <span className="pill-badge bg-emerald-50 text-emerald-700 border-emerald-200 text-xs mb-3">
             Clinical Ethics Standard
           </span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-dark tracking-tight font-display mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-brand-950 tracking-tight font-display mb-4">
             Patient Media & Informed Consent Policy
           </h1>
-          <p className="text-base sm:text-lg text-dark/70 font-semibold">
+          <p className="text-base sm:text-lg text-slate-600 font-normal">
             Dr. Gaurav Sharma Orthopaedic Clinic • Sikandra, Agra
           </p>
         </div>
       </section>
 
-      <section className="py-16 bg-[#FFF8E7]">
+      <section className="py-16 bg-slate-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="card-editorial bg-white p-8 sm:p-12 space-y-8 text-dark/80 text-sm sm:text-base leading-relaxed">
+          <div className="card-medical bg-white p-8 sm:p-12 space-y-8 text-slate-700 text-sm sm:text-base leading-relaxed">
             
-            <div className="p-4 rounded-2xl bg-accent-lime/20 border-2 border-dark flex items-start gap-3">
-              <ShieldCheck className="w-5 h-5 text-dark flex-shrink-0 mt-0.5" />
-              <div className="text-xs sm:text-sm text-dark font-medium">
+            <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 flex items-start gap-3">
+              <ShieldCheck className="w-5 h-5 text-emerald-700 flex-shrink-0 mt-0.5" />
+              <div className="text-xs sm:text-sm text-slate-800 font-medium">
                 <strong>Ethics First:</strong> We believe patient dignity, privacy, and informed consent are fundamental to trustworthy medical practice. We do not hire actors, generate synthetic patient testimonials, or publish clinical experiences without explicit consent.
               </div>
             </div>
 
             <div>
-              <h2 className="text-xl sm:text-2xl font-black text-dark font-display mb-3">
+              <h2 className="text-xl sm:text-2xl font-bold text-brand-950 font-display mb-3">
                 1. Informed Consent Requirements
               </h2>
               <p className="mb-3">
@@ -50,7 +50,7 @@ export default function ConsentPolicyPage() {
             </div>
 
             <div>
-              <h2 className="text-xl sm:text-2xl font-black text-dark font-display mb-3">
+              <h2 className="text-xl sm:text-2xl font-bold text-brand-950 font-display mb-3">
                 2. Prohibition of Surgical Voyeurism
               </h2>
               <p>
@@ -59,7 +59,7 @@ export default function ConsentPolicyPage() {
             </div>
 
             <div>
-              <h2 className="text-xl sm:text-2xl font-black text-dark font-display mb-3">
+              <h2 className="text-xl sm:text-2xl font-bold text-brand-950 font-display mb-3">
                 3. Right to Revoke Consent
               </h2>
               <p>
@@ -68,7 +68,7 @@ export default function ConsentPolicyPage() {
             </div>
 
             <div>
-              <h2 className="text-xl sm:text-2xl font-black text-dark font-display mb-3">
+              <h2 className="text-xl sm:text-2xl font-bold text-brand-950 font-display mb-3">
                 4. Authentic Clinic Photography Standards
               </h2>
               <p>
@@ -77,13 +77,13 @@ export default function ConsentPolicyPage() {
             </div>
 
             <div>
-              <h2 className="text-xl sm:text-2xl font-black text-dark font-display mb-3">
+              <h2 className="text-xl sm:text-2xl font-bold text-brand-950 font-display mb-3">
                 5. How to Submit or Revoke Consent
               </h2>
               <p>
                 For questions regarding patient media policies or to submit a consent revocation request, contact our clinic privacy desk:
               </p>
-              <div className="mt-3 p-4 rounded-xl bg-[#FFF8E7] border border-dark/20 text-xs sm:text-sm font-semibold text-dark space-y-1">
+              <div className="mt-3 p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs sm:text-sm font-semibold text-slate-800 space-y-1">
                 <p>Ethics & Privacy Coordinator: Dr. Gaurav Sharma Orthopaedic Clinic</p>
                 <p>Clinic Address: {siteConfig.primaryAddress.street}, {siteConfig.locationSummary}</p>
                 <p>Contact: {siteConfig.phoneDisplay} • Email: care@bestortho.clinic</p>

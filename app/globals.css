@@ -3,15 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --color-cream: #FFF4D9;
-  --color-cream-light: #FFFAF0;
-  --color-cream-card: #FFF8E7;
-  --color-dark: #151515;
-  --color-orange: #FF5A1F;
-  --color-lime: #B8FF22;
-  --color-blue: #2F5BF0;
-  --color-pink: #F18AA6;
-  --color-lavender: #B7A1F4;
+  --color-medical-navy: #0F2744;
+  --color-medical-blue: #0284C7;
+  --color-medical-teal: #0D9488;
+  --color-surface-base: #F8FAFC;
+  --color-surface-card: #FFFFFF;
 }
 
 @layer base {
@@ -19,61 +15,65 @@
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #FFF4D9;
-    color: #151515;
+    background-color: #F8FAFC;
+    color: #0F172A;
   }
 
   body {
-    background-color: #FFF4D9;
-    color: #151515;
+    background-color: #F8FAFC;
+    color: #1E293B;
     font-size: 1.0625rem; /* 17px */
     line-height: 1.65;
     overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    color: #151515;
-    font-weight: 800;
-    letter-spacing: -0.025em;
-    line-height: 1.15;
+    color: #0F2744;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
   }
 
   ::selection {
-    background-color: #B8FF22;
-    color: #151515;
+    background-color: #E0EFFF;
+    color: #0F2744;
   }
 }
 
-/* Custom Editorial Component Utilities */
+/* Professional Medical Component Utilities */
 @layer components {
-  /* Hard shadow button */
+  /* Primary Clinical CTA Button */
   .btn-primary {
-    @apply inline-flex items-center justify-center font-bold px-6 py-3.5 rounded-full bg-dark text-white border-2 border-dark shadow-hard transition-all duration-150 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-hover active:translate-x-0 active:translate-y-0 active:shadow-none focus:outline-none focus:ring-2 focus:ring-accent-orange focus:ring-offset-2;
+    @apply inline-flex items-center justify-center font-semibold px-6 py-3.5 rounded-xl bg-brand-700 text-white shadow-sm transition-all duration-200 hover:bg-brand-800 hover:shadow-card active:translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2;
   }
 
-  .btn-accent-orange {
-    @apply inline-flex items-center justify-center font-bold px-6 py-3.5 rounded-full bg-accent-orange text-white border-2 border-dark shadow-hard transition-all duration-150 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-hover active:translate-x-0 active:translate-y-0 active:shadow-none focus:outline-none focus:ring-2 focus:ring-dark focus:ring-offset-2;
-  }
-
-  .btn-accent-lime {
-    @apply inline-flex items-center justify-center font-bold px-6 py-3.5 rounded-full bg-accent-lime text-dark border-2 border-dark shadow-hard transition-all duration-150 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-hover active:translate-x-0 active:translate-y-0 active:shadow-none focus:outline-none focus:ring-2 focus:ring-dark focus:ring-offset-2;
-  }
-
+  /* Secondary Clinical Button */
   .btn-secondary {
-    @apply inline-flex items-center justify-center font-bold px-6 py-3.5 rounded-full bg-white text-dark border-2 border-dark shadow-hard transition-all duration-150 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-hard-hover active:translate-x-0 active:translate-y-0 active:shadow-none focus:outline-none focus:ring-2 focus:ring-dark focus:ring-offset-2;
+    @apply inline-flex items-center justify-center font-semibold px-6 py-3.5 rounded-xl bg-white text-slate-800 border border-slate-200 shadow-sm transition-all duration-200 hover:bg-slate-50 hover:border-slate-300 hover:text-brand-900 active:translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2;
   }
 
-  /* Editorial Card */
-  .card-editorial {
-    @apply bg-white rounded-3xl border-2 border-dark shadow-hard p-6 md:p-8 transition-all duration-200;
+  /* Accent Blue Button */
+  .btn-accent-blue {
+    @apply inline-flex items-center justify-center font-semibold px-6 py-3.5 rounded-xl bg-sky-600 text-white shadow-sm transition-all duration-200 hover:bg-sky-700 hover:shadow-card active:translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2;
   }
 
-  .card-cream {
-    @apply bg-[#FFF8E7] rounded-3xl border-2 border-dark shadow-hard p-6 md:p-8;
+  /* WhatsApp Emerald Button */
+  .btn-accent-emerald {
+    @apply inline-flex items-center justify-center font-semibold px-6 py-3.5 rounded-xl bg-emerald-600 text-white shadow-sm transition-all duration-200 hover:bg-emerald-700 hover:shadow-card active:translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2;
   }
 
-  /* StandOut Agra Style Pill */
+  /* Professional Medical Card */
+  .card-medical {
+    @apply bg-white rounded-2xl border border-slate-200/90 shadow-card p-6 md:p-8 transition-all duration-200 hover:shadow-card-hover;
+  }
+
+  /* Soft Tinted Surface Card */
+  .card-tinted {
+    @apply bg-slate-50/80 rounded-2xl border border-slate-200 p-6 md:p-8;
+  }
+
+  /* Dignified Clinical Pill Badge */
   .pill-badge {
-    @apply inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-black uppercase tracking-wider border-2 border-dark;
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold tracking-wide border;
   }
 }

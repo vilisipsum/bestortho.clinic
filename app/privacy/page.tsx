@@ -8,34 +8,34 @@ export default function PrivacyPage() {
     <>
       <Header />
 
-      <section className="py-12 md:py-16 border-b-2 border-dark/10 bg-white">
+      <section className="py-12 md:py-16 border-b border-slate-200 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="pill-badge bg-accent-orange text-white text-xs mb-3">
+          <span className="pill-badge bg-blue-50 text-brand-700 border-blue-200 text-xs mb-3">
             Legal & Compliance
           </span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-dark tracking-tight font-display mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-brand-950 tracking-tight font-display mb-4">
             Privacy Policy
           </h1>
-          <p className="text-base sm:text-lg text-dark/70 font-semibold">
+          <p className="text-base sm:text-lg text-slate-600 font-normal">
             Last Updated: January 2025 • Dr. Gaurav Sharma Orthopaedic Clinic ({siteConfig.brandName})
           </p>
         </div>
       </section>
 
-      <section className="py-16 bg-[#FFF8E7]">
+      <section className="py-16 bg-slate-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="card-editorial bg-white p-8 sm:p-12 space-y-8 text-dark/80 text-sm sm:text-base leading-relaxed">
+          <div className="card-medical bg-white p-8 sm:p-12 space-y-8 text-slate-700 text-sm sm:text-base leading-relaxed">
             
-            <div className="p-4 rounded-2xl bg-[#FFF4D9] border-2 border-dark flex items-start gap-3">
-              <Lock className="w-5 h-5 text-accent-orange flex-shrink-0 mt-0.5" />
-              <p className="text-xs sm:text-sm font-medium text-dark">
+            <div className="p-4 rounded-xl bg-blue-50/70 border border-blue-200 flex items-start gap-3">
+              <Lock className="w-5 h-5 text-brand-700 flex-shrink-0 mt-0.5" />
+              <p className="text-xs sm:text-sm font-medium text-slate-800">
                 <strong>Our Privacy Commitment:</strong> We respect patient confidentiality above all else. This website is an educational and appointment coordination portal. We do not sell patient data, engage in tracking advertising, or collect unnecessary personal medical history through web forms.
               </p>
             </div>
 
             <div>
-              <h2 className="text-xl sm:text-2xl font-black text-dark font-display mb-3">
+              <h2 className="text-xl sm:text-2xl font-bold text-brand-950 font-display mb-3">
                 1. Information We Collect
               </h2>
               <p className="mb-3">
@@ -51,7 +51,7 @@ export default function PrivacyPage() {
             </div>
 
             <div>
-              <h2 className="text-xl sm:text-2xl font-black text-dark font-display mb-3">
+              <h2 className="text-xl sm:text-2xl font-bold text-brand-950 font-display mb-3">
                 2. Prohibition of Online Medical Record Uploads
               </h2>
               <p>
@@ -60,7 +60,7 @@ export default function PrivacyPage() {
             </div>
 
             <div>
-              <h2 className="text-xl sm:text-2xl font-black text-dark font-display mb-3">
+              <h2 className="text-xl sm:text-2xl font-bold text-brand-950 font-display mb-3">
                 3. Purpose of Processing
               </h2>
               <p className="mb-3">
@@ -77,7 +77,7 @@ export default function PrivacyPage() {
             </div>
 
             <div>
-              <h2 className="text-xl sm:text-2xl font-black text-dark font-display mb-3">
+              <h2 className="text-xl sm:text-2xl font-bold text-brand-950 font-display mb-3">
                 4. Patient Stories and Media Consent
               </h2>
               <p>
@@ -86,7 +86,7 @@ export default function PrivacyPage() {
             </div>
 
             <div>
-              <h2 className="text-xl sm:text-2xl font-black text-dark font-display mb-3">
+              <h2 className="text-xl sm:text-2xl font-bold text-brand-950 font-display mb-3">
                 5. Data Retention & Security
               </h2>
               <p>
@@ -95,13 +95,13 @@ export default function PrivacyPage() {
             </div>
 
             <div>
-              <h2 className="text-xl sm:text-2xl font-black text-dark font-display mb-3">
+              <h2 className="text-xl sm:text-2xl font-bold text-brand-950 font-display mb-3">
                 6. Contact for Privacy Inquiries
               </h2>
               <p>
                 If you have questions regarding our privacy practices or wish to update or withdraw any information, please reach out to our clinic administration:
               </p>
-              <div className="mt-3 p-4 rounded-xl bg-[#FFF8E7] border border-dark/20 text-xs sm:text-sm font-semibold text-dark space-y-1">
+              <div className="mt-3 p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs sm:text-sm font-semibold text-slate-800 space-y-1">
                 <p>Clinic Administration: Dr. Gaurav Sharma Orthopaedic Clinic</p>
                 <p>Address: {siteConfig.primaryAddress.street}, {siteConfig.locationSummary}</p>
                 <p>Phone: {siteConfig.phoneDisplay} • Email: {siteConfig.email}</p>

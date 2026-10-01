@@ -11,18 +11,18 @@ interface LocationCardProps {
 
 export default function LocationCard({ onOpenBooking }: LocationCardProps) {
   return (
-    <section id="clinic-location" className="py-16 md:py-24 border-b-2 border-dark/10">
+    <section id="clinic-location" className="py-16 md:py-24 border-b border-slate-200 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Heading */}
         <div className="max-w-3xl mb-12">
-          <span className="pill-badge bg-accent-orange text-white mb-3">
+          <span className="pill-badge bg-blue-50 text-brand-700 border-blue-200 mb-3">
             Visit The Clinic
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-dark tracking-tight font-display">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-brand-950 tracking-tight font-display">
             Clinic Location & Consultation Hours
           </h2>
-          <p className="text-base sm:text-lg text-dark/70 font-semibold mt-2">
+          <p className="text-base sm:text-lg text-slate-600 font-normal mt-2">
             Centrally situated in Sikandra, Agra, offering easy regional access along the main highway corridor with dedicated outpatient consulting facilities.
           </p>
         </div>
@@ -32,14 +32,14 @@ export default function LocationCard({ onOpenBooking }: LocationCardProps) {
           
           {/* Left Column: Address, Hours & Direct Action Buttons */}
           <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
-            <div className="card-editorial bg-white p-6 sm:p-8">
+            <div className="card-medical bg-white p-6 sm:p-8">
               
-              <div className="flex items-center justify-between pb-6 border-b-2 border-dark/10">
+              <div className="flex items-center justify-between pb-6 border-b border-slate-100">
                 <div>
-                  <span className="pill-badge bg-accent-lime text-dark text-xs mb-1">
+                  <span className="pill-badge bg-emerald-50 text-emerald-700 border-emerald-200 text-xs mb-1">
                     Primary Outpatient Practice
                   </span>
-                  <h3 className="text-2xl sm:text-3xl font-black text-dark font-display">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-brand-950 font-display">
                     {siteConfig.practiceName}
                   </h3>
                 </div>
@@ -47,43 +47,43 @@ export default function LocationCard({ onOpenBooking }: LocationCardProps) {
 
               {/* Address Block */}
               <div className="py-6 space-y-4">
-                <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-accent-orange/15 border-2 border-dark flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-5 h-5 text-accent-orange" />
+                <div className="flex items-start gap-3.5">
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center flex-shrink-0 text-brand-700">
+                    <MapPin className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-black uppercase text-dark tracking-wider">
+                    <h4 className="text-xs font-bold uppercase text-slate-500 tracking-wider">
                       Clinic Address
                     </h4>
-                    <p className="text-base font-bold text-dark mt-0.5">
+                    <p className="text-base font-bold text-slate-900 mt-0.5">
                       {siteConfig.primaryAddress.street}
                     </p>
-                    <p className="text-sm text-dark/80">
+                    <p className="text-sm text-slate-600">
                       {siteConfig.primaryAddress.locality}, {siteConfig.primaryAddress.city} – {siteConfig.primaryAddress.postalCode}, {siteConfig.primaryAddress.state}
                     </p>
-                    <p className="text-xs text-dark/60 mt-1">
+                    <p className="text-xs text-slate-500 mt-1">
                       Landmark: Near Sikandra Crossing, Delhi-Agra Highway Corridor
                     </p>
                   </div>
                 </div>
 
                 {/* Consultation Hours */}
-                <div className="flex items-start gap-3 pt-4 border-t border-dark/10">
-                  <div className="w-10 h-10 rounded-xl bg-accent-lime border-2 border-dark flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-5 h-5 text-dark" />
+                <div className="flex items-start gap-3.5 pt-4 border-t border-slate-100">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center flex-shrink-0 text-emerald-700">
+                    <Clock className="w-5 h-5" />
                   </div>
                   <div className="w-full">
-                    <h4 className="text-sm font-black uppercase text-dark tracking-wider">
+                    <h4 className="text-xs font-bold uppercase text-slate-500 tracking-wider">
                       OPD Consultation Timings
                     </h4>
                     <div className="mt-2 space-y-2 text-sm">
                       {siteConfig.timings.map((timing, idx) => (
                         <div
                           key={idx}
-                          className="flex flex-col sm:flex-row sm:items-center justify-between p-2.5 rounded-xl bg-[#FFF8E7] border border-dark/10"
+                          className="flex flex-col sm:flex-row sm:items-center justify-between p-2.5 rounded-xl bg-slate-50 border border-slate-200"
                         >
-                          <span className="font-bold text-dark">{timing.days}</span>
-                          <span className="text-dark/80 font-mono text-xs sm:text-sm font-semibold">
+                          <span className="font-semibold text-slate-900">{timing.days}</span>
+                          <span className="text-slate-600 font-medium text-xs sm:text-sm">
                             {timing.hours}
                           </span>
                         </div>
@@ -94,14 +94,14 @@ export default function LocationCard({ onOpenBooking }: LocationCardProps) {
               </div>
 
               {/* Action Buttons Row */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-4 border-t-2 border-dark/10">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-4 border-t border-slate-100">
                 <a
                   href={siteConfig.googleMapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-secondary text-xs py-3 px-3 flex items-center justify-center gap-1.5"
                 >
-                  <MapPin className="w-3.5 h-3.5 text-accent-orange" />
+                  <MapPin className="w-3.5 h-3.5 text-brand-600" />
                   <span>Get Directions</span>
                 </a>
 
@@ -109,7 +109,7 @@ export default function LocationCard({ onOpenBooking }: LocationCardProps) {
                   href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`}
                   className="btn-secondary text-xs py-3 px-3 flex items-center justify-center gap-1.5"
                 >
-                  <Phone className="w-3.5 h-3.5 text-accent-orange" />
+                  <Phone className="w-3.5 h-3.5 text-brand-600" />
                   <span>Call Clinic</span>
                 </a>
 
@@ -117,16 +117,16 @@ export default function LocationCard({ onOpenBooking }: LocationCardProps) {
                   href={`https://wa.me/${siteConfig.whatsappNumber}?text=Hello%20Dr.%20Gaurav%20Sharma%20Clinic,%20I%20would%20like%20to%20enquire%20about%20a%20consultation.`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-accent-lime text-xs py-3 px-3 flex items-center justify-center gap-1.5"
+                  className="btn-accent-emerald text-xs py-3 px-3 flex items-center justify-center gap-1.5"
                 >
-                  <MessageCircle className="w-3.5 h-3.5 text-dark" />
+                  <MessageCircle className="w-3.5 h-3.5" />
                   <span>WhatsApp</span>
                 </a>
 
                 {onOpenBooking ? (
                   <button
                     onClick={onOpenBooking}
-                    className="btn-accent-orange text-xs py-3 px-3 flex items-center justify-center gap-1.5"
+                    className="btn-primary text-xs py-3 px-3 flex items-center justify-center gap-1.5"
                   >
                     <Calendar className="w-3.5 h-3.5" />
                     <span>Book OPD</span>
@@ -134,7 +134,7 @@ export default function LocationCard({ onOpenBooking }: LocationCardProps) {
                 ) : (
                   <Link
                     href="/contact"
-                    className="btn-accent-orange text-xs py-3 px-3 flex items-center justify-center gap-1.5"
+                    className="btn-primary text-xs py-3 px-3 flex items-center justify-center gap-1.5"
                   >
                     <Calendar className="w-3.5 h-3.5" />
                     <span>Book OPD</span>
@@ -145,12 +145,12 @@ export default function LocationCard({ onOpenBooking }: LocationCardProps) {
             </div>
 
             {/* Emergency & Acute Trauma Notice */}
-            <div className="p-5 rounded-2xl bg-white border-2 border-dark flex items-start gap-4">
-              <div className="w-9 h-9 rounded-xl bg-accent-orange/20 border border-dark flex items-center justify-center flex-shrink-0 text-accent-orange">
+            <div className="p-5 rounded-2xl bg-amber-50/60 border border-amber-200 flex items-start gap-4">
+              <div className="w-9 h-9 rounded-xl bg-amber-100 flex items-center justify-center flex-shrink-0 text-amber-800">
                 <AlertTriangle className="w-5 h-5" />
               </div>
-              <div className="text-xs text-dark/80 space-y-1">
-                <h5 className="font-black text-dark uppercase tracking-wider text-xs">
+              <div className="text-xs text-slate-700 space-y-1">
+                <h5 className="font-bold text-slate-900 uppercase tracking-wider text-xs">
                   Acute Trauma & Emergency Clarification
                 </h5>
                 <p className="leading-relaxed">
@@ -163,61 +163,61 @@ export default function LocationCard({ onOpenBooking }: LocationCardProps) {
 
           {/* Right Column: Visual Map / Environmental Card */}
           <div className="lg:col-span-5 flex flex-col">
-            <div className="card-editorial bg-[#FFF8E7] h-full p-6 sm:p-8 flex flex-col justify-between">
+            <div className="card-medical bg-slate-50 border border-slate-200 h-full p-6 sm:p-8 flex flex-col justify-between">
               
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <span className="pill-badge bg-accent-blue text-white text-xs">
+                  <span className="pill-badge bg-blue-50 text-brand-700 border-blue-200 text-xs">
                     Location Guide
                   </span>
-                  <span className="text-xs font-bold text-dark/60">Agra, UP</span>
+                  <span className="text-xs font-semibold text-slate-500">Agra, UP</span>
                 </div>
 
-                <h4 className="text-2xl font-black text-dark font-display mb-2">
+                <h4 className="text-2xl font-bold text-brand-950 font-display mb-2">
                   Visiting from Agra & Nearby
                 </h4>
-                <p className="text-sm text-dark/75 leading-relaxed mb-6">
+                <p className="text-sm text-slate-600 leading-relaxed mb-6">
                   Sikandra is conveniently connected for patients travelling from Central Agra, Dayalbagh, Bodla, Runakta, and along the National Highway corridor.
                 </p>
 
-                {/* Map Graphic / Interactive Direction Box */}
-                <div className="rounded-2xl border-2 border-dark bg-white p-5 shadow-hard-sm mb-6">
-                  <div className="flex items-center justify-between pb-3 border-b border-dark/10">
-                    <span className="text-xs font-black uppercase text-dark">
+                {/* Map Graphic Box */}
+                <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-subtle mb-6">
+                  <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+                    <span className="text-xs font-bold uppercase text-slate-700">
                       Sikandra Corridor Map
                     </span>
                     <a
                       href={siteConfig.googleMapsUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-xs font-bold text-accent-blue flex items-center gap-1 hover:underline"
+                      className="text-xs font-semibold text-brand-700 flex items-center gap-1 hover:underline"
                     >
                       <span>Open Live Maps</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />
                     </a>
                   </div>
 
-                  <div className="my-4 py-8 px-4 rounded-xl bg-[#FFF4D9]/80 border-2 border-dashed border-dark/30 text-center">
-                    <MapPin className="w-8 h-8 text-accent-orange mx-auto mb-2" />
-                    <p className="text-xs font-black text-dark uppercase tracking-wider">
+                  <div className="my-4 py-8 px-4 rounded-xl bg-slate-50 border border-dashed border-slate-300 text-center">
+                    <MapPin className="w-8 h-8 text-brand-700 mx-auto mb-2" />
+                    <p className="text-xs font-bold text-brand-950 uppercase tracking-wider">
                       Sikandra Crossing, Agra
                     </p>
-                    <p className="text-[11px] text-dark/70 mt-1">
+                    <p className="text-[11px] text-slate-500 mt-1">
                       Coordinates: 27.2183° N, 77.9482° E
                     </p>
                   </div>
 
-                  <div className="space-y-2 text-xs text-dark/80">
+                  <div className="space-y-2 text-xs text-slate-600">
                     <div className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-accent-lime"></span>
+                      <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
                       <span>Ground-level consultation access</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-accent-lime"></span>
+                      <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
                       <span>Dedicated patient drop-off area</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-accent-lime"></span>
+                      <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
                       <span>Nearby diagnostic imaging facilities</span>
                     </div>
                   </div>
@@ -226,8 +226,8 @@ export default function LocationCard({ onOpenBooking }: LocationCardProps) {
               </div>
 
               {/* Cashless / TPA transparency box */}
-              <div className="p-4 rounded-xl bg-white border border-dark/20 text-xs text-dark/70 flex items-start gap-2.5">
-                <ShieldCheck className="w-4 h-4 text-accent-blue flex-shrink-0 mt-0.5" />
+              <div className="p-4 rounded-xl bg-white border border-slate-200 text-xs text-slate-600 flex items-start gap-2.5 shadow-subtle">
+                <ShieldCheck className="w-4 h-4 text-brand-600 flex-shrink-0 mt-0.5" />
                 <p>
                   <strong>Insurance & Cashless Information:</strong> Outpatient consultations are payable directly. For hospital-based admissions or elective surgeries, cashless TPA assistance is facilitated at affiliated hospital partner desks.
                 </p>

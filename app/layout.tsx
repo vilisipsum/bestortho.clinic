@@ -9,7 +9,7 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
-  themeColor: '#FFF4D9',
+  themeColor: '#0F2744',
 };
 
 export default function RootLayout({
@@ -27,12 +27,12 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(clinicSchema) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-[#FFF4D9] text-dark antialiased">
-        {/* Top Emergency Advisory Bar */}
-        <div className="bg-dark text-white px-4 py-1.5 text-center text-xs font-semibold border-b border-dark flex items-center justify-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-accent-lime animate-pulse"></span>
+      <body className="min-h-screen flex flex-col bg-slate-50 text-slate-800 antialiased selection:bg-brand-100 selection:text-brand-900">
+        {/* Top Clinical Advisory Bar */}
+        <div className="bg-brand-950 text-slate-200 px-4 py-2 text-center text-xs font-medium border-b border-brand-900 flex items-center justify-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
           <span>
-            Dr. Gaurav Sharma Orthopaedic Clinic • Sikandra, Agra • Outpatient Consultations by Appointment
+            Dr. Gaurav Sharma Orthopaedic Clinic • Sikandra, Agra • Outpatient Consultations by Prior Appointment
           </span>
         </div>
 

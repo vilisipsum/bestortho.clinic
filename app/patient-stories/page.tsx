@@ -17,21 +17,21 @@ export default function PatientStoriesPage() {
       <Header onOpenBooking={() => setIsBookingOpen(true)} />
 
       {/* Hero Banner */}
-      <section className="py-12 md:py-16 border-b-2 border-dark/10 bg-white">
+      <section className="py-12 md:py-16 border-b border-slate-200 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-2 mb-4">
-            <span className="pill-badge bg-accent-lime text-dark text-xs">
+            <span className="pill-badge bg-emerald-50 text-emerald-700 border-emerald-200 text-xs">
               Clinical Case Records
             </span>
-            <span className="pill-badge bg-accent-orange text-white text-xs">
+            <span className="pill-badge bg-blue-50 text-brand-700 border-blue-200 text-xs">
               Verified Patient Consent
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-dark tracking-tight font-display mb-4">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-brand-950 tracking-tight font-display mb-4">
             Patient Stories & Recovery Experiences
           </h1>
-          <p className="text-lg sm:text-xl text-dark/75 font-semibold max-w-3xl">
+          <p className="text-lg sm:text-xl text-slate-600 font-normal max-w-3xl">
             Real musculoskeletal cases treated by Dr. Gaurav Sharma. Published strictly with documented informed patient consent, illustrating genuine diagnostic pathways and recovery milestones.
           </p>
         </div>

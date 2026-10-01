@@ -8,34 +8,34 @@ export default function TermsPage() {
     <>
       <Header />
 
-      <section className="py-12 md:py-16 border-b-2 border-dark/10 bg-white">
+      <section className="py-12 md:py-16 border-b border-slate-200 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="pill-badge bg-accent-orange text-white text-xs mb-3">
+          <span className="pill-badge bg-blue-50 text-brand-700 border-blue-200 text-xs mb-3">
             Practice Terms
           </span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-dark tracking-tight font-display mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-brand-950 tracking-tight font-display mb-4">
             Terms of Use & Medical Disclaimer
           </h1>
-          <p className="text-base sm:text-lg text-dark/70 font-semibold">
+          <p className="text-base sm:text-lg text-slate-600 font-normal">
             Effective Date: January 2025 • BestOrtho.clinic (Dr. Gaurav Sharma Practice)
           </p>
         </div>
       </section>
 
-      <section className="py-16 bg-[#FFF8E7]">
+      <section className="py-16 bg-slate-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="card-editorial bg-white p-8 sm:p-12 space-y-8 text-dark/80 text-sm sm:text-base leading-relaxed">
+          <div className="card-medical bg-white p-8 sm:p-12 space-y-8 text-slate-700 text-sm sm:text-base leading-relaxed">
             
-            <div className="p-4 rounded-2xl bg-accent-orange/15 border-2 border-dark flex items-start gap-3">
-              <AlertTriangle className="w-5 h-5 text-accent-orange flex-shrink-0 mt-0.5" />
-              <div className="text-xs sm:text-sm text-dark">
+            <div className="p-4 rounded-xl bg-amber-50 border border-amber-200 flex items-start gap-3">
+              <AlertTriangle className="w-5 h-5 text-amber-700 flex-shrink-0 mt-0.5" />
+              <div className="text-xs sm:text-sm text-slate-800">
                 <strong>CRITICAL MEDICAL NOTICE:</strong> Content on BestOrtho.clinic is for general health literacy and outpatient practice coordination. It is not an online diagnostic service, emergency triage channel, or prescription generator.
               </div>
             </div>
 
             <div>
-              <h2 className="text-xl sm:text-2xl font-black text-dark font-display mb-3">
+              <h2 className="text-xl sm:text-2xl font-bold text-brand-950 font-display mb-3">
                 1. No Doctor-Patient Relationship via Website Browsing
               </h2>
               <p>
@@ -44,7 +44,7 @@ export default function TermsPage() {
             </div>
 
             <div>
-              <h2 className="text-xl sm:text-2xl font-black text-dark font-display mb-3">
+              <h2 className="text-xl sm:text-2xl font-bold text-brand-950 font-display mb-3">
                 2. Outpatient Scheduling & Emergency Situations
               </h2>
               <p>
@@ -53,7 +53,7 @@ export default function TermsPage() {
             </div>
 
             <div>
-              <h2 className="text-xl sm:text-2xl font-black text-dark font-display mb-3">
+              <h2 className="text-xl sm:text-2xl font-bold text-brand-950 font-display mb-3">
                 3. Verification of Clinical Qualifications
               </h2>
               <p>
@@ -62,7 +62,7 @@ export default function TermsPage() {
             </div>
 
             <div>
-              <h2 className="text-xl sm:text-2xl font-black text-dark font-display mb-3">
+              <h2 className="text-xl sm:text-2xl font-bold text-brand-950 font-display mb-3">
                 4. Patient Stories and Realistic Outcomes
               </h2>
               <p>
@@ -71,7 +71,7 @@ export default function TermsPage() {
             </div>
 
             <div>
-              <h2 className="text-xl sm:text-2xl font-black text-dark font-display mb-3">
+              <h2 className="text-xl sm:text-2xl font-bold text-brand-950 font-display mb-3">
                 5. Intellectual Property & Brand Integrity
               </h2>
               <p>
@@ -80,7 +80,7 @@ export default function TermsPage() {
             </div>
 
             <div>
-              <h2 className="text-xl sm:text-2xl font-black text-dark font-display mb-3">
+              <h2 className="text-xl sm:text-2xl font-bold text-brand-950 font-display mb-3">
                 6. Governing Jurisdiction
               </h2>
               <p>

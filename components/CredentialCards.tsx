@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, CheckCircle2, Clock, FileCheck, ShieldAlert, GraduationCap } from 'lucide-react';
+import { Award, CheckCircle2, Clock, FileCheck, ShieldAlert, GraduationCap, Stethoscope } from 'lucide-react';
 import { doctorProfile, CredentialItem } from '@/lib/content';
 
 export default function CredentialCards() {
@@ -12,51 +12,51 @@ export default function CredentialCards() {
           return (
             <div
               key={cred.id}
-              className="card-editorial flex flex-col justify-between relative overflow-hidden"
+              className="card-medical flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-start justify-between gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-2xl bg-accent-orange/15 border-2 border-dark flex items-center justify-center">
-                    <GraduationCap className="w-6 h-6 text-accent-orange" />
+                  <div className="w-11 h-11 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-brand-700">
+                    <GraduationCap className="w-6 h-6" />
                   </div>
                   {cred.approved ? (
-                    <span className="pill-badge bg-accent-lime text-dark">
+                    <span className="pill-badge bg-emerald-50 text-emerald-700 border-emerald-200">
                       <CheckCircle2 className="w-3.5 h-3.5" />
                       Verified
                     </span>
                   ) : (
-                    <span className="pill-badge bg-accent-lavender text-dark">
+                    <span className="pill-badge bg-amber-50 text-amber-800 border-amber-200">
                       <Clock className="w-3.5 h-3.5" />
                       Verification In Progress
                     </span>
                   )}
                 </div>
 
-                <h4 className="text-xl font-black text-dark font-display mb-1">
+                <h4 className="text-xl font-bold text-brand-950 font-display mb-1">
                   {cred.degree}
                 </h4>
                 {cred.field && (
-                  <p className="text-sm font-bold text-accent-orange mb-3">
+                  <p className="text-sm font-semibold text-brand-700 mb-3">
                     {cred.field}
                   </p>
                 )}
 
                 {/* Verification-gated content */}
                 {cred.approved ? (
-                  <div className="space-y-1 text-sm text-dark/80">
-                    <p className="font-semibold text-dark">{cred.institution}</p>
-                    {cred.year && <p className="text-xs text-dark/60">{cred.year}</p>}
+                  <div className="space-y-1 text-sm text-slate-600">
+                    <p className="font-semibold text-slate-900">{cred.institution}</p>
+                    {cred.year && <p className="text-xs text-slate-500">{cred.year}</p>}
                   </div>
                 ) : (
-                  <div className="p-3.5 rounded-xl bg-[#FFF8E7] border border-dark/20 text-xs text-dark/80 space-y-1">
-                    <div className="flex items-center gap-1.5 font-bold text-dark">
-                      <FileCheck className="w-3.5 h-3.5 text-accent-blue" />
+                  <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-600 space-y-1">
+                    <div className="flex items-center gap-1.5 font-semibold text-slate-800">
+                      <FileCheck className="w-3.5 h-3.5 text-brand-600" />
                       <span>Onboarding Record (Under Verification)</span>
                     </div>
-                    <p className="text-[13px] font-semibold text-dark/90">
+                    <p className="text-[13px] font-medium text-slate-900">
                       {cred.institution}
                     </p>
-                    <p className="text-[11px] text-dark/60 italic">
+                    <p className="text-[11px] text-slate-500 italic">
                       Final certificate confirmation pending before public accreditation badge.
                     </p>
                   </div>
@@ -64,7 +64,7 @@ export default function CredentialCards() {
               </div>
 
               {cred.notes && (
-                <div className="mt-4 pt-3 border-t border-dark/10 text-[11px] text-dark/60">
+                <div className="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-500">
                   {cred.notes}
                 </div>
               )}
@@ -73,91 +73,91 @@ export default function CredentialCards() {
         })}
 
         {/* Clinical Experience Card */}
-        <div className="card-editorial flex flex-col justify-between bg-accent-lime/10">
+        <div className="card-medical flex flex-col justify-between bg-gradient-to-br from-white to-blue-50/40">
           <div>
             <div className="flex items-start justify-between gap-3 mb-4">
-              <div className="w-12 h-12 rounded-2xl bg-accent-lime border-2 border-dark flex items-center justify-center">
-                <Award className="w-6 h-6 text-dark" />
+              <div className="w-11 h-11 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-700">
+                <Award className="w-6 h-6" />
               </div>
-              <span className="pill-badge bg-accent-lime text-dark">
+              <span className="pill-badge bg-emerald-50 text-emerald-700 border-emerald-200">
                 <CheckCircle2 className="w-3.5 h-3.5" />
                 Active Practice
               </span>
             </div>
 
-            <h4 className="text-xl font-black text-dark font-display mb-1">
+            <h4 className="text-xl font-bold text-brand-950 font-display mb-1">
               Clinical Experience
             </h4>
-            <p className="text-sm font-bold text-dark/70 mb-3">
+            <p className="text-sm font-semibold text-slate-600 mb-3">
               Orthopaedics & Musculoskeletal Care
             </p>
 
             <div className="flex items-baseline gap-2 mb-2">
-              <span className="text-4xl font-black text-dark font-display">
+              <span className="text-4xl font-extrabold text-brand-950 font-display">
                 {doctorProfile.experienceYears}+
               </span>
-              <span className="text-sm font-bold text-dark/70 uppercase">Years Experience</span>
+              <span className="text-sm font-semibold text-slate-500 uppercase">Years Clinical Experience</span>
             </div>
-            <p className="text-xs text-dark/80 leading-relaxed">
+            <p className="text-xs text-slate-600 leading-relaxed">
               Extensive outpatient musculoskeletal evaluation, fracture cast immobilization, conservative joint care, and post-operative recovery guidance.
             </p>
           </div>
 
-          <div className="mt-4 pt-3 border-t border-dark/10 text-[11px] text-dark/60 font-semibold">
+          <div className="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-500 font-medium">
             Based in Agra, Uttar Pradesh
           </div>
         </div>
 
         {/* State Medical Council Registration Card */}
-        <div className="card-editorial flex flex-col justify-between">
+        <div className="card-medical flex flex-col justify-between">
           <div>
             <div className="flex items-start justify-between gap-3 mb-4">
-              <div className="w-12 h-12 rounded-2xl bg-accent-blue/15 border-2 border-dark flex items-center justify-center">
-                <ShieldAlert className="w-6 h-6 text-accent-blue" />
+              <div className="w-11 h-11 rounded-xl bg-sky-50 border border-sky-100 flex items-center justify-center text-sky-700">
+                <ShieldAlert className="w-6 h-6" />
               </div>
-              <span className="pill-badge bg-white text-dark">
+              <span className="pill-badge bg-slate-100 text-slate-700 border-slate-200">
                 Official Registry
               </span>
             </div>
 
-            <h4 className="text-xl font-black text-dark font-display mb-1">
+            <h4 className="text-xl font-bold text-brand-950 font-display mb-1">
               Medical Registration
             </h4>
-            <p className="text-sm font-bold text-accent-blue mb-3">
+            <p className="text-sm font-semibold text-sky-700 mb-3">
               Uttar Pradesh Medical Council
             </p>
 
-            <div className="p-3.5 rounded-xl bg-white border border-dark/20 text-xs text-dark/80 space-y-1.5">
-              <p className="font-semibold text-dark">
+            <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-600 space-y-1.5">
+              <p className="font-semibold text-slate-800">
                 National Medical Commission / UPMC
               </p>
-              <p className="text-xs text-dark/70">
+              <p className="text-xs text-slate-500">
                 Registered Medical Practitioner in Orthopaedic Surgery. Full registration certificate record verified on clinic premises.
               </p>
             </div>
           </div>
 
-          <div className="mt-4 pt-3 border-t border-dark/10 text-[11px] text-dark/60">
+          <div className="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-500">
             Registration documents available for patient inspection at clinic reception.
           </div>
         </div>
 
         {/* Languages & Communication */}
-        <div className="card-editorial flex flex-col justify-between">
+        <div className="card-medical flex flex-col justify-between">
           <div>
             <div className="flex items-start justify-between gap-3 mb-4">
-              <div className="w-12 h-12 rounded-2xl bg-accent-pink/20 border-2 border-dark flex items-center justify-center">
-                <span className="text-xl font-black text-dark">अ/A</span>
+              <div className="w-11 h-11 rounded-xl bg-purple-50 border border-purple-100 flex items-center justify-center text-purple-700 font-bold">
+                <span className="text-base font-bold">अ/A</span>
               </div>
-              <span className="pill-badge bg-white text-dark">
-                Consultation
+              <span className="pill-badge bg-slate-100 text-slate-700 border-slate-200">
+                Bilingual Care
               </span>
             </div>
 
-            <h4 className="text-xl font-black text-dark font-display mb-1">
+            <h4 className="text-xl font-bold text-brand-950 font-display mb-1">
               Consultation Languages
             </h4>
-            <p className="text-sm font-bold text-dark/70 mb-3">
+            <p className="text-sm font-semibold text-slate-600 mb-3">
               Clear & Compassionate Explanations
             </p>
 
@@ -165,19 +165,19 @@ export default function CredentialCards() {
               {doctorProfile.languages.map((lang) => (
                 <span
                   key={lang}
-                  className="px-3.5 py-1.5 rounded-full border-2 border-dark bg-white font-bold text-xs text-dark shadow-hard-sm"
+                  className="px-3 py-1 rounded-lg border border-slate-200 bg-slate-50 font-semibold text-xs text-slate-700"
                 >
                   {lang}
                 </span>
               ))}
             </div>
-            <p className="text-xs text-dark/80">
+            <p className="text-xs text-slate-600 leading-relaxed">
               Consultations conducted with clarity, ensuring patients and families fully understand diagnostic imaging without complex jargon.
             </p>
           </div>
 
-          <div className="mt-4 pt-3 border-t border-dark/10 text-[11px] text-dark/60">
-            Bilingual consultations in Hindi & English
+          <div className="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-500">
+            Fluent Hindi & English consultations
           </div>
         </div>
 
