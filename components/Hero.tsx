@@ -102,7 +102,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                 </div>
                 <div>
                   <span className="block text-sm font-bold text-slate-900">
-                    12+ Years Experience
+                    20+ Years Experience
                   </span>
                   <p className="text-xs text-slate-500">
                     Orthopaedic & Joint Care
@@ -119,7 +119,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                     Sikandra, Agra
                   </span>
                   <p className="text-xs text-slate-500">
-                    Dedicated Outpatient Clinic
+                    Satyam Complex, Sector-12A
                   </p>
                 </div>
               </div>

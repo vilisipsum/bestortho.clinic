@@ -67,7 +67,11 @@ export function getClinicSchema() {
     "@id": `${siteConfig.domain}/#organization`,
     name: siteConfig.practiceName,
     legalName: siteConfig.practiceName,
-    alternateName: siteConfig.brandName,
+    alternateName: [siteConfig.brandName, siteConfig.facilityName, "Dr Gaurav Sharma Ortho"],
+    sameAs: [
+      siteConfig.googleBusinessProfileUrl,
+      siteConfig.googleKnowledgeGraphUrl,
+    ],
     url: siteConfig.domain,
     telephone: siteConfig.phone,
     email: siteConfig.email,

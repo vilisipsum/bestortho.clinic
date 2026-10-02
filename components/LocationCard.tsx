@@ -42,6 +42,9 @@ export default function LocationCard({ onOpenBooking }: LocationCardProps) {
                   <h3 className="text-2xl sm:text-3xl font-bold text-brand-950 font-display">
                     {siteConfig.practiceName}
                   </h3>
+                  <p className="text-xs font-medium text-slate-500 mt-1">
+                    Facility: {siteConfig.facilityName}
+                  </p>
                 </div>
               </div>
 
@@ -53,7 +56,7 @@ export default function LocationCard({ onOpenBooking }: LocationCardProps) {
                   </div>
                   <div>
                     <h4 className="text-xs font-bold text-slate-600">
-                      Clinic Address
+                      Clinic Address & Location
                     </h4>
                     <p className="text-base font-bold text-slate-900 mt-0.5">
                       {siteConfig.primaryAddress.street}
@@ -62,7 +65,7 @@ export default function LocationCard({ onOpenBooking }: LocationCardProps) {
                       {siteConfig.primaryAddress.locality}, {siteConfig.primaryAddress.city} – {siteConfig.primaryAddress.postalCode}, {siteConfig.primaryAddress.state}
                     </p>
                     <p className="text-xs text-slate-500 mt-1">
-                      Landmark: Near Sikandra Crossing, Delhi-Agra Highway Corridor
+                      Landmark: {siteConfig.primaryAddress.landmark} (Sikandra – Bodla Corridor)
                     </p>
                   </div>
                 </div>
@@ -184,26 +187,29 @@ export default function LocationCard({ onOpenBooking }: LocationCardProps) {
                 <div className="rounded-xl bg-white p-5 mb-6">
                   <div className="flex items-center justify-between pb-3 border-b border-slate-100">
                     <span className="text-xs font-bold text-slate-700">
-                      Sikandra Corridor Map
+                      Google Business Profile
                     </span>
                     <a
-                      href={siteConfig.googleMapsUrl}
+                      href={siteConfig.googleBusinessProfileUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-xs font-semibold text-brand-700 flex items-center gap-1 hover:underline"
                     >
-                      <span>Open Live Maps</span>
+                      <span>View on Google</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />
                     </a>
                   </div>
 
-                  <div className="my-4 py-6 px-4 rounded-lg bg-slate-50 text-center">
-                    <MapPin className="w-8 h-8 text-brand-700 mx-auto mb-2" />
+                  <div className="my-4 py-5 px-4 rounded-lg bg-slate-50 text-center">
+                    <MapPin className="w-7 h-7 text-brand-700 mx-auto mb-1.5" />
                     <p className="text-sm font-bold text-brand-950">
-                      Sikandra Crossing, Agra
+                      Satyam Complex, Sector-12A
                     </p>
-                    <p className="text-xs text-slate-500 mt-1">
-                      Coordinates: 27.2183° N, 77.9482° E
+                    <p className="text-xs text-slate-600 mt-0.5">
+                      Avas Vikas Colony, Sikandra, Agra
+                    </p>
+                    <p className="text-xs text-slate-400 mt-1">
+                      Opp. Bhawna Clarks Inn & Padam Plaza
                     </p>
                   </div>
 
