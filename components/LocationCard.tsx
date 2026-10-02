@@ -208,7 +208,7 @@ export default function LocationCard({ onOpenBooking }: LocationCardProps) {
                     <p className="text-xs text-slate-600 mt-0.5">
                       Avas Vikas Colony, Sikandra, Agra
                     </p>
-                    <p className="text-xs text-slate-400 mt-1">
+                    <p className="text-xs text-slate-600 mt-1">
                       Opp. Bhawna Clarks Inn & Padam Plaza
                     </p>
                   </div>
