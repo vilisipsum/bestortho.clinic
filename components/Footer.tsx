@@ -13,7 +13,7 @@ export default function Footer() {
         Evidence-Conscious Orthopaedic Consultations • Sikandra, Agra • Consultation by Appointment
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-28 md:pb-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
           {/* Practice Branding & Summary */}
           <div className="lg:col-span-4 flex flex-col justify-between">

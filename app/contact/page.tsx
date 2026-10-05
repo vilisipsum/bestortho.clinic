@@ -15,7 +15,10 @@ export default function ContactPage() {
     preferredDate: '',
     preferredTime: 'Morning (10:00 AM - 02:00 PM)',
     consultationReason: 'Knee Pain / Joint Discomfort',
+    affectedArea: 'Knee',
+    patientType: 'new',
     notes: '',
+    honeypot: '',
   });
 
   const [errors, setErrors] = useState<Partial<Record<keyof BookingFormData, string>>>({});
@@ -40,7 +43,7 @@ export default function ContactPage() {
   };
 
   const handleWhatsAppRedirect = () => {
-    const text = `Hello Dr. Gaurav Sharma Clinic,%20I%20would%20like%20to%20request%20a%20consultation%20appointment.%0AName:%20${encodeURIComponent(formData.fullName || 'Patient')}%0AReason:%20${encodeURIComponent(formData.consultationReason)}%0APreferred%20Time:%20${encodeURIComponent(formData.preferredTime)}`;
+    const text = `Hello Dr. Gaurav Sharma Clinic,%20I%20would%20like%20to%20request%20a%20consultation%20appointment.%0AName:%20${encodeURIComponent(formData.fullName || 'Patient')}%0APatient%20Type:%20${formData.patientType === 'new' ? 'New%20Patient' : 'Follow-up%20Patient'}%0AAffected%20Area:%20${encodeURIComponent(formData.affectedArea || 'Not%20specified')}%0AReason:%20${encodeURIComponent(formData.consultationReason)}%0APreferred%20Time:%20${encodeURIComponent(formData.preferredTime)}`;
     window.open(`https://wa.me/${siteConfig.whatsappNumber}?text=${text}`, '_blank');
   };
 
@@ -92,7 +95,7 @@ export default function ContactPage() {
                 <div className="space-y-3.5">
                   <a
                     href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`}
-                    className="flex items-center gap-4 p-4 rounded-xl bg-slate-50 border border-slate-200 hover:bg-brand-50 hover:border-brand-200 transition-all group"
+                    className="flex items-center gap-4 p-4 rounded-xl bg-slate-50 hover:bg-brand-50 transition-all group"
                   >
                     <div className="w-11 h-11 rounded-lg bg-blue-50 flex items-center justify-center text-brand-700 group-hover:bg-brand-700 group-hover:text-white transition-colors">
                       <Phone className="w-5 h-5" />
@@ -111,7 +114,7 @@ export default function ContactPage() {
                     href={`https://wa.me/${siteConfig.whatsappNumber}?text=Hello%20Dr.%20Gaurav%20Sharma%20Clinic,%20I%20would%20like%20to%20enquire%20about%20a%20consultation.`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-4 p-4 rounded-xl bg-emerald-50/50 border border-emerald-200 hover:bg-emerald-50 transition-all group"
+                    className="flex items-center gap-4 p-4 rounded-xl bg-emerald-50/50 hover:bg-emerald-100/60 transition-all group"
                   >
                     <div className="w-11 h-11 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-800">
                       <MessageCircle className="w-5 h-5" />
@@ -194,7 +197,10 @@ export default function ContactPage() {
                             preferredDate: '',
                             preferredTime: 'Morning (10:00 AM - 02:00 PM)',
                             consultationReason: 'Knee Pain / Joint Discomfort',
+                            affectedArea: 'Knee',
+                            patientType: 'new',
                             notes: '',
+                            honeypot: '',
                           });
                         }}
                         className="btn-secondary text-xs py-3 px-6"
@@ -218,6 +224,51 @@ export default function ContactPage() {
                     </div>
 
                     <form onSubmit={handleSubmit} className="space-y-4">
+                      {/* Patient Type Selector */}
+                      <div>
+                        <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                          Patient Type
+                        </label>
+                        <div className="grid grid-cols-2 gap-2 p-1 bg-slate-100 rounded-xl">
+                          <button
+                            type="button"
+                            onClick={() => setFormData({ ...formData, patientType: 'new' })}
+                            className={`py-2 px-3 text-xs font-semibold rounded-lg transition-all ${
+                              formData.patientType === 'new'
+                                ? 'bg-brand-900 text-white shadow-sm'
+                                : 'text-slate-700 hover:text-slate-900 hover:bg-slate-200/60'
+                            }`}
+                          >
+                            New Patient Visit
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => setFormData({ ...formData, patientType: 'existing' })}
+                            className={`py-2 px-3 text-xs font-semibold rounded-lg transition-all ${
+                              formData.patientType === 'existing'
+                                ? 'bg-brand-900 text-white shadow-sm'
+                                : 'text-slate-700 hover:text-slate-900 hover:bg-slate-200/60'
+                            }`}
+                          >
+                            Follow-up / Existing
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* Anti-spam Honeypot (hidden from human users) */}
+                      <div className="hidden" aria-hidden="true">
+                        <label htmlFor="website-contact-hp">Website</label>
+                        <input
+                          id="website-contact-hp"
+                          type="text"
+                          name="website"
+                          tabIndex={-1}
+                          autoComplete="off"
+                          value={formData.honeypot || ''}
+                          onChange={(e) => setFormData({ ...formData, honeypot: e.target.value })}
+                        />
+                      </div>
+
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                           <label className="block text-xs font-bold text-slate-700 mb-1">
@@ -287,23 +338,48 @@ export default function ContactPage() {
                         </div>
                       </div>
 
-                      <div>
-                        <label className="block text-xs font-bold text-slate-700 mb-1">
-                          Reason for Consultation *
-                        </label>
-                        <select
-                          value={formData.consultationReason}
-                          onChange={(e) => setFormData({ ...formData, consultationReason: e.target.value })}
-                          className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-white text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 font-medium"
-                        >
-                          <option value="Knee Pain / Joint Discomfort">Knee Pain / Joint Discomfort</option>
-                          <option value="Shoulder Pain / Frozen Shoulder">Shoulder Pain / Frozen Shoulder</option>
-                          <option value="Sports Injury / Ligament Sprain">Sports Injury / Ligament Sprain</option>
-                          <option value="Fracture Follow-up / Cast Check">Fracture Follow-up / Cast Check</option>
-                          <option value="Spine / Back / Neck Evaluation">Spine / Back / Neck Evaluation</option>
-                          <option value="Second Opinion on Surgery">Second Opinion on Surgery</option>
-                          <option value="General Orthopaedic Consultation">General Orthopaedic Consultation</option>
-                        </select>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-xs font-bold text-slate-700 mb-1">
+                            Primary Area of Concern
+                          </label>
+                          <select
+                            value={formData.affectedArea || 'Knee'}
+                            onChange={(e) => setFormData({ ...formData, affectedArea: e.target.value })}
+                            className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-white text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 font-medium"
+                          >
+                            <option value="Knee">Knee Joint</option>
+                            <option value="Shoulder">Shoulder / Rotator Cuff</option>
+                            <option value="Hip">Hip Joint / Pelvis</option>
+                            <option value="Spine / Back">Spine / Lower Back</option>
+                            <option value="Neck / Cervical">Neck / Cervical Spine</option>
+                            <option value="Elbow">Elbow / Forearm</option>
+                            <option value="Wrist & Hand">Wrist & Hand</option>
+                            <option value="Ankle & Foot">Ankle & Foot</option>
+                            <option value="Fracture / Trauma">Fracture / Bone Injury</option>
+                            <option value="Sports Injury">Sports / Ligament Sprain</option>
+                            <option value="Other / General">Other / General Ortho</option>
+                          </select>
+                        </div>
+
+                        <div>
+                          <label className="block text-xs font-bold text-slate-700 mb-1">
+                            Reason for Consultation *
+                          </label>
+                          <select
+                            value={formData.consultationReason}
+                            onChange={(e) => setFormData({ ...formData, consultationReason: e.target.value })}
+                            className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-white text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 font-medium"
+                          >
+                            <option value="Knee Pain / Joint Discomfort">Knee Pain / Joint Discomfort</option>
+                            <option value="Shoulder Pain / Frozen Shoulder">Shoulder Pain / Frozen Shoulder</option>
+                            <option value="Sports Injury / Ligament Sprain">Sports Injury / Ligament Sprain</option>
+                            <option value="Fracture Follow-up / Cast Check">Fracture Follow-up / Cast Check</option>
+                            <option value="Spine / Back / Neck Evaluation">Spine / Back / Neck Evaluation</option>
+                            <option value="Second Opinion on Surgery">Second Opinion on Surgery</option>
+                            <option value="General Orthopaedic Consultation">General Orthopaedic Consultation</option>
+                          </select>
+                        </div>
                       </div>
 
                       <div>

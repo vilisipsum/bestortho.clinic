@@ -3,6 +3,7 @@ import { DM_Sans, Outfit } from 'next/font/google';
 import './globals.css';
 import { defaultMetadata, getClinicSchema } from '@/lib/seo';
 import Footer from '@/components/Footer';
+import MobileActionBar from '@/components/MobileActionBar';
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
@@ -54,6 +55,7 @@ export default function RootLayout({
         </main>
 
         <Footer />
+        <MobileActionBar />
       </body>
     </html>
   );

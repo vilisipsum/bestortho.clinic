@@ -1,17 +1,33 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import FAQAccordion from '@/components/FAQAccordion';
 import BookingCTA from '@/components/BookingCTA';
 import BookingModal from '@/components/BookingModal';
-import { HelpCircle, Stethoscope, FileQuestion } from 'lucide-react';
+import { getFAQSchema } from '@/lib/seo';
 
 export default function FAQPage() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const faqSchema = getFAQSchema();
+
+  useEffect(() => {
+    const handleOpen = () => {
+      setIsBookingOpen(true);
+      window.dispatchEvent(new CustomEvent('booking-modal-opened'));
+    };
+    window.addEventListener('open-booking-modal', handleOpen);
+    return () => window.removeEventListener('open-booking-modal', handleOpen);
+  }, []);
 
   return (
     <>
+      {/* Schema.org FAQPage Graph */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
       <Header onOpenBooking={() => setIsBookingOpen(true)} />
 
       {/* Hero Banner */}

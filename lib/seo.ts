@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { siteConfig, doctorProfile } from './content';
+import { siteConfig, doctorProfile, faqs, FAQItem } from './content';
 
 export const defaultMetadata: Metadata = {
   metadataBase: new URL(siteConfig.domain),
@@ -116,5 +116,24 @@ export function getClinicSchema() {
     priceRange: "$$",
     isAcceptingNewPatients: true,
     hasMap: siteConfig.googleMapsUrl,
+  };
+}
+
+/**
+ * Generates Structured Data (JSON-LD) for FAQPage
+ */
+export function getFAQSchema(items: FAQItem[] = faqs) {
+  const approvedFaqs = items.filter(f => f.approved);
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": approvedFaqs.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer,
+      },
+    })),
   };
 }

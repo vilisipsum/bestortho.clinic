@@ -8,11 +8,20 @@ export interface BookingFormData {
   preferredDate: string;
   preferredTime: string;
   consultationReason: string;
+  affectedArea?: string;
+  patientType?: 'new' | 'existing';
   notes?: string;
+  honeypot?: string;
 }
 
 export function validateBookingForm(data: BookingFormData): { valid: boolean; errors: Partial<Record<keyof BookingFormData, string>> } {
   const errors: Partial<Record<keyof BookingFormData, string>> = {};
+
+  // Honeypot anti-spam check: bots fill hidden fields
+  if (data.honeypot && data.honeypot.trim().length > 0) {
+    errors.fullName = "Invalid submission detected.";
+    return { valid: false, errors };
+  }
 
   if (!data.fullName || data.fullName.trim().length < 2) {
     errors.fullName = "Please enter your full name.";
