@@ -209,7 +209,7 @@ export default function LocationCard({ onOpenBooking }: LocationCardProps) {
                       Avas Vikas Colony, Sikandra, Agra
                     </p>
                     <p className="text-xs text-slate-600 mt-1">
-                      Opp. Bhawna Clarks Inn & Padam Plaza
+                      Opp. Hotel Bhawna Clarks & adjacent to Paras Pearls Mall
                     </p>
                   </div>
 
