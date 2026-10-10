@@ -10,6 +10,28 @@ interface BookingCTAProps {
 }
 
 export default function BookingCTA({ onOpenBooking }: BookingCTAProps) {
+  const handleBookingClick = (e?: React.MouseEvent) => {
+    if (onOpenBooking) {
+      if (e) e.preventDefault();
+      onOpenBooking();
+      return;
+    }
+
+    if (typeof window !== 'undefined') {
+      let handled = false;
+      const handleAck = () => { handled = true; };
+      window.addEventListener('booking-modal-opened', handleAck, { once: true });
+      window.dispatchEvent(new CustomEvent('open-booking-modal'));
+
+      setTimeout(() => {
+        window.removeEventListener('booking-modal-opened', handleAck);
+        if (!handled) {
+          window.location.href = '/contact';
+        }
+      }, 50);
+    }
+  };
+
   return (
     <section className="py-16 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,25 +63,15 @@ export default function BookingCTA({ onOpenBooking }: BookingCTAProps) {
               </p>
 
               <div className="flex flex-wrap items-center gap-4">
-                {onOpenBooking ? (
-                  <button
-                    onClick={onOpenBooking}
-                    className="btn-primary bg-brand-600 hover:bg-brand-500 text-base sm:text-lg py-3.5 px-8 flex items-center gap-3 shadow-md border-none"
-                  >
-                    <Calendar className="w-5 h-5" />
-                    <span>Book Consultation Now</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                ) : (
-                  <Link
-                    href="/contact"
-                    className="btn-primary bg-brand-600 hover:bg-brand-500 text-base sm:text-lg py-3.5 px-8 flex items-center gap-3 shadow-md border-none"
-                  >
-                    <Calendar className="w-5 h-5" />
-                    <span>Book Consultation Now</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-                )}
+                <button
+                  onClick={handleBookingClick}
+                  className="btn-primary bg-brand-600 hover:bg-brand-500 text-base sm:text-lg py-3.5 px-8 flex items-center gap-3 shadow-md border-none"
+                  aria-label="Book Consultation Now"
+                >
+                  <Calendar className="w-5 h-5" />
+                  <span>Book Consultation Now</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
 
                 <a
                   href={`https://wa.me/${siteConfig.whatsappNumber}?text=Hello%20Dr.%20Gaurav%20Sharma%20Clinic,%20I%20would%20like%20to%20enquire%20about%20a%20consultation.`}

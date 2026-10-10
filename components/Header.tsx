@@ -33,6 +33,28 @@ export default function Header({ onOpenBooking }: HeaderProps) {
     { label: 'Contact', href: '/contact' },
   ];
 
+  const handleBookingClick = (e?: React.MouseEvent) => {
+    if (onOpenBooking) {
+      if (e) e.preventDefault();
+      onOpenBooking();
+      return;
+    }
+
+    if (typeof window !== 'undefined') {
+      let handled = false;
+      const handleAck = () => { handled = true; };
+      window.addEventListener('booking-modal-opened', handleAck, { once: true });
+      window.dispatchEvent(new CustomEvent('open-booking-modal'));
+
+      setTimeout(() => {
+        window.removeEventListener('booking-modal-opened', handleAck);
+        if (!handled) {
+          window.location.href = '/contact';
+        }
+      }, 50);
+    }
+  };
+
   return (
     <>
       <header
@@ -94,44 +116,27 @@ export default function Header({ onOpenBooking }: HeaderProps) {
                 <span>{siteConfig.phoneDisplay}</span>
               </a>
 
-              {onOpenBooking ? (
-                <button
-                  onClick={onOpenBooking}
-                  className="btn-primary text-sm py-2.5 px-5 flex items-center gap-2"
-                >
-                  <Calendar className="w-4 h-4" />
-                  <span>Book Consultation</span>
-                </button>
-              ) : (
-                <Link
-                  href="/contact"
-                  className="btn-primary text-sm py-2.5 px-5 flex items-center gap-2"
-                >
-                  <Calendar className="w-4 h-4" />
-                  <span>Book Consultation</span>
-                </Link>
-              )}
+              {/* Desktop Booking CTA */}
+              <button
+                onClick={handleBookingClick}
+                className="btn-primary text-sm py-2.5 px-5 flex items-center gap-2"
+                aria-label="Book Consultation"
+              >
+                <Calendar className="w-4 h-4" />
+                <span>Book Consultation</span>
+              </button>
             </div>
 
-            {/* MOBILE MENU TOGGLE */}
+            {/* MOBILE MENU TOGGLE & MOBILE QUICK BOOK */}
             <div className="flex items-center gap-2 lg:hidden">
-              {onOpenBooking ? (
-                <button
-                  onClick={onOpenBooking}
-                  className="btn-primary text-xs py-2 px-3.5 flex items-center gap-1.5 sm:hidden"
-                >
-                  <Calendar className="w-3.5 h-3.5" />
-                  <span>Book</span>
-                </button>
-              ) : (
-                <Link
-                  href="/contact"
-                  className="btn-primary text-xs py-2 px-3.5 flex items-center gap-1.5 sm:hidden"
-                >
-                  <Calendar className="w-3.5 h-3.5" />
-                  <span>Book</span>
-                </Link>
-              )}
+              <button
+                onClick={handleBookingClick}
+                className="btn-primary text-xs py-2 px-3.5 flex items-center gap-1.5 sm:hidden"
+                aria-label="Book Consultation"
+              >
+                <Calendar className="w-3.5 h-3.5" />
+                <span>Book</span>
+              </button>
 
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -188,27 +193,17 @@ export default function Header({ onOpenBooking }: HeaderProps) {
                 <span>Call {siteConfig.phoneDisplay}</span>
               </a>
 
-              {onOpenBooking ? (
-                <button
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    onOpenBooking();
-                  }}
-                  className="btn-primary text-base py-3.5 flex items-center justify-center gap-2"
-                >
-                  <Calendar className="w-5 h-5" />
-                  <span>Book Consultation</span>
-                </button>
-              ) : (
-                <Link
-                  href="/contact"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="btn-primary text-base py-3.5 flex items-center justify-center gap-2"
-                >
-                  <Calendar className="w-5 h-5" />
-                  <span>Book Consultation</span>
-                </Link>
-              )}
+              <button
+                onClick={(e) => {
+                  setMobileMenuOpen(false);
+                  handleBookingClick(e);
+                }}
+                className="btn-primary text-base py-3.5 flex items-center justify-center gap-2"
+                aria-label="Book Consultation"
+              >
+                <Calendar className="w-5 h-5" />
+                <span>Book Consultation</span>
+              </button>
               <p className="text-xs text-center text-slate-500 mt-2 font-medium">
                 Sikandra, Agra • Uttar Pradesh
               </p>

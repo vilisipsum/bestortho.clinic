@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, Calendar, Phone, MessageCircle, Clock, ShieldCheck, CheckCircle2, Lock, AlertCircle } from 'lucide-react';
 import { siteConfig } from '@/lib/content';
 import { validateBookingForm, BookingFormData } from '@/lib/validation';
@@ -29,7 +29,22 @@ export default function BookingModal({ isOpen, onClose, defaultReason = '', defa
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  // Sync defaultReason and defaultArea when opened from different buttons
+  useEffect(() => {
+    if (isOpen) {
+      setIsSubmitted(false);
+      setFormData(prev => ({
+        ...prev,
+        consultationReason: defaultReason || prev.consultationReason || 'Knee Pain / Joint Discomfort',
+        affectedArea: defaultArea || prev.affectedArea || 'Knee',
+      }));
+    }
+  }, [isOpen, defaultReason, defaultArea]);
+
   if (!isOpen) return null;
+
+  // Format today's date as YYYY-MM-DD for min date attribute
+  const todayString = new Date().toISOString().split('T')[0];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -45,7 +60,7 @@ export default function BookingModal({ isOpen, onClose, defaultReason = '', defa
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
-    }, 600);
+    }, 400);
   };
 
   const handleWhatsAppRedirect = () => {
@@ -247,6 +262,7 @@ export default function BookingModal({ isOpen, onClose, defaultReason = '', defa
                   <input
                     type="date"
                     required
+                    min={todayString}
                     value={formData.preferredDate}
                     onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
                     className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-white text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 font-medium"

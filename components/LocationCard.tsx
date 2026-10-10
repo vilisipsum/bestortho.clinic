@@ -10,6 +10,28 @@ interface LocationCardProps {
 }
 
 export default function LocationCard({ onOpenBooking }: LocationCardProps) {
+  const handleBookingClick = (e?: React.MouseEvent) => {
+    if (onOpenBooking) {
+      if (e) e.preventDefault();
+      onOpenBooking();
+      return;
+    }
+
+    if (typeof window !== 'undefined') {
+      let handled = false;
+      const handleAck = () => { handled = true; };
+      window.addEventListener('booking-modal-opened', handleAck, { once: true });
+      window.dispatchEvent(new CustomEvent('open-booking-modal'));
+
+      setTimeout(() => {
+        window.removeEventListener('booking-modal-opened', handleAck);
+        if (!handled) {
+          window.location.href = '/contact';
+        }
+      }, 50);
+    }
+  };
+
   return (
     <section id="clinic-location" className="py-16 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -126,23 +148,14 @@ export default function LocationCard({ onOpenBooking }: LocationCardProps) {
                   <span>WhatsApp</span>
                 </a>
 
-                {onOpenBooking ? (
-                  <button
-                    onClick={onOpenBooking}
-                    className="btn-primary text-xs py-3 px-3 flex items-center justify-center gap-1.5"
-                  >
-                    <Calendar className="w-3.5 h-3.5" />
-                    <span>Book OPD</span>
-                  </button>
-                ) : (
-                  <Link
-                    href="/contact"
-                    className="btn-primary text-xs py-3 px-3 flex items-center justify-center gap-1.5"
-                  >
-                    <Calendar className="w-3.5 h-3.5" />
-                    <span>Book OPD</span>
-                  </Link>
-                )}
+                <button
+                  onClick={handleBookingClick}
+                  className="btn-primary text-xs py-3 px-3 flex items-center justify-center gap-1.5"
+                  aria-label="Book OPD Consultation"
+                >
+                  <Calendar className="w-3.5 h-3.5" />
+                  <span>Book OPD</span>
+                </button>
               </div>
 
             </div>

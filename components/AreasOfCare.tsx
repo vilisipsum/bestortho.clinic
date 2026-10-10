@@ -14,6 +14,28 @@ export default function AreasOfCare({ onOpenBooking }: AreasOfCareProps) {
   const approvedAreas = areasOfCare.filter((area) => area.approved);
   const [selectedArea, setSelectedArea] = useState<AreaOfCare>(approvedAreas[0] || null);
 
+  const handleBookingClick = (e?: React.MouseEvent) => {
+    if (onOpenBooking) {
+      if (e) e.preventDefault();
+      onOpenBooking();
+      return;
+    }
+
+    if (typeof window !== 'undefined') {
+      let handled = false;
+      const handleAck = () => { handled = true; };
+      window.addEventListener('booking-modal-opened', handleAck, { once: true });
+      window.dispatchEvent(new CustomEvent('open-booking-modal'));
+
+      setTimeout(() => {
+        window.removeEventListener('booking-modal-opened', handleAck);
+        if (!handled) {
+          window.location.href = '/contact';
+        }
+      }, 50);
+    }
+  };
+
   return (
     <section id="areas-of-care" className="py-16 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -72,23 +94,14 @@ export default function AreasOfCare({ onOpenBooking }: AreasOfCareProps) {
                 </span>
               </div>
 
-              {onOpenBooking ? (
-                <button
-                  onClick={onOpenBooking}
-                  className="btn-primary text-xs sm:text-sm py-2 px-4 flex items-center gap-1.5 shadow-sm"
-                >
-                  <Calendar className="w-3.5 h-3.5" />
-                  <span>Consult for {selectedArea.title}</span>
-                </button>
-              ) : (
-                <Link
-                  href="/contact"
-                  className="btn-primary text-xs sm:text-sm py-2 px-4 flex items-center gap-1.5 shadow-sm"
-                >
-                  <Calendar className="w-3.5 h-3.5" />
-                  <span>Consult for {selectedArea.title}</span>
-                </Link>
-              )}
+              <button
+                onClick={handleBookingClick}
+                className="btn-primary text-xs sm:text-sm py-2 px-4 flex items-center gap-1.5 shadow-sm"
+                aria-label={`Consult for ${selectedArea.title}`}
+              >
+                <Calendar className="w-3.5 h-3.5" />
+                <span>Consult for {selectedArea.title}</span>
+              </button>
             </div>
 
             <div className="py-6">

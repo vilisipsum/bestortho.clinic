@@ -10,6 +10,28 @@ interface DoctorProfileProps {
 }
 
 export default function DoctorProfile({ showFullDetails = false, onOpenBooking }: DoctorProfileProps) {
+  const handleBookingClick = (e?: React.MouseEvent) => {
+    if (onOpenBooking) {
+      if (e) e.preventDefault();
+      onOpenBooking();
+      return;
+    }
+
+    if (typeof window !== 'undefined') {
+      let handled = false;
+      const handleAck = () => { handled = true; };
+      window.addEventListener('booking-modal-opened', handleAck, { once: true });
+      window.dispatchEvent(new CustomEvent('open-booking-modal'));
+
+      setTimeout(() => {
+        window.removeEventListener('booking-modal-opened', handleAck);
+        if (!handled) {
+          window.location.href = '/contact';
+        }
+      }, 50);
+    }
+  };
+
   return (
     <section className="py-16 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -92,23 +114,14 @@ export default function DoctorProfile({ showFullDetails = false, onOpenBooking }
               </div>
 
               <div className="mt-4">
-                {onOpenBooking ? (
-                  <button
-                    onClick={onOpenBooking}
-                    className="btn-primary w-full text-sm py-3 flex items-center justify-center gap-2"
-                  >
-                    <Calendar className="w-4 h-4" />
-                    <span>Book With Dr. Sharma</span>
-                  </button>
-                ) : (
-                  <Link
-                    href="/contact"
-                    className="btn-primary w-full text-sm py-3 flex items-center justify-center gap-2"
-                  >
-                    <Calendar className="w-4 h-4" />
-                    <span>Book With Dr. Sharma</span>
-                  </Link>
-                )}
+                <button
+                  onClick={handleBookingClick}
+                  className="btn-primary w-full text-sm py-3 flex items-center justify-center gap-2"
+                  aria-label="Book With Dr. Sharma"
+                >
+                  <Calendar className="w-4 h-4" />
+                  <span>Book With Dr. Sharma</span>
+                </button>
               </div>
             </div>
           </div>

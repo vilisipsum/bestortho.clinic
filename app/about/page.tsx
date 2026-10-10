@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import DoctorProfile from '@/components/DoctorProfile';
 import PracticePhilosophy from '@/components/PracticePhilosophy';
@@ -12,6 +12,15 @@ import { Award, ShieldCheck, MapPin, CheckCircle2, UserCheck, Stethoscope } from
 
 export default function AboutPage() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
+
+  useEffect(() => {
+    const handleOpen = () => {
+      setIsBookingOpen(true);
+      window.dispatchEvent(new CustomEvent('booking-modal-opened'));
+    };
+    window.addEventListener('open-booking-modal', handleOpen);
+    return () => window.removeEventListener('open-booking-modal', handleOpen);
+  }, []);
 
   return (
     <>

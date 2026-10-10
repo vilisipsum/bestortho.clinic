@@ -17,6 +17,28 @@ interface PatientJourneyProps {
 }
 
 export default function PatientJourney({ onOpenBooking }: PatientJourneyProps) {
+  const handleBookingClick = (e?: React.MouseEvent) => {
+    if (onOpenBooking) {
+      if (e) e.preventDefault();
+      onOpenBooking();
+      return;
+    }
+
+    if (typeof window !== 'undefined') {
+      let handled = false;
+      const handleAck = () => { handled = true; };
+      window.addEventListener('booking-modal-opened', handleAck, { once: true });
+      window.dispatchEvent(new CustomEvent('open-booking-modal'));
+
+      setTimeout(() => {
+        window.removeEventListener('booking-modal-opened', handleAck);
+        if (!handled) {
+          window.location.href = '/contact';
+        }
+      }, 50);
+    }
+  };
+
   const steps = [
     {
       step: '01',
@@ -151,23 +173,14 @@ export default function PatientJourney({ onOpenBooking }: PatientJourneyProps) {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto flex-shrink-0">
-            {onOpenBooking ? (
-              <button
-                onClick={onOpenBooking}
-                className="btn-primary text-xs py-3 px-6 flex items-center justify-center gap-2 font-bold shadow-sm whitespace-nowrap"
-              >
-                <span>Book Consultation</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            ) : (
-              <Link
-                href="/contact"
-                className="btn-primary text-xs py-3 px-6 flex items-center justify-center gap-2 font-bold shadow-sm whitespace-nowrap"
-              >
-                <span>Book Consultation</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            )}
+            <button
+              onClick={handleBookingClick}
+              className="btn-primary text-xs py-3 px-6 flex items-center justify-center gap-2 font-bold shadow-sm whitespace-nowrap"
+              aria-label="Book Consultation"
+            >
+              <span>Book Consultation</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
           </div>
         </div>
 

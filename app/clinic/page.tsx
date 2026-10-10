@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import LocationCard from '@/components/LocationCard';
 import BookingCTA from '@/components/BookingCTA';
@@ -11,6 +11,15 @@ import { MapPin, Clock, Phone, MessageCircle, FileText, CheckCircle2, Car, Shiel
 
 export default function ClinicPage() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
+
+  useEffect(() => {
+    const handleOpen = () => {
+      setIsBookingOpen(true);
+      window.dispatchEvent(new CustomEvent('booking-modal-opened'));
+    };
+    window.addEventListener('open-booking-modal', handleOpen);
+    return () => window.removeEventListener('open-booking-modal', handleOpen);
+  }, []);
 
   return (
     <>

@@ -10,6 +10,28 @@ interface HeroProps {
 }
 
 export default function Hero({ onOpenBooking }: HeroProps) {
+  const handleBookingClick = (e?: React.MouseEvent) => {
+    if (onOpenBooking) {
+      if (e) e.preventDefault();
+      onOpenBooking();
+      return;
+    }
+
+    if (typeof window !== 'undefined') {
+      let handled = false;
+      const handleAck = () => { handled = true; };
+      window.addEventListener('booking-modal-opened', handleAck, { once: true });
+      window.dispatchEvent(new CustomEvent('open-booking-modal'));
+
+      setTimeout(() => {
+        window.removeEventListener('booking-modal-opened', handleAck);
+        if (!handled) {
+          window.location.href = '/contact';
+        }
+      }, 50);
+    }
+  };
+
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-white via-slate-50/60 to-slate-100/50 pt-10 pb-16 lg:pt-16 lg:pb-24">
       {/* Subtle Architectural Grid Background Accent */}
@@ -66,25 +88,15 @@ export default function Hero({ onOpenBooking }: HeroProps) {
 
             {/* Action Buttons */}
             <div className="flex flex-wrap items-center gap-4 mb-10">
-              {onOpenBooking ? (
-                <button
-                  onClick={onOpenBooking}
-                  className="btn-primary text-base sm:text-lg py-3.5 px-8 flex items-center gap-3 shadow-md"
-                >
-                  <Calendar className="w-5 h-5" />
-                  <span>Book Consultation</span>
-                  <ArrowRight className="w-4 h-4 ml-1" />
-                </button>
-              ) : (
-                <Link
-                  href="/contact"
-                  className="btn-primary text-base sm:text-lg py-3.5 px-8 flex items-center gap-3 shadow-md"
-                >
-                  <Calendar className="w-5 h-5" />
-                  <span>Book Consultation</span>
-                  <ArrowRight className="w-4 h-4 ml-1" />
-                </Link>
-              )}
+              <button
+                onClick={handleBookingClick}
+                className="btn-primary text-base sm:text-lg py-3.5 px-8 flex items-center gap-3 shadow-md"
+                aria-label="Book Consultation"
+              >
+                <Calendar className="w-5 h-5" />
+                <span>Book Consultation</span>
+                <ArrowRight className="w-4 h-4 ml-1" />
+              </button>
 
               <Link
                 href="/about"
