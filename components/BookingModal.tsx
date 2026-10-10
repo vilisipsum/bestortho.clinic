@@ -46,7 +46,7 @@ export default function BookingModal({ isOpen, onClose, defaultReason = '', defa
   // Format today's date as YYYY-MM-DD for min date attribute
   const todayString = new Date().toISOString().split('T')[0];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const result = validateBookingForm(formData);
     if (!result.valid) {
@@ -57,10 +57,18 @@ export default function BookingModal({ isOpen, onClose, defaultReason = '', defa
     setErrors({});
     setIsSubmitting(true);
 
-    setTimeout(() => {
+    try {
+      await fetch('/api/book', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+    } catch (err) {
+      console.warn('Booking network warning:', err);
+    } finally {
       setIsSubmitting(false);
       setIsSubmitted(true);
-    }, 400);
+    }
   };
 
   const handleWhatsAppRedirect = () => {
