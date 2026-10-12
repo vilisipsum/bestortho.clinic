@@ -121,7 +121,7 @@ export const siteConfig = {
   phone: "+91 97602 30687",
   phoneDisplay: "+91 97602 30687",
   whatsappNumber: "919760230687",
-  email: "care@bestortho.clinic",
+  email: "clinicbestortho@gmail.com",
   googleSheetWebhookUrl: "https://script.google.com/macros/s/AKfycbx04--MQjyaosJEIz9bTasbTuBhYGEnQGInkocr3PjLhznW6ItS4iKUoe7FEKlasBGy/exec",
   googleBusinessProfileUrl: "https://share.google/ggZ6xfMlJq1ZPwulT",
   googleKnowledgeGraphUrl: "https://www.google.com/search?kgmid=/g/11cnc0vhf8&q=Dr+Gaurav+Sharma+Ortho",
