@@ -35,6 +35,7 @@ export async function POST(request: Request) {
       body: JSON.stringify({
         fullName: body.fullName.trim(),
         phoneNumber: body.phoneNumber.trim(),
+        email: body.email ? body.email.trim() : '',
         preferredDate: body.preferredDate,
         preferredTime: body.preferredTime,
         affectedArea: body.affectedArea || 'Not specified',

@@ -12,6 +12,7 @@ export default function ContactPage() {
   const [formData, setFormData] = useState<BookingFormData>({
     fullName: '',
     phoneNumber: '',
+    email: '',
     preferredDate: '',
     preferredTime: 'Morning (10:00 AM - 02:00 PM)',
     consultationReason: 'Knee Pain / Joint Discomfort',
@@ -313,6 +314,23 @@ export default function ContactPage() {
                             <p className="text-xs text-red-600 font-medium mt-1">{errors.phoneNumber}</p>
                           )}
                         </div>
+                      </div>
+
+                      {/* Email Address Field (Optional for Email Acknowledgement) */}
+                      <div>
+                        <label className="block text-xs font-bold text-slate-700 mb-1">
+                          Email Address <span className="text-slate-600 font-normal">(Optional, to receive instant consultation confirmation)</span>
+                        </label>
+                        <input
+                          type="email"
+                          value={formData.email || ''}
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          placeholder="name@example.com"
+                          className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-white text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 font-medium"
+                        />
+                        {errors.email && (
+                          <p className="text-xs text-red-600 font-medium mt-1">{errors.email}</p>
+                        )}
                       </div>
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

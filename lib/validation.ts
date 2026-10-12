@@ -5,6 +5,7 @@
 export interface BookingFormData {
   fullName: string;
   phoneNumber: string;
+  email?: string;
   preferredDate: string;
   preferredTime: string;
   consultationReason: string;
@@ -31,6 +32,14 @@ export function validateBookingForm(data: BookingFormData): { valid: boolean; er
   const phoneClean = data.phoneNumber.replace(/[\s\-\(\)\+]/g, '');
   if (!phoneClean || phoneClean.length < 10 || !/^\d+$/.test(phoneClean)) {
     errors.phoneNumber = "Please enter a valid 10-digit mobile number.";
+  }
+
+  // Email validation (optional field, but if entered must be valid format)
+  if (data.email && data.email.trim().length > 0) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(data.email.trim())) {
+      errors.email = "Please enter a valid email address.";
+    }
   }
 
   if (!data.preferredDate) {
