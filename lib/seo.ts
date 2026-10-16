@@ -77,9 +77,72 @@ export function getClinicSchema() {
     email: siteConfig.email,
     image: `${siteConfig.domain}/images/doctor-portrait.jpg`,
     medicalSpecialty: [
-      "Orthopedic",
-      "Surgical",
+      "https://health-lifesci.schema.org/Orthopedic",
+      "https://health-lifesci.schema.org/SportsMedicine",
+      "https://health-lifesci.schema.org/Surgical",
     ],
+    availableService: [
+      {
+        "@type": "MedicalProcedure",
+        name: "Knee Pain & Osteoarthritis Evaluation",
+        procedureType: "https://health-lifesci.schema.org/Diagnostic",
+        description: "Clinical evaluation for osteoarthritis, meniscus wear, joint effusion, and conservative knee preservation.",
+      },
+      {
+        "@type": "MedicalProcedure",
+        name: "Shoulder & Rotator Cuff Care",
+        procedureType: "https://health-lifesci.schema.org/Diagnostic",
+        description: "Assessment and management for frozen shoulder, rotator cuff strains, impingement syndrome, and joint stiffness.",
+      },
+      {
+        "@type": "MedicalProcedure",
+        name: "Sports Injury & Ligament Assessment",
+        procedureType: "https://health-lifesci.schema.org/Diagnostic",
+        description: "Clinical workup for acute sports injuries, ACL/PCL sprains, meniscus tears, and athletic recovery.",
+      },
+      {
+        "@type": "MedicalProcedure",
+        name: "Fracture Management & Splint Immobilization",
+        procedureType: "https://health-lifesci.schema.org/NoninvasiveProcedure",
+        description: "Accurate plaster/fiberglass casting, closed reduction, splinting, and union monitoring for bone fractures.",
+      },
+      {
+        "@type": "MedicalProcedure",
+        name: "Minimally Invasive Arthroscopic Consultation",
+        procedureType: "https://health-lifesci.schema.org/SurgicalProcedure",
+        description: "Surgical and diagnostic consultation for keyhole arthroscopic knee and shoulder interventions.",
+      },
+      {
+        "@type": "MedicalTherapy",
+        name: "Orthopaedic Rehabilitation Guidance",
+        description: "Supervised physiotherapy pathways, post-fracture mobility restoration, and joint-protective ergonomic correction.",
+      },
+    ],
+    knowsAbout: [
+      "Orthopaedic Surgery",
+      "Joint Preservation",
+      "Knee Osteoarthritis",
+      "Shoulder Impingement Syndrome",
+      "Rotator Cuff Tears",
+      "Frozen Shoulder (Adhesive Capsulitis)",
+      "ACL and Ligament Injuries",
+      "Bone Fractures & Trauma",
+      "Arthroscopic Surgery",
+      "Musculoskeletal Sports Medicine",
+    ],
+    physician: {
+      "@type": "Person",
+      name: doctorProfile.name,
+      jobTitle: doctorProfile.formalTitle,
+      description: `${doctorProfile.summary}`,
+      worksFor: {
+        "@id": `${siteConfig.domain}/#organization`,
+      },
+      sameAs: [
+        siteConfig.googleKnowledgeGraphUrl,
+        siteConfig.googleBusinessProfileUrl,
+      ],
+    },
     address: {
       "@type": "PostalAddress",
       streetAddress: siteConfig.primaryAddress.street,
@@ -113,9 +176,18 @@ export function getClinicSchema() {
         closes: "13:00",
       },
     ],
-    priceRange: "$$",
+    priceRange: "₹₹",
+    currenciesAccepted: "INR",
+    paymentAccepted: "Cash, UPI, Credit Card, Debit Card",
     isAcceptingNewPatients: true,
     hasMap: siteConfig.googleMapsUrl,
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: siteConfig.phone,
+      contactType: "appointments and consultations",
+      areaServed: "IN",
+      availableLanguage: ["Hindi", "English"],
+    },
   };
 }
 

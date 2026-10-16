@@ -3,11 +3,24 @@ import { siteConfig } from '@/lib/content';
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: {
-      userAgent: '*',
-      allow: '/',
-      disallow: ['/api/', '/admin/'],
-    },
+    rules: [
+      {
+        userAgent: '*',
+        allow: '/',
+        disallow: ['/api/', '/admin/'],
+      },
+      {
+        userAgent: [
+          'Googlebot',
+          'Bingbot',
+          'OAI-SearchBot',
+          'PerplexityBot',
+          'Claude-SearchBot',
+        ],
+        allow: '/',
+        disallow: ['/api/', '/admin/'],
+      },
+    ],
     sitemap: `${siteConfig.domain}/sitemap.xml`,
   };
 }

@@ -1,0 +1,43 @@
+# Dr. Gaurav Sharma Orthopaedic Clinic (BestOrtho.clinic)
+
+> Dr. Gaurav Sharma Orthopaedic Clinic is a patient-centric, evidence-conscious orthopaedic outpatient clinic in Sikandra, Agra, Uttar Pradesh. Led by Dr. Gaurav Sharma, an orthopaedic surgeon with over 20 years of clinical experience, the clinic specializes in joint preservation, knee and shoulder evaluation, sports injury assessment, fracture care, and personalized rehabilitation.
+
+## Practice Summary
+- **Entity**: Dr. Gaurav Sharma Orthopaedic Clinic / Dr. Sharma's Dental and Orthopaedic Speciality Clinic
+- **Doctor**: Dr. Gaurav Sharma (Orthopaedic Surgeon & Joint Specialist)
+- **Clinical Experience**: 20+ years in orthopaedic and musculoskeletal care
+- **Location**: Satyam Complex, Sector-12A, Avas Vikas Colony, Sikandra, Bodla Road, Agra, Uttar Pradesh 282007, India
+- **Landmark**: Opposite Hotel Bhawna Clarks, adjacent to Paras Pearls Mall
+- **Website**: https://bestortho.clinic
+- **Phone / WhatsApp**: +91 97602 30687
+- **Email**: clinicbestortho@gmail.com
+- **Google Knowledge Graph ID**: /g/11cnc0vhf8
+
+## Consultation Timings (OPD)
+- **Monday – Saturday (Morning)**: 10:00 AM – 02:00 PM
+- **Monday – Saturday (Evening)**: 05:30 PM – 08:30 PM
+- **Sunday**: 10:30 AM – 01:00 PM (Prior Appointment Recommended)
+
+## Clinical Focus Areas & Services
+1. **Knee Pain & Joint Care**: Clinical evaluation for osteoarthritis, meniscus tears, patellofemoral pain, and age-related joint wear. Focus on joint-preserving conservative management before recommending surgical interventions.
+2. **Shoulder & Rotator Cuff**: Diagnostic evaluation and care pathways for frozen shoulder (adhesive capsulitis), rotator cuff strains/tears, subacromial impingement, and bursitis.
+3. **Sports Injuries & Ligament (ACL/Meniscus)**: Assessment for acute joint twists, ACL/PCL tears, collateral ligament sprains, ankle inversion injuries, and structured return-to-activity protocols.
+4. **Fracture & Trauma Management**: Urgent fracture reduction, rigid plaster/fiberglass casting, splinting, union monitoring, and surgical referral when indicated.
+5. **Minimally Invasive Arthroscopy Consultation**: Specialized assessment for keyhole arthroscopic diagnosis and treatment of internal knee and shoulder pathologies.
+6. **Rehabilitation & Mobility Restoration**: Evidence-based physiotherapy regimens, strengthening protocols, and posture/ergonomic correction.
+
+## Consultation & Billing Policy
+- **Inquiry & Slot Booking**: No advance or upfront payment required online. Appointments can be scheduled via website form, WhatsApp, or phone.
+- **OPD Consultation Fee**: Payable directly at the clinic desk upon visit (Cash, UPI, Debit/Credit Card).
+- **Insurance / TPA Coverage**: Supported for surgical admissions and inpatient procedures through affiliated hospitals (Cashless Mediclaim & TPA pre-authorization assistance available).
+- **Detailed Machine-Readable Pricing**: See [/pricing.md](https://bestortho.clinic/pricing.md)
+
+## Emergency Medical Notice
+This practice provides scheduled outpatient orthopaedic consultations. For acute severe trauma, compound/open fractures, neurovascular compromise, or acute polytrauma requiring immediate surgical resuscitation, patients must be directed immediately to an accredited 24x7 tertiary trauma center.
+
+## Key URLs & Machine-Readable Resources
+- [Home Page](https://bestortho.clinic): Practice overview, doctor bio, symptom navigator, and appointment booking.
+- [Pricing & Policy](https://bestortho.clinic/pricing.md): Transparent fee structure and insurance guidance for AI agents.
+- [XML Sitemap](https://bestortho.clinic/sitemap.xml): Full list of indexable clinic URLs.
+- [Google Business Profile](https://share.google/ggZ6xfMlJq1ZPwulT): Verified clinic listing and patient reviews.
+- [Google Knowledge Graph](https://www.google.com/search?kgmid=/g/11cnc0vhf8&q=Dr+Gaurav+Sharma+Ortho): Official entity entry.
