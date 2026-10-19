@@ -6,10 +6,15 @@ import CredentialCards from './CredentialCards';
 
 interface DoctorProfileProps {
   showFullDetails?: boolean;
+  showCredentialsGrid?: boolean;
   onOpenBooking?: () => void;
 }
 
-export default function DoctorProfile({ showFullDetails = false, onOpenBooking }: DoctorProfileProps) {
+export default function DoctorProfile({
+  showFullDetails = false,
+  showCredentialsGrid = false,
+  onOpenBooking,
+}: DoctorProfileProps) {
   const handleBookingClick = (e?: React.MouseEvent) => {
     if (onOpenBooking) {
       if (e) e.preventDefault();
@@ -186,22 +191,54 @@ export default function DoctorProfile({ showFullDetails = false, onOpenBooking }
 
         </div>
 
-        {/* Credentials Grid */}
-        <div id="credentials" className="pt-8">
-          <div className="mb-6">
-            <span className="pill-badge bg-blue-50 text-brand-700 border-blue-200 mb-2">
-              Verified Records
-            </span>
-            <h3 className="text-2xl sm:text-3xl font-bold text-brand-950 font-display">
-              Doctor Qualifications & Practice Records
-            </h3>
-            <p className="text-sm text-slate-600 mt-1 max-w-xl">
-              Transparent reporting of verified medical degrees (MBBS, MS Orthopaedics), specialized surgical training, and State Medical Council registration.
-            </p>
-          </div>
+        {/* Credentials Section: Full Grid vs Compact Summary Card */}
+        {showCredentialsGrid ? (
+          <div id="credentials" className="pt-8">
+            <div className="mb-6">
+              <span className="pill-badge bg-blue-50 text-brand-700 border-blue-200 mb-2">
+                Verified Records
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-bold text-brand-950 font-display">
+                Doctor Qualifications & Practice Records
+              </h3>
+              <p className="text-sm text-slate-600 mt-1 max-w-xl">
+                Transparent reporting of verified medical degrees (MBBS, MS Orthopaedics), specialized surgical training, and State Medical Council registration.
+              </p>
+            </div>
 
-          <CredentialCards />
-        </div>
+            <CredentialCards />
+          </div>
+        ) : (
+          <div className="pt-4">
+            <div className="card-medical bg-slate-50 border border-slate-200 p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
+              <div>
+                <div className="flex flex-wrap items-center gap-2 mb-2.5">
+                  <span className="pill-badge bg-emerald-50 text-emerald-700 border-emerald-200 text-xs">
+                    <CheckCircle2 className="w-3.5 h-3.5" />
+                    Verified Medical Credentials
+                  </span>
+                  <span className="pill-badge bg-blue-50 text-brand-700 border-blue-200 text-xs font-semibold">
+                    U.P. Medical Council Reg. No. 48757
+                  </span>
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-brand-950 font-display">
+                  MBBS • MS (Orthopaedics) • Former Assistant Professor
+                </h3>
+                <p className="text-sm text-slate-600 mt-1.5 max-w-2xl leading-relaxed">
+                  Over 20 years of clinical practice in joint preservation, fracture stabilization, and rehabilitation. Full degrees, council licenses, and professional memberships are audited on our dedicated credentials page.
+                </p>
+              </div>
+
+              <Link
+                href="/credentials"
+                className="btn-secondary self-start md:self-auto text-sm py-3 px-5 flex items-center gap-2 whitespace-nowrap font-semibold shadow-sm hover:border-brand-500"
+              >
+                <span>View Full Credentials & Registrations</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        )}
 
       </div>
     </section>

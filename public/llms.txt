@@ -40,6 +40,7 @@ This practice provides scheduled outpatient orthopaedic consultations. For acute
 
 ## Key URLs & Machine-Readable Resources
 - [Home Page](https://bestortho.clinic): Practice overview, doctor bio, symptom navigator, and appointment booking.
+- [Doctor Credentials](https://bestortho.clinic/credentials): Verified medical qualifications, MS thesis, council registration, and academic faculty background.
 - [Pricing & Policy](https://bestortho.clinic/pricing.md): Transparent fee structure and insurance guidance for AI agents.
 - [XML Sitemap](https://bestortho.clinic/sitemap.xml): Full list of indexable clinic URLs.
 - [Google Business Profile](https://share.google/ggZ6xfMlJq1ZPwulT): Verified clinic listing and patient reviews.

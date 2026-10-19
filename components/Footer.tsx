@@ -154,6 +154,12 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/credentials" className="text-emerald-400 hover:text-emerald-300 font-medium transition-colors flex items-center gap-1.5">
+                  <ShieldCheck className="w-3.5 h-3.5" />
+                  <span>Verified Credentials</span>
+                </Link>
+              </li>
+              <li>
                 <Link href="/#areas-of-care" className="text-brand-100 hover:text-white transition-colors">
                   Areas of Care
                 </Link>
