@@ -196,8 +196,7 @@ export default function DoctorProfile({ showFullDetails = false, onOpenBooking }
               Doctor Qualifications & Practice Records
             </h3>
             <p className="text-sm text-slate-600 mt-1 max-w-xl">
-              Transparent reporting of medical degrees, training background, and clinical council registration. 
-              Unverified academic records remain tagged until certificate audit is completed.
+              Transparent reporting of verified medical degrees (MBBS, MS Orthopaedics), specialized surgical training, and State Medical Council registration.
             </p>
           </div>
 

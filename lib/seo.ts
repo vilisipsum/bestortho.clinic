@@ -150,6 +150,37 @@ export function getClinicSchema() {
       jobTitle: doctorProfile.formalTitle,
       description: `${doctorProfile.summary}`,
       image: `${siteConfig.domain}/images/doctor-portrait.jpg`,
+      alumniOf: [
+        {
+          "@type": "EducationalOrganization",
+          name: "Dr. B.R. Ambedkar University, Agra",
+        },
+        {
+          "@type": "EducationalOrganization",
+          name: "Bundelkhand University, Jhansi",
+        },
+      ],
+      hasCredential: [
+        {
+          "@type": "EducationalOccupationalCredential",
+          credentialCategory: "degree",
+          name: "MBBS (2003)",
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          credentialCategory: "degree",
+          name: "MS - Orthopaedics (2008)",
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          credentialCategory: "license",
+          name: "State Medical Council Registration No. 48757",
+          recognizedBy: {
+            "@type": "GovernmentOrganization",
+            name: "Uttar Pradesh Medical Council",
+          },
+        },
+      ],
       worksFor: {
         "@id": `${siteConfig.domain}/#organization`,
       },

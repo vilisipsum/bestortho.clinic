@@ -5,6 +5,9 @@
 ## Practice Summary
 - **Entity**: Dr. Gaurav Sharma Orthopaedic Clinic / Dr. Sharma's Dental and Orthopaedic Speciality Clinic
 - **Doctor**: Dr. Gaurav Sharma (Orthopaedic Surgeon & Joint Specialist)
+- **Qualifications**: MBBS (Dr. B.R. Ambedkar University, Agra 2003), MS - Orthopaedics (Bundelkhand University 2008)
+- **Medical Registration**: Uttar Pradesh Medical Council Reg. No. 48757
+- **Academic Background**: Former Assistant Professor (Orthopaedics), F.H. Medical College
 - **Clinical Experience**: 20+ years in orthopaedic and musculoskeletal care
 - **Location**: Satyam Complex, Sector-12A, Avas Vikas Colony, Sikandra, Bodla Road, Agra, Uttar Pradesh 282007, India
 - **Landmark**: Opposite Hotel Bhawna Clarks, adjacent to Paras Pearls Mall

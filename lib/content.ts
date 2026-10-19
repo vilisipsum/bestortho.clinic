@@ -16,6 +16,7 @@ export interface CredentialItem {
   field?: string;
   institution?: string;
   year?: string;
+  registrationNumber?: string;
   approved: boolean;
   notes?: string;
 }
@@ -154,7 +155,7 @@ export const doctorProfile = {
   designation: "Consultant Orthopaedic & Joint Reconstruction Specialist",
   experienceYears: 20,
   experienceVerified: true,
-  summary: "With over 20 years of clinical experience in orthopaedics and musculoskeletal care, Dr. Gaurav Sharma provides clear, evidence-conscious evaluations, joint preservation, fracture care, and personalized rehabilitation pathways tailored to each patient's mobility goals.",
+  summary: "With over 20 years of clinical experience in orthopaedics and musculoskeletal care, Dr. Gaurav Sharma (MBBS, MS Orthopaedics, Former Assistant Professor of Orthopaedics) provides clear, evidence-conscious evaluations, joint preservation, fracture care, and personalized rehabilitation pathways tailored to each patient's mobility goals.",
   philosophy: [
     {
       step: "01",
@@ -191,37 +192,47 @@ export const doctorProfile = {
       id: "mbbs",
       degree: "MBBS",
       field: "Medicine & Surgery",
-      institution: "Sarojini Naidu Medical College, Agra",
-      year: "Verification in progress",
-      approved: false, // Per prompt: Academic institution awaiting final verification before public claim
-      notes: "Onboarding record noted Sarojini Naidu Medical College, Agra. Final certificate verification in progress.",
+      institution: "Dr. B.R. Ambedkar University, Agra",
+      year: "2003",
+      approved: true,
+      notes: "Undergraduate medical graduation completed in 2003 from Dr. B.R. Ambedkar University, Agra.",
     },
     {
       id: "ms-ortho",
       degree: "MS - Orthopaedics",
       field: "Orthopaedic Surgery",
-      institution: "M.L.B. Medical College, Jhansi",
-      year: "Verification in progress",
-      approved: false, // Per prompt: Academic institution awaiting final verification before public claim
-      notes: "Onboarding record noted M.L.B. Medical College, Jhansi. Final verification in progress.",
+      institution: "Bundelkhand University (M.L.B. Medical College, Jhansi)",
+      year: "2008",
+      approved: true,
+      notes: "Postgraduate Master of Surgery in Orthopaedics (2008). Thesis on Diagnostic Arthroscopy of Knee Joint and Arthroscopic Lavage.",
     },
     {
       id: "med-reg",
-      degree: "Medical Council Registration",
+      degree: "State Medical Council Registration",
       field: "Orthopaedic Specialist Registration",
-      institution: "Uttar Pradesh Medical Council / National Medical Commission",
-      approved: false, // Per prompt: Exact registration number to be confirmed before launch
-      notes: "Registration number pending upload of state council certificate.",
+      institution: "Uttar Pradesh Medical Council",
+      year: "2004",
+      registrationNumber: "Reg. No. 48757",
+      approved: true,
+      notes: "Registered Medical Practitioner with U.P. Medical Council (Reg. No. 48757) & Medical Council of India (MCI).",
     },
   ] as CredentialItem[],
   memberships: [
     {
-      name: "Indian Orthopaedic Association (IOA)",
-      approved: false, // Pending confirmation
+      name: "Indian Orthopaedic Association (IOA) — Life Member (LM9633)",
+      approved: true,
     },
     {
-      name: "UP Orthopaedic Association (UPOA)",
-      approved: false, // Pending confirmation
+      name: "UP Orthopaedic Association (UPOA) — Member (12818)",
+      approved: true,
+    },
+    {
+      name: "Indian Medical Association (IMA)",
+      approved: true,
+    },
+    {
+      name: "Agra Orthopedic Society",
+      approved: true,
     },
   ],
 };
@@ -247,6 +258,24 @@ export const hospitalAffiliations: HospitalAffiliation[] = [
     location: "Agra, Uttar Pradesh",
     opdSchedule: "Evening Elective Admissions & Reviews",
     hospitalLogoApproved: false, // Logo permission withheld per onboarding compliance
+    approved: true,
+  },
+  {
+    id: "hosp-3",
+    name: "F.H. Medical College & Hospital",
+    role: "Former Assistant Professor (Orthopaedics)",
+    location: "Near Agra / Tundla",
+    opdSchedule: "Academic & Clinical Faculty Background",
+    hospitalLogoApproved: false,
+    approved: true,
+  },
+  {
+    id: "hosp-4",
+    name: "Moolchand Hospital, Agra",
+    role: "Former Consultant Orthopaedic Surgeon",
+    location: "Agra, Uttar Pradesh",
+    opdSchedule: "Consulting Practice (2016–2019)",
+    hospitalLogoApproved: false,
     approved: true,
   },
 ];
