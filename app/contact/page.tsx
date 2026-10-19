@@ -1,14 +1,48 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Header from '@/components/Header';
 import LocationCard from '@/components/LocationCard';
 import EmergencyNotice from '@/components/EmergencyNotice';
 import { siteConfig } from '@/lib/content';
 import { validateBookingForm, BookingFormData } from '@/lib/validation';
-import { Phone, MessageCircle, Calendar, MapPin, CheckCircle2, Lock, ShieldCheck, Clock } from 'lucide-react';
+import { Phone, MessageCircle, Calendar, MapPin, CheckCircle2, Lock, ShieldCheck, Clock, AlertCircle } from 'lucide-react';
 
-export default function ContactPage() {
+function resolveArea(raw?: string | null): string {
+  if (!raw) return 'Knee';
+  const lower = raw.toLowerCase();
+  if (lower.includes('knee')) return 'Knee';
+  if (lower.includes('shoulder')) return 'Shoulder';
+  if (lower.includes('hip')) return 'Hip';
+  if (lower.includes('neck') || lower.includes('cervical')) return 'Neck / Cervical';
+  if (lower.includes('spine') || lower.includes('back')) return 'Spine / Back';
+  if (lower.includes('elbow')) return 'Elbow';
+  if (lower.includes('wrist') || lower.includes('hand')) return 'Wrist & Hand';
+  if (lower.includes('ankle') || lower.includes('foot')) return 'Ankle & Foot';
+  if (lower.includes('fracture') || lower.includes('trauma')) return 'Fracture / Trauma';
+  if (lower.includes('sport')) return 'Sports Injury';
+  return 'Other / General';
+}
+
+function resolveReason(raw?: string | null): string {
+  if (!raw) return 'Knee Pain / Joint Discomfort';
+  const validReasons = [
+    'Knee Pain / Joint Discomfort',
+    'Shoulder Pain / Frozen Shoulder',
+    'Sports Injury / Ligament Sprain',
+    'Fracture Follow-up / Cast Check',
+    'Spine / Back / Neck Evaluation',
+    'Second Opinion on Surgery',
+    'General Orthopaedic Consultation',
+  ];
+  if (validReasons.includes(raw)) return raw;
+  const match = validReasons.find(r => r.toLowerCase().includes(raw.toLowerCase()) || raw.toLowerCase().includes(r.toLowerCase()));
+  return match || raw;
+}
+
+function ContactContent() {
+  const searchParams = useSearchParams();
   const [formData, setFormData] = useState<BookingFormData>({
     fullName: '',
     phoneNumber: '',
@@ -23,8 +57,21 @@ export default function ContactPage() {
   });
 
   const [errors, setErrors] = useState<Partial<Record<keyof BookingFormData, string>>>({});
+  const [serverError, setServerError] = useState<string | null>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    const reasonParam = searchParams.get('reason');
+    const areaParam = searchParams.get('area');
+    if (reasonParam || areaParam) {
+      setFormData(prev => ({
+        ...prev,
+        consultationReason: reasonParam ? resolveReason(reasonParam) : prev.consultationReason,
+        affectedArea: areaParam ? resolveArea(areaParam) : prev.affectedArea,
+      }));
+    }
+  }, [searchParams]);
 
   const todayString = new Date().toISOString().split('T')[0];
 
@@ -37,19 +84,36 @@ export default function ContactPage() {
     }
 
     setErrors({});
+    setServerError(null);
     setIsSubmitting(true);
 
     try {
-      await fetch('/api/book', {
+      const res = await fetch('/api/book', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
-    } catch (err) {
-      console.warn('Booking network warning:', err);
-    } finally {
+
+      const data = await res.json().catch(() => null);
+
+      if (!res.ok) {
+        if (data && data.errors) {
+          setErrors(data.errors);
+        } else {
+          setServerError(
+            data?.message || 'Server error processing booking request. Please check your information or call our reception directly.'
+          );
+        }
+        setIsSubmitting(false);
+        return;
+      }
+
       setIsSubmitting(false);
       setIsSubmitted(true);
+    } catch (err) {
+      console.warn('Booking network warning:', err);
+      setServerError('Network error connecting to booking service. Please call our clinic reception directly.');
+      setIsSubmitting(false);
     }
   };
 
@@ -202,9 +266,12 @@ export default function ContactPage() {
                       <button
                         onClick={() => {
                           setIsSubmitted(false);
+                          setServerError(null);
+                          setErrors({});
                           setFormData({
                             fullName: '',
                             phoneNumber: '',
+                            email: '',
                             preferredDate: '',
                             preferredTime: 'Morning (10:00 AM - 02:00 PM)',
                             consultationReason: 'Knee Pain / Joint Discomfort',
@@ -235,6 +302,12 @@ export default function ContactPage() {
                     </div>
 
                     <form onSubmit={handleSubmit} className="space-y-4">
+                      {serverError && (
+                        <div className="p-3.5 rounded-xl bg-red-50 border border-red-200 text-xs text-red-700 flex items-start gap-2.5">
+                          <AlertCircle className="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
+                          <span>{serverError}</span>
+                        </div>
+                      )}
                       {/* Patient Type Selector */}
                       <div>
                         <label className="block text-xs font-bold text-slate-700 mb-1.5">
@@ -364,6 +437,9 @@ export default function ContactPage() {
                             <option value="Evening (05:30 PM - 08:30 PM)">Evening (05:30 PM - 08:30 PM)</option>
                             <option value="Sunday Morning (10:30 AM - 01:00 PM)">Sunday Morning (10:30 AM - 01:00 PM)</option>
                           </select>
+                          {errors.preferredTime && (
+                            <p className="text-xs text-red-600 font-medium mt-1">{errors.preferredTime}</p>
+                          )}
                         </div>
                       </div>
 
@@ -408,6 +484,9 @@ export default function ContactPage() {
                             <option value="Second Opinion on Surgery">Second Opinion on Surgery</option>
                             <option value="General Orthopaedic Consultation">General Orthopaedic Consultation</option>
                           </select>
+                          {errors.consultationReason && (
+                            <p className="text-xs text-red-600 font-medium mt-1">{errors.consultationReason}</p>
+                          )}
                         </div>
                       </div>
 
@@ -461,3 +540,21 @@ export default function ContactPage() {
     </>
   );
 }
+
+export default function ContactPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-slate-50 flex items-center justify-center p-8">
+          <div className="text-center space-y-3">
+            <div className="w-10 h-10 border-4 border-brand-200 border-t-brand-700 rounded-full animate-spin mx-auto" />
+            <p className="text-sm font-semibold text-slate-600">Loading consultation desk...</p>
+          </div>
+        </div>
+      }
+    >
+      <ContactContent />
+    </Suspense>
+  );
+}
+

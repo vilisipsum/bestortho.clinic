@@ -100,7 +100,7 @@ export default function PracticePhilosophy() {
         <div className="mt-12 p-5 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-start gap-4">
           <ShieldAlert className="w-5 h-5 text-brand-600 flex-shrink-0 mt-0.5" />
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-            <strong className="font-semibold text-slate-900">Ethical Care Commitment:</strong> We strictly avoid hyperbolic marketing terms such as "guaranteed 100% cure" or "instant pain relief." Every human body responds uniquely to treatment. Our promise is conscientious clinical assessment and thorough explanation at every stage.
+            <strong className="font-semibold text-slate-900">Ethical Care Commitment:</strong> We strictly avoid hyperbolic marketing terms such as &quot;guaranteed 100% cure&quot; or &quot;instant pain relief.&quot; Every human body responds uniquely to treatment. Our promise is conscientious clinical assessment and thorough explanation at every stage.
           </p>
         </div>
 

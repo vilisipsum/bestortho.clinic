@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { X, Calendar, Phone, MessageCircle, Clock, ShieldCheck, CheckCircle2, Lock, AlertCircle } from 'lucide-react';
 import { siteConfig } from '@/lib/content';
 import { validateBookingForm, BookingFormData } from '@/lib/validation';
@@ -27,13 +27,20 @@ export default function BookingModal({ isOpen, onClose, defaultReason = '', defa
   });
 
   const [errors, setErrors] = useState<Partial<Record<keyof BookingFormData, string>>>({});
+  const [serverError, setServerError] = useState<string | null>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const modalRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const previousActiveElement = useRef<HTMLElement | null>(null);
 
   // Sync defaultReason and defaultArea when opened from different buttons
   useEffect(() => {
     if (isOpen) {
       setIsSubmitted(false);
+      setServerError(null);
+      setErrors({});
       setFormData(prev => ({
         ...prev,
         consultationReason: defaultReason || prev.consultationReason || 'Knee Pain / Joint Discomfort',
@@ -41,6 +48,75 @@ export default function BookingModal({ isOpen, onClose, defaultReason = '', defa
       }));
     }
   }, [isOpen, defaultReason, defaultArea]);
+
+  // Focus management, Escape key listener, and body scroll lock
+  useEffect(() => {
+    if (!isOpen) return;
+
+    // Save previous active element for return focus
+    previousActiveElement.current = document.activeElement as HTMLElement | null;
+
+    // Body scroll lock
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    // Focus close button initially
+    const timer = requestAnimationFrame(() => {
+      if (closeButtonRef.current) {
+        closeButtonRef.current.focus();
+      }
+    });
+
+    // Keyboard listener for Tab focus trapping and Escape dismissal
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        onClose();
+        return;
+      }
+
+      if (e.key === 'Tab') {
+        if (!modalRef.current) return;
+        const focusableElements = modalRef.current.querySelectorAll<HTMLElement>(
+          'button:not([disabled]), [href], input:not([disabled]):not([type="hidden"]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        );
+        const visibleFocusable = Array.from(focusableElements).filter(
+          (el) => el.offsetParent !== null || el === closeButtonRef.current
+        );
+
+        if (visibleFocusable.length === 0) {
+          e.preventDefault();
+          return;
+        }
+
+        const firstElement = visibleFocusable[0];
+        const lastElement = visibleFocusable[visibleFocusable.length - 1];
+
+        if (e.shiftKey) {
+          if (document.activeElement === firstElement || !modalRef.current.contains(document.activeElement)) {
+            e.preventDefault();
+            lastElement.focus();
+          }
+        } else {
+          if (document.activeElement === lastElement || !modalRef.current.contains(document.activeElement)) {
+            e.preventDefault();
+            firstElement.focus();
+          }
+        }
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      cancelAnimationFrame(timer);
+      document.body.style.overflow = originalOverflow;
+      document.removeEventListener('keydown', handleKeyDown);
+      if (previousActiveElement.current && typeof previousActiveElement.current.focus === 'function') {
+        previousActiveElement.current.focus();
+      }
+    };
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
@@ -56,19 +132,36 @@ export default function BookingModal({ isOpen, onClose, defaultReason = '', defa
     }
 
     setErrors({});
+    setServerError(null);
     setIsSubmitting(true);
 
     try {
-      await fetch('/api/book', {
+      const res = await fetch('/api/book', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
-    } catch (err) {
-      console.warn('Booking network warning:', err);
-    } finally {
+
+      const data = await res.json().catch(() => null);
+
+      if (!res.ok) {
+        if (data && data.errors) {
+          setErrors(data.errors);
+        } else {
+          setServerError(
+            data?.message || 'Server error processing booking request. Please check your information or contact our clinic directly.'
+          );
+        }
+        setIsSubmitting(false);
+        return;
+      }
+
       setIsSubmitting(false);
       setIsSubmitted(true);
+    } catch (err) {
+      console.warn('Booking network warning:', err);
+      setServerError('Network error connecting to booking service. Please call our clinic reception directly.');
+      setIsSubmitting(false);
     }
   };
 
@@ -78,13 +171,27 @@ export default function BookingModal({ isOpen, onClose, defaultReason = '', defa
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
-      <div className="bg-white rounded-2xl border border-slate-200 shadow-elevated max-w-xl w-full p-6 sm:p-8 relative my-8">
+    <div
+      className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) {
+          onClose();
+        }
+      }}
+    >
+      <div
+        ref={modalRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="booking-modal-title"
+        className="bg-white rounded-2xl border border-slate-200 shadow-elevated max-w-xl w-full p-6 sm:p-8 relative my-8"
+      >
         
         {/* Close Button */}
         <button
+          ref={closeButtonRef}
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 rounded-lg border border-slate-200 bg-white text-slate-500 hover:bg-slate-50 hover:text-slate-800 transition-colors"
+          className="absolute top-5 right-5 p-2 rounded-lg border border-slate-200 bg-white text-slate-500 hover:bg-slate-50 hover:text-slate-800 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-500"
           aria-label="Close Booking Window"
         >
           <X className="w-5 h-5" />
@@ -100,7 +207,7 @@ export default function BookingModal({ isOpen, onClose, defaultReason = '', defa
               Request Received
             </span>
 
-            <h3 className="text-2xl sm:text-3xl font-bold text-brand-950 font-display">
+            <h3 id="booking-modal-title" className="text-2xl sm:text-3xl font-bold text-brand-950 font-display">
               Consultation Request Logged
             </h3>
 
@@ -143,7 +250,7 @@ export default function BookingModal({ isOpen, onClose, defaultReason = '', defa
                   Sikandra, Agra
                 </span>
               </div>
-              <h3 className="text-2xl sm:text-3xl font-bold text-brand-950 font-display leading-tight">
+              <h3 id="booking-modal-title" className="text-2xl sm:text-3xl font-bold text-brand-950 font-display leading-tight">
                 Request a Consultation
               </h3>
               <p className="text-xs sm:text-sm text-slate-500 font-medium mt-1">
@@ -182,6 +289,13 @@ export default function BookingModal({ isOpen, onClose, defaultReason = '', defa
 
             {/* Appointment Form */}
             <form onSubmit={handleSubmit} className="space-y-4">
+              {serverError && (
+                <div className="p-3.5 rounded-xl bg-red-50 border border-red-200 text-xs text-red-700 flex items-start gap-2.5">
+                  <AlertCircle className="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
+                  <span>{serverError}</span>
+                </div>
+              )}
+
               {/* Patient Type Selector */}
               <div>
                 <label className="block text-xs font-bold text-slate-700 mb-1.5">
@@ -311,6 +425,9 @@ export default function BookingModal({ isOpen, onClose, defaultReason = '', defa
                     <option value="Evening (05:30 PM - 08:30 PM)">Evening (05:30 PM - 08:30 PM)</option>
                     <option value="Sunday Morning (10:30 AM - 01:00 PM)">Sunday Morning (10:30 AM - 01:00 PM)</option>
                   </select>
+                  {errors.preferredTime && (
+                    <p className="text-xs text-red-600 font-medium mt-1">{errors.preferredTime}</p>
+                  )}
                 </div>
               </div>
 
@@ -355,6 +472,9 @@ export default function BookingModal({ isOpen, onClose, defaultReason = '', defa
                     <option value="Second Opinion on Surgery">Second Opinion on Surgery</option>
                     <option value="General Orthopaedic Consultation">General Orthopaedic Consultation</option>
                   </select>
+                  {errors.consultationReason && (
+                    <p className="text-xs text-red-600 font-medium mt-1">{errors.consultationReason}</p>
+                  )}
                 </div>
               </div>
 

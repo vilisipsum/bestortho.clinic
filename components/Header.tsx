@@ -131,16 +131,16 @@ export default function Header({ onOpenBooking }: HeaderProps) {
             <div className="flex items-center gap-2 lg:hidden">
               <button
                 onClick={handleBookingClick}
-                className="btn-primary text-xs py-2 px-3.5 flex items-center gap-1.5 sm:hidden"
+                className="btn-primary text-xs min-h-[44px] min-w-[44px] px-3.5 flex items-center justify-center gap-1.5 sm:hidden"
                 aria-label="Book Consultation"
               >
-                <Calendar className="w-3.5 h-3.5" />
+                <Calendar className="w-4 h-4" />
                 <span>Book</span>
               </button>
 
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2.5 rounded-lg border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-brand-500"
+                className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-brand-500"
                 aria-expanded={mobileMenuOpen}
                 aria-label="Toggle Navigation Menu"
               >
@@ -162,7 +162,7 @@ export default function Header({ onOpenBooking }: HeaderProps) {
                 </span>
                 <button
                   onClick={() => setMobileMenuOpen(false)}
-                  className="p-2 rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
+                  className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-brand-500"
                   aria-label="Close Navigation Menu"
                 >
                   <X className="w-5 h-5" />

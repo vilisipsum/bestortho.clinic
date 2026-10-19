@@ -31,11 +31,24 @@ export const defaultMetadata: Metadata = {
   alternates: {
     canonical: siteConfig.domain,
   },
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
+  },
   openGraph: {
     title: `${siteConfig.brandName} | Dr. Gaurav Sharma Orthopaedic Clinic`,
     description: "Orthopaedic Care, Built Around Your Recovery. Outpatient consultations in Sikandra, Agra.",
     url: siteConfig.domain,
     siteName: siteConfig.brandName,
+    images: [
+      {
+        url: `${siteConfig.domain}/images/doctor-portrait.jpg`,
+        width: 1024,
+        height: 1024,
+        alt: `${doctorProfile.name} - ${doctorProfile.formalTitle}`,
+      },
+    ],
     locale: "en_IN",
     type: "website",
   },
@@ -43,6 +56,7 @@ export const defaultMetadata: Metadata = {
     card: "summary_large_image",
     title: `${siteConfig.brandName} | Dr. Gaurav Sharma Orthopaedic Clinic`,
     description: "Orthopaedic Care, Built Around Your Recovery. Sikandra, Agra, Uttar Pradesh.",
+    images: [`${siteConfig.domain}/images/doctor-portrait.jpg`],
   },
   robots: {
     index: true,
@@ -135,6 +149,7 @@ export function getClinicSchema() {
       name: doctorProfile.name,
       jobTitle: doctorProfile.formalTitle,
       description: `${doctorProfile.summary}`,
+      image: `${siteConfig.domain}/images/doctor-portrait.jpg`,
       worksFor: {
         "@id": `${siteConfig.domain}/#organization`,
       },

@@ -244,7 +244,7 @@ export default function InteractiveBodyGuide({ onOpenBooking }: InteractiveBodyG
                 aria-selected={isSelected}
                 aria-controls={`panel-${area.id}`}
                 onClick={() => setSelectedAreaId(area.id)}
-                className={`flex-shrink-0 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 ${
+                className={`flex-shrink-0 px-4 py-2.5 min-h-[44px] rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 ${
                   isSelected
                     ? 'bg-brand-900 text-white shadow-sm ring-2 ring-brand-900/20'
                     : 'bg-slate-100 text-slate-700 hover:bg-slate-200 hover:text-slate-900'
@@ -350,7 +350,7 @@ export default function InteractiveBodyGuide({ onOpenBooking }: InteractiveBodyG
                 <div className="pt-2 flex flex-col sm:flex-row gap-3">
                   <button
                     onClick={handleBookingClick}
-                    className="btn-accent-emerald text-xs py-3 px-5 flex items-center justify-center gap-2 w-full font-bold shadow-sm"
+                    className="btn-accent-emerald text-xs min-h-[44px] py-3.5 px-5 flex items-center justify-center gap-2 w-full font-bold shadow-sm"
                   >
                     <span>Book Evaluation for {selectedArea.iconLabel}</span>
                     <ArrowRight className="w-4 h-4" />

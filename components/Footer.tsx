@@ -35,9 +35,28 @@ export default function Footer() {
               </p>
             </div>
 
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 text-xs font-medium text-brand-100 self-start">
-              <ShieldCheck className="w-4 h-4 text-emerald-400" />
-              <span>Verified Local Medical Practice</span>
+            <div className="flex flex-wrap items-center gap-2 mt-4">
+              <a
+                href={siteConfig.googleBusinessProfileUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-4 py-2.5 min-h-[44px] rounded-full bg-white/10 hover:bg-white/20 text-xs font-medium text-brand-100 transition-colors"
+                title="Verified Google Business Profile & Patient Reviews"
+              >
+                <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                <span>Google Verified Practice & Reviews</span>
+                <ArrowUpRight className="w-3 h-3 text-brand-300" />
+              </a>
+              <a
+                href={siteConfig.googleKnowledgeGraphUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-4 py-2.5 min-h-[44px] rounded-full bg-white/10 hover:bg-white/20 text-xs font-medium text-brand-100 transition-colors"
+                title="Google Knowledge Graph Entity ID: /g/11cnc0vhf8"
+              >
+                <span>Knowledge Graph (/g/11cnc0vhf8)</span>
+                <ArrowUpRight className="w-3 h-3 text-brand-300" />
+              </a>
             </div>
           </div>
 
@@ -52,15 +71,38 @@ export default function Footer() {
                 <div>
                   <p className="font-semibold text-white">{siteConfig.primaryAddress.street}</p>
                   <p className="text-brand-100 text-xs mt-0.5">{siteConfig.locationSummary}</p>
-                  <a
-                    href={siteConfig.googleMapsUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-xs text-brand-200 font-semibold mt-1 hover:underline"
-                  >
-                    <span>View on Google Maps</span>
-                    <ArrowUpRight className="w-3 h-3" />
-                  </a>
+                  <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mt-2 text-xs text-brand-200 font-semibold">
+                    <a
+                      href={siteConfig.googleMapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 min-h-[44px] hover:underline hover:text-white transition-colors"
+                    >
+                      <span>Google Maps</span>
+                      <ArrowUpRight className="w-3 h-3" />
+                    </a>
+                    <span className="text-brand-400">•</span>
+                    <a
+                      href={siteConfig.googleBusinessProfileUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 min-h-[44px] hover:underline hover:text-white transition-colors"
+                    >
+                      <span>Google Business Profile & Reviews</span>
+                      <ArrowUpRight className="w-3 h-3" />
+                    </a>
+                    <span className="text-brand-400">•</span>
+                    <a
+                      href={siteConfig.googleKnowledgeGraphUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 min-h-[44px] hover:underline hover:text-white transition-colors"
+                      title="Google Knowledge Graph ID: /g/11cnc0vhf8"
+                    >
+                      <span>Knowledge Graph (/g/11cnc0vhf8)</span>
+                      <ArrowUpRight className="w-3 h-3" />
+                    </a>
+                  </div>
                 </div>
               </div>
 
