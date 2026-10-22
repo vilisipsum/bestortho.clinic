@@ -44,17 +44,18 @@ export default function Footer() {
                 title="Verified Google Business Profile & Patient Reviews"
               >
                 <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                <span>Google Verified Practice & Reviews</span>
+                <span>Google Verified Practice</span>
                 <ArrowUpRight className="w-3 h-3 text-brand-300" />
               </a>
               <a
-                href={siteConfig.googleKnowledgeGraphUrl}
+                href={siteConfig.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 px-4 py-2.5 min-h-[44px] rounded-full bg-white/10 hover:bg-white/20 text-xs font-medium text-brand-100 transition-colors"
-                title="Google Knowledge Graph Entity ID: /g/11cnc0vhf8"
+                title="Open Clinic Location Directly on Google Maps"
               >
-                <span>Knowledge Graph (/g/11cnc0vhf8)</span>
+                <MapPin className="w-4 h-4 text-brand-300" />
+                <span>View on Google Maps</span>
                 <ArrowUpRight className="w-3 h-3 text-brand-300" />
               </a>
             </div>
@@ -77,8 +78,10 @@ export default function Footer() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 min-h-[44px] hover:underline hover:text-white transition-colors"
+                      title="Open Exact Clinic Location on Google Maps"
                     >
-                      <span>Google Maps</span>
+                      <MapPin className="w-3.5 h-3.5 text-brand-300" />
+                      <span>Directions on Google Maps</span>
                       <ArrowUpRight className="w-3 h-3" />
                     </a>
                     <span className="text-brand-400">•</span>
@@ -87,19 +90,9 @@ export default function Footer() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 min-h-[44px] hover:underline hover:text-white transition-colors"
+                      title="Google Business Profile & Patient Reviews"
                     >
-                      <span>Google Business Profile & Reviews</span>
-                      <ArrowUpRight className="w-3 h-3" />
-                    </a>
-                    <span className="text-brand-400">•</span>
-                    <a
-                      href={siteConfig.googleKnowledgeGraphUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 min-h-[44px] hover:underline hover:text-white transition-colors"
-                      title="Google Knowledge Graph ID: /g/11cnc0vhf8"
-                    >
-                      <span>Knowledge Graph (/g/11cnc0vhf8)</span>
+                      <span>Google Reviews & Profile</span>
                       <ArrowUpRight className="w-3 h-3" />
                     </a>
                   </div>
