@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Phone, Calendar, ArrowRight, ShieldCheck, Stethoscope } from 'lucide-react';
+import { Menu, X, Phone, Calendar, ArrowRight, Stethoscope } from 'lucide-react';
 import { siteConfig } from '@/lib/content';
 
 interface HeaderProps {
@@ -25,7 +25,7 @@ export default function Header({ onOpenBooking }: HeaderProps) {
 
   const navLinks = [
     { label: 'About', href: '/about' },
-    { label: 'Doctor', href: '/about#credentials' },
+    { label: 'Doctor', href: '/credentials' },
     { label: 'Areas of Care', href: '/#areas-of-care' },
     { label: 'Patient Stories', href: '/patient-stories' },
     { label: 'Clinic', href: '/clinic' },
@@ -60,40 +60,40 @@ export default function Header({ onOpenBooking }: HeaderProps) {
       <header
         className={`sticky top-0 z-40 transition-all duration-200 ${
           isScrolled
-            ? 'bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm py-3'
-            : 'bg-white border-b border-slate-200/80 py-4'
+            ? 'bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm py-2.5 sm:py-3'
+            : 'bg-white border-b border-slate-200/80 py-3 sm:py-3.5'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between gap-2 sm:gap-4">
             {/* BRAND LOGO - EXACT STRING BestOrtho.clinic */}
             <Link
               href="/"
-              className="group flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-brand-500 rounded-lg"
+              className="group flex items-center gap-2.5 sm:gap-3 focus:outline-none focus:ring-2 focus:ring-brand-500 rounded-lg shrink-0"
               aria-label="BestOrtho.clinic Home"
             >
-              <div className="w-10 h-10 rounded-xl bg-brand-700 flex items-center justify-center font-bold text-white shadow-sm group-hover:bg-brand-800 transition-colors">
-                <Stethoscope className="w-5 h-5 text-white" />
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-brand-700 flex items-center justify-center font-bold text-white shadow-sm group-hover:bg-brand-800 transition-colors shrink-0">
+                <Stethoscope className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
               </div>
               <div className="flex flex-col">
-                <span className="text-xl sm:text-2xl font-bold tracking-tight text-brand-950 group-hover:text-brand-700 transition-colors select-none font-display">
+                <span className="text-lg sm:text-xl xl:text-2xl font-bold tracking-tight text-brand-950 group-hover:text-brand-700 transition-colors select-none font-display whitespace-nowrap leading-none mb-0.5">
                   BestOrtho.clinic
                 </span>
-                <span className="text-xs font-medium text-slate-500 hidden sm:block">
+                <span className="text-[11px] sm:text-xs font-medium text-slate-500 hidden sm:block whitespace-nowrap leading-tight">
                   Dr. Gaurav Sharma • Sikandra, Agra
                 </span>
               </div>
             </Link>
 
             {/* DESKTOP NAVIGATION */}
-            <nav className="hidden lg:flex items-center gap-1 xl:gap-2" aria-label="Main Navigation">
+            <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1 2xl:gap-1.5 shrink-0" aria-label="Main Navigation">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
                 return (
                   <Link
                     key={link.label}
                     href={link.href}
-                    className={`px-3.5 py-2 rounded-lg text-[15px] font-medium transition-colors ${
+                    className={`whitespace-nowrap px-2.5 xl:px-3 py-1.5 rounded-lg text-xs xl:text-[13.5px] 2xl:text-[14.5px] font-medium transition-colors ${
                       isActive
                         ? 'bg-brand-50 text-brand-700 font-semibold'
                         : 'text-slate-600 hover:text-brand-900 hover:bg-slate-50'
@@ -105,42 +105,51 @@ export default function Header({ onOpenBooking }: HeaderProps) {
               })}
             </nav>
 
-            {/* HEADER ACTIONS */}
-            <div className="hidden sm:flex items-center gap-3">
+            {/* HEADER ACTIONS (DESKTOP & TABLET) */}
+            <div className="hidden sm:flex items-center gap-2 xl:gap-3 shrink-0">
               <a
                 href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`}
-                className="hidden xl:inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-slate-200 bg-white text-slate-700 text-sm font-medium hover:bg-slate-50 hover:border-slate-300 transition-colors"
+                className="hidden 2xl:inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border border-slate-200 bg-white text-slate-700 text-xs font-medium hover:bg-slate-50 hover:border-slate-300 transition-colors whitespace-nowrap shrink-0"
                 title="Call Clinic"
               >
-                <Phone className="w-4 h-4 text-brand-600" />
-                <span>{siteConfig.phoneDisplay}</span>
+                <Phone className="w-3.5 h-3.5 text-brand-600 shrink-0" />
+                <span className="whitespace-nowrap">{siteConfig.phoneDisplay}</span>
               </a>
 
               {/* Desktop Booking CTA */}
               <button
                 onClick={handleBookingClick}
-                className="btn-primary text-sm py-2.5 px-5 flex items-center gap-2"
+                className="btn-primary text-xs xl:text-sm py-2 xl:py-2.5 px-3.5 xl:px-4.5 flex items-center justify-center gap-1.5 xl:gap-2 whitespace-nowrap shrink-0 shadow-sm"
                 aria-label="Book Consultation"
               >
-                <Calendar className="w-4 h-4" />
-                <span>Book Consultation</span>
+                <Calendar className="w-3.5 h-3.5 xl:w-4 xl:h-4 shrink-0" />
+                <span className="whitespace-nowrap">Book Consultation</span>
               </button>
             </div>
 
-            {/* MOBILE MENU TOGGLE & MOBILE QUICK BOOK */}
-            <div className="flex items-center gap-2 lg:hidden">
+            {/* MOBILE NAVIGATION ACTIONS (< 1024px) */}
+            <div className="flex items-center gap-2 lg:hidden shrink-0">
+              <a
+                href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`}
+                className="min-w-[40px] min-h-[40px] sm:min-w-[44px] sm:min-h-[44px] flex items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 hover:text-brand-700 transition-colors"
+                title="Call Clinic"
+                aria-label="Call Clinic Directly"
+              >
+                <Phone className="w-4 h-4 text-brand-600" />
+              </a>
+
               <button
                 onClick={handleBookingClick}
-                className="btn-primary text-xs min-h-[44px] min-w-[44px] px-3.5 flex items-center justify-center gap-1.5 sm:hidden"
+                className="btn-primary text-xs min-h-[40px] sm:min-h-[44px] px-3 sm:px-3.5 flex items-center justify-center gap-1.5 whitespace-nowrap shrink-0 sm:hidden"
                 aria-label="Book Consultation"
               >
-                <Calendar className="w-4 h-4" />
-                <span>Book</span>
+                <Calendar className="w-3.5 h-3.5 shrink-0" />
+                <span className="whitespace-nowrap">Book</span>
               </button>
 
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-brand-500"
+                className="min-w-[40px] min-h-[40px] sm:min-w-[44px] sm:min-h-[44px] flex items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-brand-500"
                 aria-expanded={mobileMenuOpen}
                 aria-label="Toggle Navigation Menu"
               >
@@ -156,10 +165,15 @@ export default function Header({ onOpenBooking }: HeaderProps) {
         <div className="lg:hidden fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm transition-opacity">
           <div className="fixed inset-y-0 right-0 max-w-sm w-full bg-white border-l border-slate-200 p-6 shadow-elevated flex flex-col justify-between overflow-y-auto">
             <div>
-              <div className="flex items-center justify-between pb-6 border-b border-slate-200">
-                <span className="text-xl font-bold text-brand-950 font-display">
-                  BestOrtho.clinic
-                </span>
+              <div className="flex items-center justify-between pb-5 border-b border-slate-200">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-lg bg-brand-700 flex items-center justify-center font-bold text-white shadow-sm">
+                    <Stethoscope className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="text-xl font-bold text-brand-950 font-display">
+                    BestOrtho.clinic
+                  </span>
+                </div>
                 <button
                   onClick={() => setMobileMenuOpen(false)}
                   className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-brand-500"
@@ -169,13 +183,13 @@ export default function Header({ onOpenBooking }: HeaderProps) {
                 </button>
               </div>
 
-              <div className="mt-6 flex flex-col gap-1.5">
+              <div className="mt-5 flex flex-col gap-1">
                 {navLinks.map((link) => (
                   <Link
                     key={link.label}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between px-4 py-3 rounded-xl text-slate-700 font-medium hover:bg-brand-50 hover:text-brand-700 transition-colors"
+                    className="flex items-center justify-between px-3.5 py-3 rounded-xl text-slate-700 font-medium hover:bg-brand-50 hover:text-brand-700 transition-colors"
                   >
                     <span>{link.label}</span>
                     <ArrowRight className="w-4 h-4 text-slate-400" />
@@ -184,13 +198,13 @@ export default function Header({ onOpenBooking }: HeaderProps) {
               </div>
             </div>
 
-            <div className="pt-8 border-t border-slate-200 flex flex-col gap-3">
+            <div className="pt-6 border-t border-slate-200 flex flex-col gap-3">
               <a
                 href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`}
-                className="btn-secondary text-sm py-3 flex items-center justify-center gap-2"
+                className="btn-secondary text-sm py-3 flex items-center justify-center gap-2 whitespace-nowrap"
               >
-                <Phone className="w-4 h-4 text-brand-600" />
-                <span>Call {siteConfig.phoneDisplay}</span>
+                <Phone className="w-4 h-4 text-brand-600 shrink-0" />
+                <span className="whitespace-nowrap">Call {siteConfig.phoneDisplay}</span>
               </a>
 
               <button
@@ -198,13 +212,13 @@ export default function Header({ onOpenBooking }: HeaderProps) {
                   setMobileMenuOpen(false);
                   handleBookingClick(e);
                 }}
-                className="btn-primary text-base py-3.5 flex items-center justify-center gap-2"
+                className="btn-primary text-base py-3.5 flex items-center justify-center gap-2 whitespace-nowrap"
                 aria-label="Book Consultation"
               >
-                <Calendar className="w-5 h-5" />
-                <span>Book Consultation</span>
+                <Calendar className="w-5 h-5 shrink-0" />
+                <span className="whitespace-nowrap">Book Consultation</span>
               </button>
-              <p className="text-xs text-center text-slate-500 mt-2 font-medium">
+              <p className="text-xs text-center text-slate-500 mt-1 font-medium">
                 Sikandra, Agra • Uttar Pradesh
               </p>
             </div>
