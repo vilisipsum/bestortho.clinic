@@ -53,27 +53,6 @@ export default function AboutPage() {
       {/* Practice Philosophy */}
       <PracticePhilosophy />
 
-      {/* Academic Verification Notice */}
-      <section className="py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="card-medical bg-slate-50 border border-slate-200 p-6 sm:p-8">
-            <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0 text-brand-700">
-                <ShieldCheck className="w-6 h-6" />
-              </div>
-              <div className="space-y-2">
-                <h3 className="text-xl font-bold text-brand-950 font-display">
-                  Public Credential Verification Standard
-                </h3>
-                <p className="text-sm text-slate-600 leading-relaxed max-w-xl">
-                  BestOrtho.clinic adheres to strict medical ethics standards. All academic records (including MBBS, postgraduate MS Orthopaedics, and State Medical Council registrations) are maintained with complete institutional documentation at the clinic reception. In compliance with medical practice regulations, no exaggerated surgical counts or unsubstantiated awards are published on this domain.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Booking CTA */}
       <BookingCTA onOpenBooking={() => setIsBookingOpen(true)} />
 

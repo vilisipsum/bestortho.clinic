@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import PatientStoriesSection from '@/components/PatientStoriesSection';
 import TestimonialCard from '@/components/TestimonialCard';
-import ConsentNotice from '@/components/ConsentNotice';
 import BookingCTA from '@/components/BookingCTA';
 import BookingModal from '@/components/BookingModal';
 import { ShieldCheck, Heart, UserCheck } from 'lucide-react';
@@ -51,11 +50,6 @@ export default function PatientStoriesPage() {
 
       {/* Testimonials */}
       <TestimonialCard />
-
-      {/* Consent & Ethics Notice */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ConsentNotice />
-      </div>
 
       {/* Booking CTA */}
       <BookingCTA onOpenBooking={() => setIsBookingOpen(true)} />

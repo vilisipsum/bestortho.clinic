@@ -160,21 +160,6 @@ export default function LocationCard({ onOpenBooking }: LocationCardProps) {
 
             </div>
 
-            {/* Emergency & Acute Trauma Notice */}
-            <div className="p-5 rounded-2xl bg-amber-50/60 border border-amber-200 flex items-start gap-4">
-              <div className="w-9 h-9 rounded-xl bg-amber-100 flex items-center justify-center flex-shrink-0 text-amber-800">
-                <AlertTriangle className="w-5 h-5" />
-              </div>
-              <div className="text-xs text-slate-700 space-y-1">
-                <h5 className="font-bold text-slate-900 text-xs">
-                  Acute Trauma & Emergency Clarification
-                </h5>
-                <p className="leading-relaxed">
-                  {siteConfig.emergencyPolicy}
-                </p>
-              </div>
-            </div>
-
           </div>
 
           {/* Right Column: Visual Map / Environmental Card */}

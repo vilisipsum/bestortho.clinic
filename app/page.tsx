@@ -14,8 +14,6 @@ import LocationCard from '@/components/LocationCard';
 import FAQAccordion from '@/components/FAQAccordion';
 import BookingCTA from '@/components/BookingCTA';
 import BookingModal from '@/components/BookingModal';
-import ConsentNotice from '@/components/ConsentNotice';
-import EmergencyNotice from '@/components/EmergencyNotice';
 import TestimonialCard from '@/components/TestimonialCard';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
@@ -113,18 +111,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 13. EMERGENCY NOTICE */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <EmergencyNotice />
-      </div>
-
       {/* 14. BOOKING CTA */}
       <BookingCTA onOpenBooking={() => handleOpenBooking()} />
-
-      {/* 15. CONSENT NOTICE */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ConsentNotice />
-      </div>
 
       {/* Interactive Booking Modal */}
       <BookingModal

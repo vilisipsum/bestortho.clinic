@@ -5,7 +5,6 @@ import Header from '@/components/Header';
 import LocationCard from '@/components/LocationCard';
 import BookingCTA from '@/components/BookingCTA';
 import BookingModal from '@/components/BookingModal';
-import EmergencyNotice from '@/components/EmergencyNotice';
 import { siteConfig } from '@/lib/content';
 import { MapPin, Clock, Phone, MessageCircle, FileText, CheckCircle2, Car, ShieldCheck } from 'lucide-react';
 
@@ -107,11 +106,6 @@ export default function ClinicPage() {
 
         </div>
       </section>
-
-      {/* Emergency Notice */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <EmergencyNotice />
-      </div>
 
       {/* Booking CTA */}
       <BookingCTA onOpenBooking={() => setIsBookingOpen(true)} />

@@ -361,14 +361,6 @@ export default function InteractiveBodyGuide({ onOpenBooking }: InteractiveBodyG
             </div>
 
           </div>
-
-          {/* Medical Transparency Note */}
-          <div className="mt-8 pt-6 border-t border-slate-200 text-xs text-slate-500 flex items-start gap-2.5">
-            <HelpCircle className="w-4 h-4 text-slate-400 flex-shrink-0 mt-0.5" />
-            <p className="leading-relaxed">
-              <strong>Medical Disclaimer:</strong> This symptom navigator is published purely for patient education and practice orientation. It is not an alternative to in-person medical evaluation. Outpatient orthopaedic consultations require clinical examination and physical imaging evaluation.
-            </p>
-          </div>
         </div>
 
       </div>

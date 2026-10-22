@@ -85,14 +85,6 @@ export default function VideoSection() {
           ))}
         </div>
 
-        {/* Video Ethics & Safety Disclaimer */}
-        <div className="mt-10 p-5 rounded-2xl bg-white border border-slate-200 shadow-subtle flex items-start gap-4 text-xs text-slate-600">
-          <ShieldCheck className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-          <p className="leading-relaxed">
-            <strong className="text-slate-900 font-semibold">Educational Video Standard:</strong> BestOrtho.clinic does not host graphic operative footage on public overview sections. All media content is curated strictly for patient understanding, post-injury guidance, and informed clinical decision-making.
-          </p>
-        </div>
-
       </div>
 
       {/* Video Modal Player / Preview */}

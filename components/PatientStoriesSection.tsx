@@ -56,31 +56,6 @@ export default function PatientStoriesSection({ maxItems = 3, showAllLink = true
           ))}
         </div>
 
-        {/* Ethics & Consent Policy Banner */}
-        <div className="mt-12 p-6 rounded-2xl bg-white border border-slate-200 shadow-card flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-start gap-4">
-            <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0 text-brand-700 mt-1">
-              <ShieldCheck className="w-5 h-5" />
-            </div>
-            <div>
-              <h3 className="text-base font-bold text-brand-950 font-display">
-                Patient Privacy & Media Ethics Notice
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-600 mt-0.5 leading-relaxed max-w-xl">
-                Every case published on BestOrtho.clinic has explicit written consent on file for educational representation. Clinical outcomes vary by age, compliance, severity, and individual biological factors.
-              </p>
-            </div>
-          </div>
-
-          <Link
-            href="/consent"
-            className="btn-secondary text-xs py-2.5 px-4 whitespace-nowrap flex items-center gap-1.5 self-start md:self-auto"
-          >
-            <FileCheck2 className="w-4 h-4" />
-            <span>Read Patient Media Policy</span>
-          </Link>
-        </div>
-
       </div>
     </section>
   );

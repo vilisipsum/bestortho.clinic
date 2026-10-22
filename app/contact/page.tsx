@@ -4,7 +4,6 @@ import React, { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Header from '@/components/Header';
 import LocationCard from '@/components/LocationCard';
-import EmergencyNotice from '@/components/EmergencyNotice';
 import { siteConfig } from '@/lib/content';
 import { validateBookingForm, BookingFormData } from '@/lib/validation';
 import { Phone, MessageCircle, Calendar, MapPin, CheckCircle2, Lock, ShieldCheck, Clock, AlertCircle } from 'lucide-react';
@@ -532,11 +531,6 @@ function ContactContent() {
 
       {/* Clinic Map & Directions Section */}
       <LocationCard />
-
-      {/* Emergency Notice */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <EmergencyNotice />
-      </div>
     </>
   );
 }
