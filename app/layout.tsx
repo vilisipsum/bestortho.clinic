@@ -4,6 +4,7 @@ import './globals.css';
 import { defaultMetadata, getClinicSchema } from '@/lib/seo';
 import Footer from '@/components/Footer';
 import MobileActionBar from '@/components/MobileActionBar';
+import { Analytics } from '@vercel/analytics/next';
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
@@ -56,6 +57,7 @@ export default function RootLayout({
 
         <Footer />
         <MobileActionBar />
+        <Analytics />
       </body>
     </html>
   );
