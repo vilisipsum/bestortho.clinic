@@ -17,7 +17,7 @@
 
 ## 3. Inpatient Surgical Care & Hospital Admissions
 - **Surgical Procedures**: Including Arthroscopy (Knee / Shoulder), Open Reduction & Internal Fixation (ORIF) for fractures, and Joint Reconstruction.
-- **Facility**: Elective and emergency surgeries are performed at accredited partner hospitals in Agra (including Agra Ortho & Trauma Care Center and Apex Multispeciality Hospital).
+- **Facility**: Elective and emergency surgical care is coordinated through accredited partner tertiary hospitals in Agra based on patient requirements and empanelment.
 - **Pricing**: Transparent surgical package estimation provided prior to admission based on room category, implant type, and hospital stay duration.
 
 ## 4. Health Insurance & Cashless TPA Policy

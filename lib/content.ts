@@ -241,44 +241,7 @@ export const doctorProfile = {
    HOSPITAL AFFILIATIONS
    ========================================================================== */
 
-export const hospitalAffiliations: HospitalAffiliation[] = [
-  {
-    id: "hosp-1",
-    name: "Agra Ortho & Trauma Care Center",
-    role: "Visiting Consultant Orthopaedic Surgeon",
-    location: "Sikandra Road, Agra",
-    opdSchedule: "By Referral & Scheduled Operating Hours",
-    hospitalLogoApproved: false, // Keep false until formal hospital permission is on file
-    approved: true,
-  },
-  {
-    id: "hosp-2",
-    name: "Apex Multispeciality Hospital",
-    role: "Associated Orthopaedic Specialist",
-    location: "Agra, Uttar Pradesh",
-    opdSchedule: "Evening Elective Admissions & Reviews",
-    hospitalLogoApproved: false, // Logo permission withheld per onboarding compliance
-    approved: true,
-  },
-  {
-    id: "hosp-3",
-    name: "F.H. Medical College & Hospital",
-    role: "Former Assistant Professor (Orthopaedics)",
-    location: "Near Agra / Tundla",
-    opdSchedule: "Academic & Clinical Faculty Background",
-    hospitalLogoApproved: false,
-    approved: true,
-  },
-  {
-    id: "hosp-4",
-    name: "Moolchand Hospital, Agra",
-    role: "Former Consultant Orthopaedic Surgeon",
-    location: "Agra, Uttar Pradesh",
-    opdSchedule: "Consulting Practice (2016–2019)",
-    hospitalLogoApproved: false,
-    approved: true,
-  },
-];
+export const hospitalAffiliations: HospitalAffiliation[] = [];
 
 /* ==========================================================================
    AREAS OF CARE

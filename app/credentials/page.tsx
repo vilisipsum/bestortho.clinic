@@ -5,7 +5,7 @@ import Header from '@/components/Header';
 import CredentialCards from '@/components/CredentialCards';
 import BookingCTA from '@/components/BookingCTA';
 import BookingModal from '@/components/BookingModal';
-import { doctorProfile, hospitalAffiliations, siteConfig } from '@/lib/content';
+import { doctorProfile, siteConfig } from '@/lib/content';
 import { Award, ShieldCheck, GraduationCap, Building2, CheckCircle2, FileText, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
@@ -116,43 +116,73 @@ export default function CredentialsPage() {
               </div>
             </div>
 
-            {/* Hospital Consultant History */}
+            {/* Professional Memberships & Clinical Scope */}
             <div className="card-medical p-6 sm:p-8 bg-slate-50 border border-slate-200 flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-brand-700 font-bold">
-                    <Building2 className="w-5 h-5" />
+                  <div className="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-700 font-bold">
+                    <ShieldCheck className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="pill-badge bg-blue-50 text-brand-700 border-blue-200 text-xs">
-                      Consultant Practice
+                    <span className="pill-badge bg-emerald-50 text-emerald-700 border-emerald-200 text-xs">
+                      Professional Societies
                     </span>
                     <h3 className="text-xl font-bold text-brand-950 font-display mt-0.5">
-                      Hospital Consultant Appointments
+                      Associations & Clinical Experience
                     </h3>
                   </div>
                 </div>
 
                 <div className="space-y-3">
-                  {hospitalAffiliations.map((hosp) => (
-                    <div key={hosp.id} className="p-4 rounded-xl bg-white border border-slate-200/80">
-                      <div className="flex items-start justify-between gap-2">
-                        <div>
-                          <p className="font-bold text-brand-950 text-sm">{hosp.name}</p>
-                          <p className="text-xs font-semibold text-brand-700 mt-0.5">{hosp.role}</p>
-                        </div>
-                        <span className="pill-badge bg-slate-100 text-slate-700 border-slate-200 text-[10px] whitespace-nowrap">
-                          {hosp.location}
-                        </span>
+                  <div className="p-4 rounded-xl bg-white border border-slate-200/80">
+                    <div className="flex items-start justify-between gap-2">
+                      <div>
+                        <p className="font-bold text-brand-950 text-sm">Indian Orthopaedic Association (IOA)</p>
+                        <p className="text-xs font-semibold text-emerald-700 mt-0.5">Life Member • LM9633</p>
                       </div>
-                      <p className="text-xs text-slate-500 mt-1.5">{hosp.opdSchedule}</p>
+                      <span className="pill-badge bg-emerald-50 text-emerald-700 border-emerald-200 text-[10px] whitespace-nowrap">
+                        Verified
+                      </span>
                     </div>
-                  ))}
+                    <p className="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                      Active life membership in the premier national association for orthopaedic surgeons in India.
+                    </p>
+                  </div>
+
+                  <div className="p-4 rounded-xl bg-white border border-slate-200/80">
+                    <div className="flex items-start justify-between gap-2">
+                      <div>
+                        <p className="font-bold text-brand-950 text-sm">Uttar Pradesh Orthopaedic Association</p>
+                        <p className="text-xs font-semibold text-brand-700 mt-0.5">State Chapter Member</p>
+                      </div>
+                      <span className="pill-badge bg-blue-50 text-brand-700 border-blue-200 text-[10px] whitespace-nowrap">
+                        UPOA
+                      </span>
+                    </div>
+                    <p className="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                      Participation in state-level continuous surgical education and evidence-based orthopaedic guidelines.
+                    </p>
+                  </div>
+
+                  <div className="p-4 rounded-xl bg-white border border-slate-200/80">
+                    <div className="flex items-start justify-between gap-2">
+                      <div>
+                        <p className="font-bold text-brand-950 text-sm">20+ Years Outpatient Musculoskeletal Care</p>
+                        <p className="text-xs font-semibold text-slate-600 mt-0.5">Sikandra, Agra, Uttar Pradesh</p>
+                      </div>
+                      <span className="pill-badge bg-slate-100 text-slate-700 border-slate-200 text-[10px] whitespace-nowrap">
+                        Active Practice
+                      </span>
+                    </div>
+                    <p className="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                      Dedicated clinical care in joint preservation, fracture reduction, knee & shoulder evaluation, and conservative recovery.
+                    </p>
+                  </div>
                 </div>
               </div>
 
               <div className="mt-6 pt-4 border-t border-slate-200 text-xs text-slate-500">
-                Inpatient surgical admissions and emergency interventions managed through accredited partner hospitals.
+                Official medical society registrations on active professional file.
               </div>
             </div>
 

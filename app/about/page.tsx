@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import DoctorProfile from '@/components/DoctorProfile';
 import PracticePhilosophy from '@/components/PracticePhilosophy';
-import HospitalAffiliations from '@/components/HospitalAffiliations';
 import BookingCTA from '@/components/BookingCTA';
 import BookingModal from '@/components/BookingModal';
 import { doctorProfile, siteConfig } from '@/lib/content';
@@ -53,9 +52,6 @@ export default function AboutPage() {
 
       {/* Practice Philosophy */}
       <PracticePhilosophy />
-
-      {/* Hospital Affiliations */}
-      <HospitalAffiliations />
 
       {/* Academic Verification Notice */}
       <section className="py-12 bg-white">

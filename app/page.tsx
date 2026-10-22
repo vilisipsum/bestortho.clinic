@@ -10,7 +10,6 @@ import InteractiveBodyGuide from '@/components/InteractiveBodyGuide';
 import AreasOfCare from '@/components/AreasOfCare';
 import PatientStoriesSection from '@/components/PatientStoriesSection';
 import VideoSection from '@/components/VideoSection';
-import HospitalAffiliations from '@/components/HospitalAffiliations';
 import LocationCard from '@/components/LocationCard';
 import FAQAccordion from '@/components/FAQAccordion';
 import BookingCTA from '@/components/BookingCTA';
@@ -81,9 +80,6 @@ export default function HomePage() {
 
       {/* 9. EDUCATIONAL VIDEOS */}
       <VideoSection />
-
-      {/* 10. HOSPITAL AFFILIATIONS */}
-      <HospitalAffiliations />
 
       {/* 11. CLINIC / LOCATION */}
       <LocationCard onOpenBooking={() => handleOpenBooking()} />
