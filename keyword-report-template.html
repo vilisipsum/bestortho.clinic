@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SEO & GBP Keyword Optimization Blueprint — BestOrtho.clinic</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+    @page {
+      size: A4 portrait;
+      margin: 11mm 13mm;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #1e293b;
+      background: #ffffff;
+      line-height: 1.48;
+      font-size: 11px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    h1, h2, h3, h4, .font-display {
+      font-family: 'Outfit', sans-serif;
+      letter-spacing: -0.02em;
+    }
+
+    /* Colors */
+    .bg-navy { background-color: #0A1C33; }
+    .bg-navy-dark { background-color: #061122; }
+    .bg-navy-subtle { background-color: #F0F5FA; }
+    .text-navy { color: #0A1C33; }
+    .text-navy-light { color: #94A3B8; }
+    .text-brand-blue { color: #2563EB; }
+    .bg-brand-blue { background-color: #2563EB; }
+    .text-emerald { color: #059669; }
+    .bg-emerald { background-color: #059669; }
+    .bg-emerald-subtle { background-color: #ECFDF5; }
+    .border-emerald { border-color: #A7F3D0; }
+    .text-amber { color: #D97706; }
+    .bg-amber-subtle { background-color: #FEF3C7; }
+    .border-amber { border-color: #FDE68A; }
+
+    /* Layout & Cards */
+    .header-bar {
+      background: linear-gradient(135deg, #0A1C33 0%, #15325B 100%);
+      color: #ffffff;
+      padding: 22px 26px;
+      border-radius: 12px;
+      margin-bottom: 16px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2.5px 8px;
+      border-radius: 9999px;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .badge-emerald {
+      background: #ECFDF5;
+      color: #047857;
+      border: 1px solid #A7F3D0;
+    }
+
+    .badge-blue {
+      background: #EFF6FF;
+      color: #1D4ED8;
+      border: 1px solid #BFDBFE;
+    }
+
+    .badge-navy {
+      background: #1E293B;
+      color: #F1F5F9;
+    }
+
+    .badge-purple {
+      background: #FAF5FF;
+      color: #7E22CE;
+      border: 1px solid #E9D5FF;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #E2E8F0;
+      border-radius: 10px;
+      padding: 13px 15px;
+      margin-bottom: 13px;
+    }
+
+    .card-navy {
+      background: #0A1C33;
+      color: #ffffff;
+      border: none;
+      border-radius: 10px;
+      padding: 13px 15px;
+      margin-bottom: 13px;
+    }
+
+    .card-subtle {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 8px 0;
+      font-size: 10px;
+    }
+
+    th {
+      background: #0A1C33;
+      color: #ffffff;
+      text-align: left;
+      padding: 7px 9px;
+      font-weight: 600;
+      font-family: 'Outfit', sans-serif;
+      letter-spacing: 0.01em;
+    }
+
+    th:first-child { border-top-left-radius: 6px; }
+    th:last-child { border-top-right-radius: 6px; }
+
+    td {
+      padding: 6.5px 9px;
+      border-bottom: 1px solid #E2E8F0;
+      vertical-align: middle;
+    }
+
+    tr:nth-child(even) td {
+      background: #F8FAFC;
+    }
+
+    .tag-pill {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 8.5px;
+      font-weight: 600;
+      margin: 1.5px 2px 1.5px 0;
+      background: #EEF2F6;
+      color: #334155;
+    }
+
+    .tag-pill-blue { background: #DBEAFE; color: #1E40AF; }
+    .tag-pill-green { background: #D1FAE5; color: #065F46; }
+    .tag-pill-amber { background: #FEF3C7; color: #92400E; }
+    .tag-pill-purple { background: #EDE9FE; color: #5B21B6; }
+
+    .page-break {
+      page-break-after: always;
+      break-after: page;
+    }
+
+    .footer-bar {
+      margin-top: 14px;
+      padding-top: 8px;
+      border-top: 1px solid #E2E8F0;
+      display: flex;
+      justify-content: space-between;
+      color: #64748B;
+      font-size: 8.5px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= PAGE 1 ================= -->
+  <div class="page-container">
+    <div class="header-bar">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+        <div>
+          <div style="display: flex; align-items: center; gap: 7px; margin-bottom: 5px;">
+            <span class="badge badge-emerald">KEYWORD STRATEGY BLUEPRINT</span>
+            <span class="badge badge-navy">LOCAL SEO + GBP + AI SEARCH</span>
+          </div>
+          <h1 style="font-size: 22px; font-weight: 700; margin-bottom: 3px;">Search Intent & Keyword Architecture</h1>
+          <p style="color: #94A3B8; font-size: 11px;">
+            Comprehensive Target Keyword Master Plan for <strong>BestOrtho.clinic</strong> &amp; <strong>Google Business Profile</strong>
+          </p>
+        </div>
+        <div style="text-align: right; background: rgba(255,255,255,0.07); padding: 7px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.12);">
+          <div style="font-size: 13px; font-weight: 700; color: #60A5FA;">Dr. Gaurav Sharma</div>
+          <div style="font-size: 9.5px; color: #CBD5E1;">MBBS, MS Orthopaedics (20+ Yrs Exp)</div>
+          <div style="font-size: 8.5px; color: #94A3B8;">Sikandra, Agra, Uttar Pradesh</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Strategy Summary Cards -->
+    <div class="grid-4" style="margin-bottom: 12px;">
+      <div class="card" style="margin-bottom: 0; padding: 10px 12px; border-left: 3px solid #2563EB;">
+        <div style="font-size: 9px; color: #64748B; text-transform: uppercase; font-weight: 700;">Google Maps / 3-Pack</div>
+        <div style="font-size: 16px; font-weight: 800; color: #0A1C33; margin: 2px 0;">35+ Local Terms</div>
+        <div style="font-size: 8.5px; color: #059669; font-weight: 600;">Sikandra &amp; Agra Local Area</div>
+      </div>
+      <div class="card" style="margin-bottom: 0; padding: 10px 12px; border-left: 3px solid #059669;">
+        <div style="font-size: 9px; color: #64748B; text-transform: uppercase; font-weight: 700;">Website Organic SEO</div>
+        <div style="font-size: 16px; font-weight: 800; color: #0A1C33; margin: 2px 0;">65+ Keywords</div>
+        <div style="font-size: 8.5px; color: #059669; font-weight: 600;">15 Prerendered Routes</div>
+      </div>
+      <div class="card" style="margin-bottom: 0; padding: 10px 12px; border-left: 3px solid #7C3AED;">
+        <div style="font-size: 9px; color: #64748B; text-transform: uppercase; font-weight: 700;">AEO / AI Search Prompts</div>
+        <div style="font-size: 16px; font-weight: 800; color: #0A1C33; margin: 2px 0;">20+ Triggers</div>
+        <div style="font-size: 8.5px; color: #7C3AED; font-weight: 600;">ChatGPT, Perplexity &amp; AIO</div>
+      </div>
+      <div class="card" style="margin-bottom: 0; padding: 10px 12px; border-left: 3px solid #D97706;">
+        <div style="font-size: 9px; color: #64748B; text-transform: uppercase; font-weight: 700;">Search Intent Mix</div>
+        <div style="font-size: 16px; font-weight: 800; color: #0A1C33; margin: 2px 0;">70% High-Intent</div>
+        <div style="font-size: 8.5px; color: #D97706; font-weight: 600;">Direct OPD Appointments</div>
+      </div>
+    </div>
+
+    <!-- Section 1: The Patient Search Journey in Agra -->
+    <div class="card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+        <h2 style="font-size: 13px; font-weight: 700; color: #0A1C33;">1. Patient Search Intent Architecture in Agra</h2>
+        <span class="badge badge-blue">Multi-Channel Patient Discovery</span>
+      </div>
+      <p style="color: #475569; font-size: 10px; margin-bottom: 10px;">
+        Orthopaedic patient queries fall into four distinct discovery channels. The website and Google Business Profile are architected to capture patients at every decision point:
+      </p>
+      <div class="grid-4" style="gap: 8px;">
+        <div style="background: #F1F5F9; padding: 8px; border-radius: 6px;">
+          <div style="font-weight: 700; color: #0A1C33; font-size: 9.5px; margin-bottom: 3px;">📍 Urgent / Emergency</div>
+          <div style="color: #64748B; font-size: 8.5px; line-height: 1.35;">"Fracture clinic near me", "Emergency plaster doctor Sikandra"</div>
+          <div style="color: #2563EB; font-weight: 600; font-size: 8px; margin-top: 4px;">Channel: GBP 1-Click Call</div>
+        </div>
+        <div style="background: #F1F5F9; padding: 8px; border-radius: 6px;">
+          <div style="font-weight: 700; color: #0A1C33; font-size: 9.5px; margin-bottom: 3px;">🎯 Specialist Evaluation</div>
+          <div style="color: #64748B; font-size: 8.5px; line-height: 1.35;">"Knee arthritis doctor Agra", "Rotator cuff pain specialist"</div>
+          <div style="color: #059669; font-weight: 600; font-size: 8px; margin-top: 4px;">Channel: Condition Pages</div>
+        </div>
+        <div style="background: #F1F5F9; padding: 8px; border-radius: 6px;">
+          <div style="font-weight: 700; color: #0A1C33; font-size: 9.5px; margin-bottom: 3px;">⭐ Trust & Verification</div>
+          <div style="color: #64748B; font-size: 8.5px; line-height: 1.35;">"Dr Gaurav Sharma Ortho review", "MS Ortho doctor in Agra"</div>
+          <div style="color: #7C3AED; font-weight: 600; font-size: 8px; margin-top: 4px;">Channel: /credentials Page</div>
+        </div>
+        <div style="background: #F1F5F9; padding: 8px; border-radius: 6px;">
+          <div style="font-weight: 700; color: #0A1C33; font-size: 9.5px; margin-bottom: 3px;">🤖 Conversational AI</div>
+          <div style="color: #64748B; font-size: 8.5px; line-height: 1.35;">"Can knee arthritis be cured without surgery in Agra?"</div>
+          <div style="color: #D97706; font-weight: 600; font-size: 8px; margin-top: 4px;">Channel: /llms.txt + FAQ</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2: GBP Category & Listing Strategy -->
+    <div class="card" style="margin-bottom: 0;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+        <h2 style="font-size: 13px; font-weight: 700; color: #0A1C33;">2. Google Business Profile (GBP) Category &amp; Bio Keywords</h2>
+        <span class="badge badge-emerald">Google Maps Optimization</span>
+      </div>
+      <div class="grid-2" style="gap: 10px; margin-bottom: 8px;">
+        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; padding: 9px; border-radius: 7px;">
+          <div style="font-weight: 700; color: #0A1C33; font-size: 10px; margin-bottom: 5px;">GBP Primary &amp; Secondary Categories</div>
+          <div style="margin-bottom: 4px;"><span class="tag-pill tag-pill-blue">Primary</span> <strong>Orthopedic clinic</strong> <span style="color:#64748B; font-size:8.5px;">(Highest local search volume)</span></div>
+          <div style="margin-bottom: 2px;"><span class="tag-pill">Secondary</span> <strong>Orthopedic surgeon</strong></div>
+          <div style="margin-bottom: 2px;"><span class="tag-pill">Secondary</span> <strong>Knee replacement surgeon</strong> <span style="color:#64748B; font-size:8.5px;">(Consultation &amp; evaluation)</span></div>
+          <div style="margin-bottom: 2px;"><span class="tag-pill">Secondary</span> <strong>Sports medicine clinic</strong></div>
+          <div><span class="tag-pill">Secondary</span> <strong>Physical therapist</strong> <span style="color:#64748B; font-size:8.5px;">(Rehabilitation focus)</span></div>
+        </div>
+        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; padding: 9px; border-radius: 7px;">
+          <div style="font-weight: 700; color: #0A1C33; font-size: 10px; margin-bottom: 5px;">GBP 750-Char Bio Keyword Density</div>
+          <p style="font-size: 9px; color: #475569; line-height: 1.4;">
+            The profile description directly weaves in: <em>"Dr. Gaurav Sharma", "20+ years clinical experience", "MBBS, MS Orthopaedics", "knee pain &amp; joint preservation", "frozen shoulder", "sports ligament injury (ACL/Meniscus)", "fracture plaster casting", "Sikandra", "Bodla", "Avas Vikas Colony", "Agra".</em>
+          </p>
+          <div style="margin-top: 5px; font-size: 8.5px; color: #059669; font-weight: 600;">
+            ✓ 100% compliant with Google Name/Spam guidelines (no keyword stuffing in business title).
+          </div>
+        </div>
+      </div>
+
+      <div style="font-weight: 700; color: #0A1C33; font-size: 10px; margin-bottom: 4px;">GBP 6 Core Services Menu (Keywords with Direct Fee Transparency):</div>
+      <table style="margin-top: 2px;">
+        <thead>
+          <tr>
+            <th style="width: 28%;">Service Item on GBP</th>
+            <th style="width: 27%;">Target Search Queries</th>
+            <th style="width: 33%;">Descriptive Algorithmic Keyword String</th>
+            <th style="width: 12%;">OPD Fee</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Knee Pain &amp; Osteoarthritis Care</strong></td>
+            <td>Knee pain doctor Agra, joint swelling Sikandra</td>
+            <td>Clinical joint evaluation, non-surgical osteoarthritis care, knee effusion management</td>
+            <td><strong>₹500</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Shoulder &amp; Rotator Cuff Care</strong></td>
+            <td>Frozen shoulder doctor Agra, rotator cuff strain</td>
+            <td>Adhesive capsulitis treatment, impingement relief, shoulder mobilization exercises</td>
+            <td><strong>₹500</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Sports Injury &amp; Ligament Care</strong></td>
+            <td>ACL tear specialist Agra, meniscus injury clinic</td>
+            <td>Acute joint twist workup, ACL/PCL sprain grading, sports return protocols</td>
+            <td><strong>₹500</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Fracture &amp; Trauma Management</strong></td>
+            <td>Bone fracture plaster Agra, hairline crack clinic</td>
+            <td>Emergency fracture reduction, rigid plaster/fiberglass casting, healing monitoring</td>
+            <td><strong>₹500</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Minimally Invasive Arthroscopy</strong></td>
+            <td>Arthroscopy surgeon Agra, keyhole knee surgery</td>
+            <td>Diagnostic knee arthroscopy evaluation, lavage, internal joint inspection</td>
+            <td><strong>₹500</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Orthopaedic Rehabilitation</strong></td>
+            <td>Physiotherapy guidance Agra, joint stiffness</td>
+            <td>Post-injury strengthening exercises, ergonomic guidance, mobility restoration</td>
+            <td><strong>₹500</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="footer-bar">
+      <div>BestOrtho.clinic — Keyword Architecture &amp; Local Search Strategy</div>
+      <div>Confidential Client Document | Dr. Gaurav Sharma Orthopaedic Clinic | Page 1 of 3</div>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- ================= PAGE 2 ================= -->
+  <div class="page-container">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #0A1C33; padding-bottom: 8px; margin-bottom: 14px;">
+      <div>
+        <h2 style="font-size: 15px; font-weight: 700; color: #0A1C33;">3. Clinical Service Keyword Clusters &amp; Local Geo-Modifiers</h2>
+        <p style="color: #64748B; font-size: 9.5px;">Granular Search Terms Targeted Across Website Meta, Headings, and Content Clusters</p>
+      </div>
+      <span class="badge badge-emerald">ON-PAGE &amp; LOCAL SEO</span>
+    </div>
+
+    <!-- 4 Clinical Service Quadrants -->
+    <div class="grid-2" style="gap: 11px; margin-bottom: 12px;">
+      <!-- Quadrant 1: Knee & Joint Care -->
+      <div class="card-subtle" style="border-top: 3px solid #2563EB;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+          <h3 style="font-size: 11px; font-weight: 700; color: #0A1C33;">A. Knee Pain &amp; Osteoarthritis Cluster</h3>
+          <span class="tag-pill tag-pill-blue">High Volume</span>
+        </div>
+        <p style="font-size: 9px; color: #475569; margin-bottom: 6px;">Targets patients with mobility difficulty, chronic morning stiffness, or seeking alternatives to knee replacement.</p>
+        <div style="margin-bottom: 6px;">
+          <div style="font-size: 8.5px; font-weight: 700; color: #1E40AF; text-transform: uppercase;">Primary Keywords:</div>
+          <span class="tag-pill">knee pain doctor in Agra</span>
+          <span class="tag-pill">knee specialist Sikandra</span>
+          <span class="tag-pill">osteoarthritis doctor Agra</span>
+          <span class="tag-pill">joint pain clinic near me</span>
+          <span class="tag-pill">knee swelling treatment</span>
+        </div>
+        <div>
+          <div style="font-size: 8.5px; font-weight: 700; color: #1E40AF; text-transform: uppercase;">Long-Tail &amp; High-Intent:</div>
+          <span class="tag-pill">knee pain while climbing stairs doctor</span>
+          <span class="tag-pill">non surgical knee treatment Agra</span>
+          <span class="tag-pill">knee cartilage wear consultation</span>
+          <span class="tag-pill">knee joint stiffness morning relief</span>
+        </div>
+      </div>
+
+      <!-- Quadrant 2: Shoulder & Rotator Cuff -->
+      <div class="card-subtle" style="border-top: 3px solid #059669;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+          <h3 style="font-size: 11px; font-weight: 700; color: #0A1C33;">B. Shoulder &amp; Rotator Cuff Cluster</h3>
+          <span class="tag-pill tag-pill-green">High Intent</span>
+        </div>
+        <p style="font-size: 9px; color: #475569; margin-bottom: 6px;">Captures patients experiencing sleep disruption, overhead lifting pain, or restricted arm movement.</p>
+        <div style="margin-bottom: 6px;">
+          <div style="font-size: 8.5px; font-weight: 700; color: #065F46; text-transform: uppercase;">Primary Keywords:</div>
+          <span class="tag-pill">shoulder pain doctor Agra</span>
+          <span class="tag-pill">frozen shoulder specialist Agra</span>
+          <span class="tag-pill">rotator cuff pain clinic</span>
+          <span class="tag-pill">shoulder stiffness treatment</span>
+          <span class="tag-pill">shoulder specialist Sikandra</span>
+        </div>
+        <div>
+          <div style="font-size: 8.5px; font-weight: 700; color: #065F46; text-transform: uppercase;">Long-Tail &amp; High-Intent:</div>
+          <span class="tag-pill">unable to lift arm shoulder doctor</span>
+          <span class="tag-pill">night pain shoulder sleep doctor</span>
+          <span class="tag-pill">adhesive capsulitis treatment Agra</span>
+          <span class="tag-pill">rotator cuff strain recovery guidance</span>
+        </div>
+      </div>
+
+      <!-- Quadrant 3: Sports Injuries & Ligaments -->
+      <div class="card-subtle" style="border-top: 3px solid #7C3AED;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+          <h3 style="font-size: 11px; font-weight: 700; color: #0A1C33;">C. Sports Injuries &amp; Ligament (ACL) Cluster</h3>
+          <span class="tag-pill tag-pill-purple">Youth &amp; Athletic</span>
+        </div>
+        <p style="font-size: 9px; color: #475569; margin-bottom: 6px;">Targets young athletes, runners, gym-goers, and accident victims with joint instability or sprains.</p>
+        <div style="margin-bottom: 6px;">
+          <div style="font-size: 8.5px; font-weight: 700; color: #5B21B6; text-transform: uppercase;">Primary Keywords:</div>
+          <span class="tag-pill">sports injury doctor Agra</span>
+          <span class="tag-pill">ACL tear doctor in Agra</span>
+          <span class="tag-pill">ligament injury specialist Sikandra</span>
+          <span class="tag-pill">meniscus tear doctor Agra</span>
+          <span class="tag-pill">ankle twist doctor near me</span>
+        </div>
+        <div>
+          <div style="font-size: 8.5px; font-weight: 700; color: #5B21B6; text-transform: uppercase;">Long-Tail &amp; High-Intent:</div>
+          <span class="tag-pill">knee giving way after sports injury</span>
+          <span class="tag-pill">conservative ACL tear treatment Agra</span>
+          <span class="tag-pill">athletic return to sport rehabilitation</span>
+          <span class="tag-pill">diagnostic knee arthroscopy Agra</span>
+        </div>
+      </div>
+
+      <!-- Quadrant 4: Fracture & Trauma Management -->
+      <div class="card-subtle" style="border-top: 3px solid #D97706;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+          <h3 style="font-size: 11px; font-weight: 700; color: #0A1C33;">D. Fracture Care &amp; Casting Cluster</h3>
+          <span class="tag-pill tag-pill-amber">Immediate Walk-in</span>
+        </div>
+        <p style="font-size: 9px; color: #475569; margin-bottom: 6px;">Captures sudden household falls, slip-and-fall trauma, and emergency fracture plaster requirements.</p>
+        <div style="margin-bottom: 6px;">
+          <div style="font-size: 8.5px; font-weight: 700; color: #92400E; text-transform: uppercase;">Primary Keywords:</div>
+          <span class="tag-pill">bone fracture doctor Agra</span>
+          <span class="tag-pill">plaster clinic in Sikandra</span>
+          <span class="tag-pill">fiberglass cast doctor Agra</span>
+          <span class="tag-pill">hand fracture doctor Bodla</span>
+          <span class="tag-pill">fracture doctor near me</span>
+        </div>
+        <div>
+          <div style="font-size: 8.5px; font-weight: 700; color: #92400E; text-transform: uppercase;">Long-Tail &amp; High-Intent:</div>
+          <span class="tag-pill">hairline fracture diagnosis Agra</span>
+          <span class="tag-pill">urgent plaster cast removal and review</span>
+          <span class="tag-pill">wrist fracture splint immobilisation</span>
+          <span class="tag-pill">elderly fall hip fracture evaluation</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4: Hyper-Local Catchment Geography -->
+    <div class="card" style="margin-bottom: 0;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 7px;">
+        <h2 style="font-size: 13px; font-weight: 700; color: #0A1C33;">4. Hyper-Local Geographic Modifiers (Agra Micro-Markets)</h2>
+        <span class="badge badge-navy">Local Map Proximity</span>
+      </div>
+      <p style="color: #475569; font-size: 9.5px; margin-bottom: 8px;">
+        Patients search by specific neighborhood, colony, landmark, and road names. These geo-modifiers are embedded into page titles, meta descriptions, image ALT text, and Schema geo-coordinates:
+      </p>
+      <div class="grid-3" style="gap: 8px;">
+        <div style="background: #F1F5F9; padding: 7px 9px; border-radius: 6px;">
+          <div style="font-weight: 700; color: #0A1C33; font-size: 9.5px; margin-bottom: 3px;">📍 Primary Zone (0–3 km)</div>
+          <div style="font-size: 8.5px; color: #475569; line-height: 1.35;">
+            • Sikandra, Agra<br/>
+            • Avas Vikas Colony (Sector 12A, 14, 16)<br/>
+            • Bodla &amp; Bodla-Sikandra Road<br/>
+            • Opp. Bhawna Clarks / Paras Pearls
+          </div>
+        </div>
+        <div style="background: #F1F5F9; padding: 7px 9px; border-radius: 6px;">
+          <div style="font-weight: 700; color: #0A1C33; font-size: 9.5px; margin-bottom: 3px;">🚗 Secondary Catchment (3–8 km)</div>
+          <div style="font-size: 8.5px; color: #475569; line-height: 1.35;">
+            • Dayalbagh &amp; Kamla Nagar<br/>
+            • Shahganj &amp; Lohamandi<br/>
+            • Paschimpuri &amp; Shastripuram<br/>
+            • Karkunj Road &amp; Runakta
+          </div>
+        </div>
+        <div style="background: #F1F5F9; padding: 7px 9px; border-radius: 6px;">
+          <div style="font-weight: 700; color: #0A1C33; font-size: 9.5px; margin-bottom: 3px;">🏥 Regional Highways &amp; Outstation</div>
+          <div style="font-size: 8.5px; color: #475569; line-height: 1.35;">
+            • NH-19 (Delhi–Agra Highway)<br/>
+            • Mathura Road corridor<br/>
+            • Farah &amp; Keetham belt<br/>
+            • Western Agra sub-districts
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <div>BestOrtho.clinic — Keyword Architecture &amp; Local Search Strategy</div>
+      <div>Confidential Client Document | Dr. Gaurav Sharma Orthopaedic Clinic | Page 2 of 3</div>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- ================= PAGE 3 ================= -->
+  <div class="page-container">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #0A1C33; padding-bottom: 8px; margin-bottom: 12px;">
+      <div>
+        <h2 style="font-size: 15px; font-weight: 700; color: #0A1C33;">5. Master Keyword Implementation Matrix &amp; Status</h2>
+        <p style="color: #64748B; font-size: 9.5px;">Live Deployment Across Website, Google Business Profile, Schema &amp; AI Discovery Engine</p>
+      </div>
+      <span class="badge badge-emerald">LIVE VERIFIED</span>
+    </div>
+
+    <!-- Master Keyword Table -->
+    <table style="font-size: 9px; margin-bottom: 14px;">
+      <thead>
+        <tr>
+          <th style="width: 28%;">Target Keyword Phrase</th>
+          <th style="width: 15%;">Search Intent</th>
+          <th style="width: 18%;">Target Channel</th>
+          <th style="width: 25%;">Where Optimized / Implemented</th>
+          <th style="width: 14%;">Priority</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Orthopaedic doctor in Agra</strong></td>
+          <td>Commercial / Local</td>
+          <td>Website + GBP</td>
+          <td>Homepage H1, Title tag, GBP Primary Bio, Schema</td>
+          <td><span class="badge badge-emerald">P1 - Highest</span></td>
+        </tr>
+        <tr>
+          <td><strong>Best orthopedic doctor in Sikandra</strong></td>
+          <td>Local 3-Pack</td>
+          <td>GBP + Website</td>
+          <td>Meta description, Footer geo-block, GBP Services</td>
+          <td><span class="badge badge-emerald">P1 - Highest</span></td>
+        </tr>
+        <tr>
+          <td><strong>Dr Gaurav Sharma Orthopaedic</strong></td>
+          <td>Navigational / Brand</td>
+          <td>Website + Knowledge Graph</td>
+          <td>/credentials, /about, Google KG (/g/11cnc0vhf8)</td>
+          <td><span class="badge badge-emerald">P1 - Highest</span></td>
+        </tr>
+        <tr>
+          <td><strong>Knee pain consultation Agra</strong></td>
+          <td>High-Intent Lead</td>
+          <td>Website + GBP</td>
+          <td>Symptom Navigator, GBP Menu Item, Schema Procedure</td>
+          <td><span class="badge badge-emerald">P1 - Highest</span></td>
+        </tr>
+        <tr>
+          <td><strong>Fracture clinic Sikandra Agra</strong></td>
+          <td>Urgent / Local</td>
+          <td>GBP + Website</td>
+          <td>Emergency Fracture care card, GBP Service listing</td>
+          <td><span class="badge badge-emerald">P1 - Highest</span></td>
+        </tr>
+        <tr>
+          <td><strong>Joint pain specialist Sikandra</strong></td>
+          <td>Local / Commercial</td>
+          <td>Website + GBP</td>
+          <td>Home Care Areas, GBP Bio keyword density</td>
+          <td><span class="badge badge-blue">P2 - Core</span></td>
+        </tr>
+        <tr>
+          <td><strong>Shoulder pain doctor Agra</strong></td>
+          <td>Commercial Lead</td>
+          <td>Website + GBP</td>
+          <td>Shoulder Care modal, GBP Service Item (₹500)</td>
+          <td><span class="badge badge-blue">P2 - Core</span></td>
+        </tr>
+        <tr>
+          <td><strong>Sports injury doctor Agra</strong></td>
+          <td>Informational / Lead</td>
+          <td>Website + GBP</td>
+          <td>Sports ACL Care section, /llms.txt summary</td>
+          <td><span class="badge badge-blue">P2 - Core</span></td>
+        </tr>
+        <tr>
+          <td><strong>Frozen shoulder specialist Agra</strong></td>
+          <td>Specialist Care</td>
+          <td>Website + FAQ</td>
+          <td>FAQ Accordion, Structured JSON-LD FAQ Schema</td>
+          <td><span class="badge badge-blue">P2 - Core</span></td>
+        </tr>
+        <tr>
+          <td><strong>ACL tear doctor in Agra</strong></td>
+          <td>Surgical / Second Opinion</td>
+          <td>Website + /pricing.md</td>
+          <td>Affiliated Hospital Cashless guidance, /pricing.md</td>
+          <td><span class="badge badge-blue">P2 - Core</span></td>
+        </tr>
+        <tr>
+          <td><strong>Diagnostic arthroscopy Agra</strong></td>
+          <td>Surgical Specialist</td>
+          <td>/credentials + GBP</td>
+          <td>MS Ortho Thesis background, Arthroscopy card</td>
+          <td><span class="badge badge-purple">P3 - Niche</span></td>
+        </tr>
+        <tr>
+          <td><strong>Orthopaedic doctor open in evening Agra</strong></td>
+          <td>Convenience / Urgent</td>
+          <td>GBP + Website</td>
+          <td>OPD Timings (5:30 PM–8:30 PM), GBP Opening hours</td>
+          <td><span class="badge badge-blue">P2 - Core</span></td>
+        </tr>
+        <tr>
+          <td><strong>Orthopaedic doctor open Sunday Sikandra</strong></td>
+          <td>Weekend Care</td>
+          <td>GBP + Website</td>
+          <td>Sunday OPD schedule (10:30 AM–1:00 PM)</td>
+          <td><span class="badge badge-blue">P2 - Core</span></td>
+        </tr>
+        <tr>
+          <td><strong>Cashless mediclaim orthopedic Agra</strong></td>
+          <td>Commercial / TPA</td>
+          <td>/pricing.md + FAQs</td>
+          <td>Empaneled TPA List (Star, Care, HDFC, Medi Assist)</td>
+          <td><span class="badge badge-purple">P3 - Niche</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Section 6: AI / AEO Conversational Search Prompts -->
+    <div class="card" style="margin-bottom: 12px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 7px;">
+        <h2 style="font-size: 13px; font-weight: 700; color: #0A1C33;">6. AI Answer Engine (AEO &amp; GEO) Conversational Search Prompts</h2>
+        <span class="badge badge-purple">AI Grounding &amp; Citation</span>
+      </div>
+      <p style="color: #475569; font-size: 9.5px; margin-bottom: 8px;">
+        Generative AI engines (ChatGPT Search, Perplexity, Gemini, Google AI Overviews) pull from <code>/llms.txt</code>, <code>/pricing.md</code>, and verified Schema. Target natural language patient prompts:
+      </p>
+      <div class="grid-2" style="gap: 8px;">
+        <div style="background: #FAF5FF; border: 1px solid #E9D5FF; padding: 7px 9px; border-radius: 6px;">
+          <div style="font-weight: 700; color: #5B21B6; font-size: 9px; margin-bottom: 2px;">Prompt: "Who is an experienced orthopedic doctor near Sikandra Agra?"</div>
+          <div style="font-size: 8.5px; color: #4B5563;"><strong>AI Synthesis:</strong> Dr. Gaurav Sharma (20+ yrs exp, MS Ortho, UP Medical Council 48757) at Satyam Complex, Sikandra.</div>
+        </div>
+        <div style="background: #FAF5FF; border: 1px solid #E9D5FF; padding: 7px 9px; border-radius: 6px;">
+          <div style="font-weight: 700; color: #5B21B6; font-size: 9px; margin-bottom: 2px;">Prompt: "Doctor in Agra for knee arthritis who doesn't rush into surgery"</div>
+          <div style="font-size: 8.5px; color: #4B5563;"><strong>AI Synthesis:</strong> BestOrtho.clinic specializes in joint-preserving conservative care, lifestyle guidance, and staged therapy.</div>
+        </div>
+        <div style="background: #FAF5FF; border: 1px solid #E9D5FF; padding: 7px 9px; border-radius: 6px;">
+          <div style="font-weight: 700; color: #5B21B6; font-size: 9px; margin-bottom: 2px;">Prompt: "Orthopedic clinic open in evening near Bodla Sikandra Agra"</div>
+          <div style="font-size: 8.5px; color: #4B5563;"><strong>AI Synthesis:</strong> Cites evening OPD hours (5:30 PM–8:30 PM), Sunday hours, and direct clinic phone (+91 97602 30687).</div>
+        </div>
+        <div style="background: #FAF5FF; border: 1px solid #E9D5FF; padding: 7px 9px; border-radius: 6px;">
+          <div style="font-weight: 700; color: #5B21B6; font-size: 9px; margin-bottom: 2px;">Prompt: "Where can I get a fracture casted or checked in Western Agra?"</div>
+          <div style="font-size: 8.5px; color: #4B5563;"><strong>AI Synthesis:</strong> Cites urgent splinting, rigid plaster and fiberglass casting at Dr. Gaurav Sharma's clinic.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 7: Negative / Excluded Keywords (Integrity Protection) -->
+    <div class="card" style="margin-bottom: 0; background: #FFFBEB; border: 1px solid #FDE68A;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+        <h3 style="font-size: 11px; font-weight: 700; color: #92400E;">7. Negative &amp; Excluded Keywords (Medical Ethics &amp; Integrity Safeguards)</h3>
+        <span class="badge" style="background:#FEF3C7; color:#92400E; border:1px solid #FCD34D;">ETHICAL COMPLIANCE</span>
+      </div>
+      <p style="font-size: 9px; color: #78350F; line-height: 1.4;">
+        To strictly comply with National Medical Commission (NMC) regulations, prevent misleading commercial claims, and protect Dr. Sharma’s medical reputation, we <strong>intentionally do NOT optimize or bid on</strong>:
+      </p>
+      <div style="margin-top: 4px; font-size: 8.5px; color: #92400E;">
+        🚫 <em>"100% cure for arthritis without medicine"</em> (Unethical/misleading medical claim) &nbsp;|&nbsp;
+        🚫 <em>"Cheapest orthopedic surgery Agra"</em> (Diminishes quality positioning) &nbsp;|&nbsp;
+        🚫 <em>"Cosmetic limb lengthening"</em> (Outside outpatient clinic focus) &nbsp;|&nbsp;
+        🚫 <em>"Alternative miracle joint oil cures"</em> (Non-evidence-based pseudoscience)
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <div>BestOrtho.clinic — Keyword Architecture &amp; Local Search Strategy</div>
+      <div>Confidential Client Document | Dr. Gaurav Sharma Orthopaedic Clinic | Page 3 of 3</div>
+    </div>
+  </div>
+
+</body>
+</html>
