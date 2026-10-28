@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { 
   ShieldCheck, 
   MapPin, 
@@ -164,96 +165,98 @@ export default function Hero({ onOpenBooking }: HeroProps) {
 
           </div>
 
-          {/* Right Column: High-Utility Fast OPD Schedule & Clinic Access Card */}
+          {/* Right Column: Doctor Portrait & Primary Authority Card */}
           <div className="lg:col-span-5">
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
-              <div className="bg-white rounded-3xl border border-slate-200/90 shadow-card p-6 sm:p-7 flex flex-col justify-between">
+              {/* Subtle Ambient Elevation Glow */}
+              <div className="absolute -inset-1.5 bg-gradient-to-tr from-brand-600/15 via-teal-500/10 to-transparent rounded-[32px] blur-xl opacity-70 -z-10" />
+
+              <div className="bg-white rounded-3xl border border-slate-200/90 shadow-card p-4 sm:p-5 flex flex-col justify-between">
                 
-                {/* Status & Live Badge Header */}
-                <div className="flex justify-between items-center pb-4 mb-5 border-b border-slate-100">
+                {/* Live Availability Status Header */}
+                <div className="flex justify-between items-center pb-3 mb-3 border-b border-slate-100">
                   <div className="flex items-center gap-2">
                     <span className="flex h-2.5 w-2.5 relative">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                       <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
                     </span>
-                    <span className="text-xs font-bold text-slate-900 tracking-wide uppercase">
-                      Clinic OPD Schedule
+                    <span className="text-xs font-bold text-slate-900 tracking-wide">
+                      OPD Consultations Available
                     </span>
                   </div>
-                  <span className="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-50 border border-emerald-200 text-emerald-800">
+                  <span className="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-brand-50 border border-brand-200 text-brand-900">
                     Sikandra, Agra
                   </span>
                 </div>
 
-                {/* Consultation Timings Cards */}
-                <div className="space-y-3 mb-5">
-                  <div className="p-3.5 rounded-2xl bg-slate-50/80 border border-slate-100 flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-xl bg-blue-100/70 flex items-center justify-center text-brand-700 shrink-0 mt-0.5">
-                      <Clock className="w-4 h-4" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs font-bold text-slate-900">Monday – Saturday</span>
-                        <span className="text-[10px] font-semibold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-full">09:30 AM – 09:30 PM</span>
-                      </div>
-                      <p className="text-xs text-slate-600 mt-1">
-                        Session 1: <span className="font-semibold text-slate-800">09:30 AM – 04:00 PM</span>
-                      </p>
-                      <p className="text-xs text-amber-700 font-medium">
-                        Doctor Break: <span className="font-semibold">04:00 PM – 06:00 PM</span>
-                      </p>
-                      <p className="text-xs text-slate-600">
-                        Session 2: <span className="font-semibold text-slate-800">06:00 PM – 09:30 PM</span>
-                      </p>
-                    </div>
+                {/* Doctor Portrait Image with Floating Credential Badges */}
+                <div className="relative aspect-[4/4.2] sm:aspect-[4/4] rounded-2xl overflow-hidden bg-slate-900 shadow-md mb-3.5 group">
+                  <Image
+                    src="/images/doctor-portrait.jpg"
+                    alt="Dr. Gaurav Sharma - Consultant Orthopaedic & Joint Replacement Surgeon"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 40vw, 450px"
+                    className="object-cover object-top group-hover:scale-[1.02] transition-transform duration-500"
+                    priority
+                  />
+                  
+                  {/* Gentle Gradient Contrast Overlay at bottom */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent pointer-events-none" />
+
+                  {/* Top Floating Badges on Photo */}
+                  <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-950/75 backdrop-blur-md text-white text-[11px] font-semibold border border-white/15 shadow-sm">
+                      <Award className="w-3.5 h-3.5 text-amber-400" />
+                      MS (Ortho) Gold Medalist
+                    </span>
+                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-emerald-950/80 backdrop-blur-md text-emerald-300 text-[11px] font-semibold border border-emerald-500/30 shadow-sm">
+                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                      Verified
+                    </span>
                   </div>
 
-                  <div className="p-3.5 rounded-2xl bg-slate-50/80 border border-slate-100 flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-xl bg-amber-100/70 flex items-center justify-center text-amber-700 shrink-0 mt-0.5">
-                      <Calendar className="w-4 h-4" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs font-bold text-slate-900">Sunday Consultations</span>
-                        <span className="text-[10px] font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-full">Prior Booking</span>
-                      </div>
-                      <p className="text-xs text-slate-600 mt-1">
-                        Timing: <span className="font-semibold text-slate-800">10:00 AM – 02:00 PM</span>
-                      </p>
-                    </div>
+                  {/* Bottom Text Details Inside Photo */}
+                  <div className="absolute bottom-3 left-3 right-3 text-white pointer-events-none">
+                    <p className="text-xl font-bold font-display tracking-tight text-white drop-shadow-sm">
+                      Dr. Gaurav Sharma
+                    </p>
+                    <p className="text-xs text-brand-200 font-medium">
+                      M.B.B.S., M.S. (Orthopaedics) • 20+ Yrs Exp
+                    </p>
                   </div>
                 </div>
 
-                {/* Key Surgical & Clinical Focus Badges */}
-                <div className="mb-6">
-                  <span className="block text-[11px] font-semibold text-slate-500 uppercase tracking-wider mb-2">
-                    Core Clinical Specialities
-                  </span>
-                  <div className="flex flex-wrap gap-1.5">
-                    <span className="px-2.5 py-1 rounded-lg bg-brand-50 text-brand-900 text-xs font-medium border border-brand-100">
-                      Total Knee Replacement (TKR)
-                    </span>
-                    <span className="px-2.5 py-1 rounded-lg bg-brand-50 text-brand-900 text-xs font-medium border border-brand-100">
-                      Total Hip Replacement (THR)
-                    </span>
-                    <span className="px-2.5 py-1 rounded-lg bg-teal-50 text-teal-900 text-xs font-medium border border-teal-100">
-                      Complex Knee &amp; Revision Surgery
-                    </span>
-                    <span className="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-800 text-xs font-medium border border-slate-200">
-                      Arthroscopy &amp; Sports Injury
-                    </span>
-                    <span className="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-800 text-xs font-medium border border-slate-200">
-                      Spine &amp; Back Pain Care
+                {/* Doctor Designation & Credentials Detail */}
+                <div className="mb-3.5 px-1">
+                  <p className="text-xs font-bold text-slate-900 leading-snug">
+                    Consultant Orthopaedic &amp; Joint Replacement Surgeon
+                  </p>
+                  <p className="text-[11px] text-slate-500 mt-0.5 flex items-center justify-between">
+                    <span>Former Assistant Professor of Orthopaedics</span>
+                    <span className="font-semibold text-slate-700">Reg: 48757 (UPMC)</span>
+                  </p>
+                  
+                  {/* Timings Quick Summary Bar */}
+                  <div className="mt-2.5 p-2 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between text-xs">
+                    <div className="flex items-center gap-2 text-slate-700">
+                      <Clock className="w-3.5 h-3.5 text-brand-600 shrink-0" />
+                      <span>
+                        <span className="font-semibold text-slate-900">09:30 AM – 09:30 PM</span>
+                        <span className="text-[10px] text-amber-700 font-medium ml-1.5">(Break 4–6 PM)</span>
+                      </span>
+                    </div>
+                    <span className="text-[10px] font-bold text-brand-700 bg-white border border-slate-200 px-2 py-0.5 rounded-md">
+                      Mon – Sat
                     </span>
                   </div>
                 </div>
 
                 {/* Direct Action Row: 1-Tap Call & WhatsApp */}
-                <div className="grid grid-cols-2 gap-2.5 mb-4">
+                <div className="grid grid-cols-2 gap-2.5 mb-2.5">
                   <a
                     href={`tel:${siteConfig.phone}`}
-                    className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition-colors"
+                    className="flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition-colors"
                   >
                     <Phone className="w-3.5 h-3.5 text-brand-700" />
                     <span>Call Clinic</span>
@@ -262,15 +265,24 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                     href={`https://wa.me/${siteConfig.whatsappNumber}?text=Hello%20Dr.%20Gaurav%20Sharma%20Clinic,%20I%20would%20like%20to%20inquire%20about%20an%20OPD%20appointment.`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold transition-colors border border-emerald-200"
+                    className="flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold transition-colors border border-emerald-200"
                   >
                     <MessageCircle className="w-3.5 h-3.5 text-emerald-600" />
                     <span>WhatsApp</span>
                   </a>
                 </div>
 
+                {/* Direct Consultation Booking CTA */}
+                <button
+                  onClick={handleBookingClick}
+                  className="w-full btn-primary text-xs py-2.5 px-4 flex items-center justify-center gap-2 mb-2.5 shadow-sm"
+                >
+                  <Calendar className="w-3.5 h-3.5" />
+                  <span>Book Consultation With Dr. Sharma</span>
+                </button>
+
                 {/* Landmark Footer */}
-                <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
+                <div className="pt-2.5 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
                   <span className="flex items-center gap-1 truncate max-w-[260px]">
                     <MapPin className="w-3 h-3 text-brand-600 shrink-0" />
                     <span className="truncate">{siteConfig.primaryAddress.street}, {siteConfig.primaryAddress.city}</span>
