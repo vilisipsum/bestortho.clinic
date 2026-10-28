@@ -27,7 +27,6 @@ type TabType = 'all' | 'joint-replacement' | 'arthroscopy' | 'trauma-fractures' 
 
 export default function SurgicalProceduresSection({ onOpenBooking }: SurgicalProceduresSectionProps) {
   const [activeTab, setActiveTab] = useState<TabType>('all');
-  const [videoModalOpen, setVideoModalOpen] = useState(false);
 
   const filteredProcedures = activeTab === 'all' 
     ? surgicalProcedures 
@@ -147,33 +146,6 @@ export default function SurgicalProceduresSection({ onOpenBooking }: SurgicalPro
                   ))}
                 </div>
 
-                {/* Contextual Video Banner for Total Knee Replacement */}
-                {proc.id === 'tkr-primary' && (
-                  <div className="mb-4 p-3.5 rounded-2xl bg-gradient-to-r from-red-50 via-rose-50 to-orange-50 border border-red-200/80 flex items-center justify-between gap-3 shadow-sm">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-red-600 flex items-center justify-center text-white shrink-0 shadow-sm">
-                        <Play className="w-5 h-5 fill-current ml-0.5" />
-                      </div>
-                      <div>
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-red-700 block">
-                          Doctor Video Guide (सरल हिंदी में)
-                        </span>
-                        <span className="text-xs font-bold text-slate-900 block leading-tight">
-                          नी-रिप्लेसमेंट सावधानियां: 3 दिन, 3 सप्ताह व 3 महीने
-                        </span>
-                      </div>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => setVideoModalOpen(true)}
-                      className="px-3 py-1.5 rounded-lg bg-white hover:bg-slate-50 text-red-700 text-xs font-bold border border-red-200 shadow-sm shrink-0 flex items-center gap-1.5 transition-colors"
-                    >
-                      <Play className="w-3 h-3 fill-current" />
-                      <span>Watch</span>
-                    </button>
-                  </div>
-                )}
-
                 {/* Mobilization Timeline Box */}
                 <div className="p-3 rounded-xl bg-emerald-50/70 border border-emerald-100 text-xs text-emerald-900 mb-6">
                   <span className="font-bold flex items-center gap-1.5 mb-1 text-emerald-950">
@@ -228,56 +200,6 @@ export default function SurgicalProceduresSection({ onOpenBooking }: SurgicalPro
 
       </div>
 
-      {/* TKR Video Modal */}
-      {videoModalOpen && (
-        <div 
-          className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
-          onClick={() => setVideoModalOpen(false)}
-        >
-          <div 
-            className="bg-white rounded-3xl border border-slate-200 shadow-2xl max-w-4xl w-full p-5 sm:p-7 relative overflow-hidden"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex items-start justify-between gap-4 pb-4 mb-4 border-b border-slate-100">
-              <div>
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-red-50 text-red-700 border border-red-200 mb-1 inline-block">
-                  Dr. Gaurav Sharma Video Guide
-                </span>
-                <h3 className="text-base sm:text-lg font-bold text-brand-950 font-display">
-                  नी-रिप्लेसमेंट सर्जरी के बाद 3 दिन, 3 सप्ताह और 3 महीने तक क्या रखें सावधानी?
-                </h3>
-              </div>
-              <button
-                onClick={() => setVideoModalOpen(false)}
-                className="min-w-[40px] min-h-[40px] flex items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100 transition-colors shrink-0"
-                aria-label="Close Video"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            <div className="relative aspect-video rounded-2xl bg-black overflow-hidden shadow-inner mb-4">
-              <iframe
-                src="https://www.youtube-nocookie.com/embed/LXH2a25uaQg?autoplay=1&rel=0&modestbranding=1"
-                title="Knee Replacement Post-Op Precautions by Dr. Gaurav Sharma"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-                className="absolute inset-0 w-full h-full border-0"
-              />
-            </div>
-
-            <div className="flex items-center justify-between text-xs text-slate-500">
-              <span>Expert advice by Dr. Gaurav Sharma • Senior Consultant Orthopaedics</span>
-              <button
-                onClick={() => setVideoModalOpen(false)}
-                className="btn-secondary text-xs py-1.5 px-4"
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-    </section>
+      </section>
   );
 }
