@@ -333,7 +333,7 @@ export function getVideoSchema() {
     "@type": "VideoObject",
     name: video.title,
     description: video.description,
-    thumbnailUrl: [video.thumbnailUrl],
+    thumbnailUrl: [video.thumbnailUrl.startsWith("http") ? video.thumbnailUrl : `${siteConfig.domain}${video.thumbnailUrl}`],
     uploadDate: video.uploadDate || "2024-12-01T08:00:00+05:30",
     embedUrl: `https://www.youtube-nocookie.com/embed/${video.youtubeId}`,
     contentUrl: video.youtubeUrl,

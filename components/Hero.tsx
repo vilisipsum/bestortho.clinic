@@ -287,9 +287,14 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                     <MapPin className="w-3 h-3 text-brand-600 shrink-0" />
                     <span className="truncate">{siteConfig.primaryAddress.street}, {siteConfig.primaryAddress.city}</span>
                   </span>
-                  <Link href="/clinic" className="text-brand-700 hover:underline font-semibold shrink-0">
-                    Map &amp; Directions
-                  </Link>
+                  <a
+                    href={siteConfig.googleMapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-brand-700 hover:underline font-semibold shrink-0"
+                  >
+                    Get Directions
+                  </a>
                 </div>
 
               </div>
