@@ -1,17 +1,77 @@
 import React from 'react';
-import { UserCheck, ShieldCheck, Quote, Clock, CheckCircle } from 'lucide-react';
+import { ShieldCheck, Quote, Clock, CheckCircle } from 'lucide-react';
 import { PatientStory } from '@/lib/content';
 
 interface PatientStoryCardProps {
   story: PatientStory;
+  variant?: 'compact' | 'detailed';
 }
 
-export default function PatientStoryCard({ story }: PatientStoryCardProps) {
+export default function PatientStoryCard({ story, variant = 'detailed' }: PatientStoryCardProps) {
   // Strict Safety Gate: Do not render unconsented or unapproved patient stories
   if (!story.consentApproved || !story.testimonialApproved || !story.approved) {
     return null;
   }
 
+  // --- Compact Variant (Optimized for Homepage Conversion & Scannability) ---
+  if (variant === 'compact') {
+    return (
+      <div className="card-medical bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between h-full group">
+        <div>
+          {/* Top Header: Condition Pill & Verified Badge */}
+          <div className="flex items-center justify-between gap-2 mb-3.5">
+            <span className="px-2.5 py-1 rounded-lg text-xs font-semibold bg-brand-50 border border-brand-100 text-brand-900 truncate max-w-[200px]">
+              {story.condition}
+            </span>
+            <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200 shrink-0">
+              <ShieldCheck className="w-3 h-3 text-emerald-600" />
+              Verified Case
+            </span>
+          </div>
+
+          {/* Patient Quote in clean editorial style */}
+          <div className="relative mb-4">
+            <Quote className="w-5 h-5 text-brand-300 mb-1.5 opacity-80" />
+            <p className="text-sm font-normal text-slate-700 italic leading-relaxed line-clamp-4">
+              &ldquo;{story.patientQuote}&rdquo;
+            </p>
+          </div>
+        </div>
+
+        {/* Outcome / Transformation Highlight */}
+        <div className="pt-3.5 border-t border-slate-100 mt-2 space-y-2">
+          <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100/80">
+            <span className="block text-[10px] font-bold uppercase tracking-wider text-emerald-800 mb-0.5">
+              Documented Milestone
+            </span>
+            <p className="text-xs text-slate-800 font-medium line-clamp-2">
+              {story.recovery}
+            </p>
+          </div>
+
+          {/* Patient Identity & Location */}
+          <div className="flex items-center justify-between pt-1 text-xs">
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 rounded-full bg-brand-100 text-brand-800 font-bold text-xs flex items-center justify-center">
+                {story.displayName.charAt(0)}
+              </div>
+              <span className="font-bold text-slate-900">
+                {story.displayName}
+                {story.age && <span className="font-normal text-slate-500">, {story.age}y</span>}
+              </span>
+            </div>
+            {story.location && (
+              <span className="text-slate-500 text-[11px] font-medium">
+                {story.location}
+              </span>
+            )}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // --- Detailed Variant (Used on /patient-stories for In-Depth Clinical Evaluation) ---
   return (
     <div className="card-medical bg-white p-6 sm:p-8 lg:p-10 relative overflow-hidden flex flex-col justify-between">
       {/* Editorial Header */}

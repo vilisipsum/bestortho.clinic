@@ -46,7 +46,7 @@ export default function PatientStoriesPage() {
       </section>
 
       {/* Patient Stories List */}
-      <PatientStoriesSection maxItems={10} showAllLink={false} />
+      <PatientStoriesSection maxItems={10} showAllLink={false} variant="detailed" />
 
       {/* Testimonials */}
       <TestimonialCard />
