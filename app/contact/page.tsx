@@ -47,7 +47,7 @@ function ContactContent() {
     phoneNumber: '',
     email: '',
     preferredDate: '',
-    preferredTime: 'Morning (10:00 AM - 02:00 PM)',
+    preferredTime: 'Morning / Afternoon (09:30 AM - 04:00 PM)',
     consultationReason: 'Knee Pain / Joint Discomfort',
     affectedArea: 'Knee',
     patientType: 'new',
@@ -206,16 +206,24 @@ function ContactContent() {
 
                 <div className="mt-6 pt-6 border-t border-slate-100 space-y-2 text-xs text-slate-600">
                   <div className="flex items-center gap-2">
-                    <Clock className="w-4 h-4 text-brand-600 flex-shrink-0" />
-                    <span>Morning OPD: 10:00 AM – 02:00 PM</span>
+                    <Clock className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                    <span className="font-semibold text-slate-900">Clinic Open: 09:30 AM – 09:30 PM</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Clock className="w-4 h-4 text-brand-600 flex-shrink-0" />
-                    <span>Evening OPD: 05:30 PM – 08:30 PM</span>
+                    <span>Session 1: 09:30 AM – 04:00 PM (Mon–Sat)</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Clock className="w-4 h-4 text-amber-600 flex-shrink-0" />
+                    <span className="text-amber-800 font-medium">Doctor Break: 04:00 PM – 06:00 PM</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Clock className="w-4 h-4 text-brand-600 flex-shrink-0" />
+                    <span>Session 2: 06:00 PM – 09:30 PM (Mon–Sat)</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Clock className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                    <span>Sunday OPD: 10:30 AM – 01:00 PM (Prior Booking)</span>
+                    <span>Sunday: 10:00 AM – 02:00 PM (Prior Booking)</span>
                   </div>
                 </div>
               </div>
@@ -272,7 +280,7 @@ function ContactContent() {
                             phoneNumber: '',
                             email: '',
                             preferredDate: '',
-                            preferredTime: 'Morning (10:00 AM - 02:00 PM)',
+                            preferredTime: 'Morning / Afternoon (09:30 AM - 04:00 PM)',
                             consultationReason: 'Knee Pain / Joint Discomfort',
                             affectedArea: 'Knee',
                             patientType: 'new',
@@ -432,9 +440,9 @@ function ContactContent() {
                             onChange={(e) => setFormData({ ...formData, preferredTime: e.target.value })}
                             className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-white text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 font-medium"
                           >
-                            <option value="Morning (10:00 AM - 02:00 PM)">Morning (10:00 AM - 02:00 PM)</option>
-                            <option value="Evening (05:30 PM - 08:30 PM)">Evening (05:30 PM - 08:30 PM)</option>
-                            <option value="Sunday Morning (10:30 AM - 01:00 PM)">Sunday Morning (10:30 AM - 01:00 PM)</option>
+                            <option value="Morning / Afternoon (09:30 AM - 04:00 PM)">Morning / Afternoon (09:30 AM - 04:00 PM)</option>
+                            <option value="Evening (06:00 PM - 09:30 PM)">Evening (06:00 PM - 09:30 PM)</option>
+                            <option value="Sunday (10:00 AM - 02:00 PM)">Sunday (10:00 AM - 02:00 PM)</option>
                           </select>
                           {errors.preferredTime && (
                             <p className="text-xs text-red-600 font-medium mt-1">{errors.preferredTime}</p>

@@ -18,7 +18,7 @@ export default function BookingModal({ isOpen, onClose, defaultReason = '', defa
     phoneNumber: '',
     email: '',
     preferredDate: '',
-    preferredTime: 'Morning (10:00 AM - 02:00 PM)',
+    preferredTime: 'Morning / Afternoon (09:30 AM - 04:00 PM)',
     consultationReason: defaultReason || 'Knee Pain / Joint Discomfort',
     affectedArea: defaultArea || 'Knee',
     patientType: 'new',
@@ -421,9 +421,9 @@ export default function BookingModal({ isOpen, onClose, defaultReason = '', defa
                     onChange={(e) => setFormData({ ...formData, preferredTime: e.target.value })}
                     className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-white text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 font-medium"
                   >
-                    <option value="Morning (10:00 AM - 02:00 PM)">Morning (10:00 AM - 02:00 PM)</option>
-                    <option value="Evening (05:30 PM - 08:30 PM)">Evening (05:30 PM - 08:30 PM)</option>
-                    <option value="Sunday Morning (10:30 AM - 01:00 PM)">Sunday Morning (10:30 AM - 01:00 PM)</option>
+                    <option value="Morning / Afternoon (09:30 AM - 04:00 PM)">Morning / Afternoon (09:30 AM - 04:00 PM)</option>
+                    <option value="Evening (06:00 PM - 09:30 PM)">Evening (06:00 PM - 09:30 PM)</option>
+                    <option value="Sunday (10:00 AM - 02:00 PM)">Sunday (10:00 AM - 02:00 PM)</option>
                   </select>
                   {errors.preferredTime && (
                     <p className="text-xs text-red-600 font-medium mt-1">{errors.preferredTime}</p>

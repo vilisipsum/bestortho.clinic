@@ -124,11 +124,12 @@ export default function DoctorProfile({
               <div className="p-3.5 text-xs space-y-1 border-t border-slate-100 pt-3">
                 <p className="font-bold text-slate-900 flex items-center gap-1.5">
                   <Clock className="w-3.5 h-3.5 text-brand-600" />
-                  Consultation Timings
+                  Clinic Timings (09:30 AM – 09:30 PM)
                 </p>
                 <p className="text-slate-600 text-xs leading-relaxed">
-                  Morning: 10:00 AM – 02:00 PM <br />
-                  Evening: 05:30 PM – 08:30 PM
+                  Session 1: 09:30 AM – 04:00 PM <br />
+                  <span className="text-amber-700 font-medium">Doctor Break: 04:00 PM – 06:00 PM</span> <br />
+                  Session 2: 06:00 PM – 09:30 PM
                 </p>
               </div>
 

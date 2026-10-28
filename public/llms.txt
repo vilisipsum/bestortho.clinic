@@ -16,10 +16,12 @@
 - **Email**: clinicbestortho@gmail.com
 - **Google Knowledge Graph ID**: /g/11cnc0vhf8
 
-## Consultation Timings (OPD)
-- **Monday – Saturday (Morning)**: 10:00 AM – 02:00 PM
-- **Monday – Saturday (Evening)**: 05:30 PM – 08:30 PM
-- **Sunday**: 10:30 AM – 01:00 PM (Prior Appointment Recommended)
+## Clinic & Consultation Timings (OPD)
+- **Overall Clinic Open Hours**: 09:30 AM – 09:30 PM (Monday – Saturday)
+- **OPD Session 1**: 09:30 AM – 04:00 PM (Monday – Saturday)
+- **Doctor Break / In-Hospital Rounds**: 04:00 PM – 06:00 PM (Monday – Saturday)
+- **OPD Session 2**: 06:00 PM – 09:30 PM (Monday – Saturday)
+- **Sunday OPD**: 10:00 AM – 02:00 PM (Prior Appointment Recommended)
 
 ## Clinical Focus Areas & Services
 1. **Knee Pain, Osteoarthritis & Joint Preservation**: Clinical evaluation for osteoarthritis, meniscus wear, patellofemoral pain, and staged non-operative joint preservation.

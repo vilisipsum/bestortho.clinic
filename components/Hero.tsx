@@ -195,13 +195,16 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                     <div className="flex-1">
                       <div className="flex items-center justify-between">
                         <span className="text-xs font-bold text-slate-900">Monday – Saturday</span>
-                        <span className="text-[10px] font-semibold text-brand-700 bg-brand-50 px-2 py-0.5 rounded-full">Primary OPD</span>
+                        <span className="text-[10px] font-semibold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-full">09:30 AM – 09:30 PM</span>
                       </div>
                       <p className="text-xs text-slate-600 mt-1">
-                        Morning: <span className="font-semibold text-slate-800">10:00 AM – 02:00 PM</span>
+                        Session 1: <span className="font-semibold text-slate-800">09:30 AM – 04:00 PM</span>
+                      </p>
+                      <p className="text-xs text-amber-700 font-medium">
+                        Doctor Break: <span className="font-semibold">04:00 PM – 06:00 PM</span>
                       </p>
                       <p className="text-xs text-slate-600">
-                        Evening: <span className="font-semibold text-slate-800">06:00 PM – 08:30 PM</span>
+                        Session 2: <span className="font-semibold text-slate-800">06:00 PM – 09:30 PM</span>
                       </p>
                     </div>
                   </div>
@@ -216,7 +219,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                         <span className="text-[10px] font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-full">Prior Booking</span>
                       </div>
                       <p className="text-xs text-slate-600 mt-1">
-                        Timing: <span className="font-semibold text-slate-800">10:30 AM – 01:30 PM</span>
+                        Timing: <span className="font-semibold text-slate-800">10:00 AM – 02:00 PM</span>
                       </p>
                     </div>
                   </div>
