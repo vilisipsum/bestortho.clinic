@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import { Phone, MessageCircle, MapPin, Clock, ShieldCheck, ArrowUpRight, Stethoscope } from 'lucide-react';
+import Image from 'next/image';
+import { Phone, MessageCircle, MapPin, Clock, ShieldCheck, ArrowUpRight, Stethoscope, Video, ExternalLink } from 'lucide-react';
 import { siteConfig, doctorProfile } from '@/lib/content';
 
 export default function Footer() {
@@ -19,16 +20,24 @@ export default function Footer() {
           <div className="lg:col-span-4 flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-brand-700 flex items-center justify-center font-bold text-white shadow-sm">
-                  <Stethoscope className="w-5 h-5 text-white" />
+                <div className="w-12 h-12 rounded-xl bg-white p-1 flex items-center justify-center shadow-sm shrink-0 overflow-hidden">
+                  <Image
+                    src="/images/logo/logo-icon-square.png"
+                    alt="Dr. Gaurav Sharma Orthopaedic Clinic"
+                    width={48}
+                    height={48}
+                    className="w-full h-full object-contain"
+                  />
                 </div>
-                <span className="text-2xl font-bold tracking-tight text-white font-display">
-                  BestOrtho.clinic
-                </span>
+                <div>
+                  <span className="text-xl font-bold tracking-tight text-white font-display block leading-tight">
+                    {siteConfig.practiceName}
+                  </span>
+                  <span className="text-xs text-brand-200 font-medium">
+                    Orthopaedics &amp; Joint Replacement • bestortho.clinic
+                  </span>
+                </div>
               </div>
-              <h3 className="text-base font-bold text-brand-200 mb-2">
-                {siteConfig.practiceName}
-              </h3>
               <p className="text-brand-100 text-sm leading-relaxed mb-6 font-normal max-w-sm">
                 Consultant Orthopaedic & Musculoskeletal Specialist practice in Sikandra, Agra. 
                 Dedicated to clinical examination, diagnostic clarity, and rehabilitation structured around your individual recovery goals.
@@ -40,10 +49,10 @@ export default function Footer() {
                 href={siteConfig.googleBusinessProfileUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-4 py-2.5 min-h-[44px] rounded-full bg-white/10 hover:bg-white/20 text-xs font-medium text-brand-100 transition-colors"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 min-h-[38px] rounded-full bg-white/10 hover:bg-white/20 text-xs font-medium text-brand-100 transition-colors"
                 title="Verified Google Business Profile & Patient Reviews"
               >
-                <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
                 <span>Google Verified Practice</span>
                 <ArrowUpRight className="w-3 h-3 text-brand-300" />
               </a>
@@ -51,12 +60,44 @@ export default function Footer() {
                 href={siteConfig.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-4 py-2.5 min-h-[44px] rounded-full bg-white/10 hover:bg-white/20 text-xs font-medium text-brand-100 transition-colors"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 min-h-[38px] rounded-full bg-white/10 hover:bg-white/20 text-xs font-medium text-brand-100 transition-colors"
                 title="Open Clinic Location Directly on Google Maps"
               >
-                <MapPin className="w-4 h-4 text-brand-300" />
-                <span>View on Google Maps</span>
+                <MapPin className="w-3.5 h-3.5 text-brand-300" />
+                <span>Google Maps</span>
                 <ArrowUpRight className="w-3 h-3 text-brand-300" />
+              </a>
+            </div>
+
+            {/* Doctor Verified Video & Social Channels */}
+            <div className="flex flex-wrap items-center gap-2 mt-2.5">
+              <a
+                href={siteConfig.socialLinks?.youtube || "https://youtu.be/LXH2a25uaQg"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-red-600/30 hover:bg-red-600/40 text-[11px] font-semibold text-red-200 transition-colors border border-red-500/30"
+                title="Dr. Gaurav Sharma YouTube Channel"
+              >
+                <Video className="w-3 h-3 text-red-400" />
+                <span>YouTube Guidance</span>
+              </a>
+              <a
+                href={siteConfig.socialLinks?.instagram || "https://www.instagram.com/reel/DemOt09vxGa/"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-pink-600/20 hover:bg-pink-600/30 text-[11px] font-semibold text-pink-200 transition-colors border border-pink-500/30"
+                title="Dr. Gaurav Sharma on Instagram"
+              >
+                <span>Instagram</span>
+              </a>
+              <a
+                href={siteConfig.socialLinks?.facebook || "https://www.facebook.com/share/v/1GigbxkjAP/"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-blue-600/20 hover:bg-blue-600/30 text-[11px] font-semibold text-blue-200 transition-colors border border-blue-500/30"
+                title="Dr. Gaurav Sharma on Facebook"
+              >
+                <span>Facebook</span>
               </a>
             </div>
           </div>
@@ -211,11 +252,11 @@ export default function Footer() {
 
         {/* Clinical Disclaimer & Copyright */}
         <div className="mt-12 pt-8 border-t border-white/10 text-xs text-brand-100 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-center md:text-left max-w-md leading-relaxed">
-            <strong className="text-white">Clinical & Regulatory Notice:</strong> Content on BestOrtho.clinic is published for general educational reference and practice orientation. It is not an alternative to in-person medical evaluation. Outpatient appointments do not replace emergency hospital trauma resuscitation.
+          <p className="text-center md:text-left max-w-xl leading-relaxed">
+            <strong className="text-white">NMC Compliance & Medical Notice:</strong> Published for patient educational guidance and appointment coordination under NMC Ethics Regulations. The domain <span className="text-white font-medium">bestortho.clinic</span> functions strictly as a technical web portal and does not constitute a superlative or comparative claim of medical superiority. Outpatient OPD appointments do not replace emergency trauma services.
           </p>
           <p className="font-semibold text-brand-100 whitespace-nowrap">
-            © {currentYear} BestOrtho.clinic. All rights reserved.
+            © {currentYear} Dr. Gaurav Sharma Orthopaedic Clinic.
           </p>
         </div>
       </div>

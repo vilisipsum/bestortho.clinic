@@ -40,6 +40,21 @@ export interface HospitalAffiliation {
   approved: boolean;
 }
 
+export interface SurgicalProcedureItem {
+  id: string;
+  category: 'joint-replacement' | 'arthroscopy' | 'trauma-fractures' | 'daycare';
+  categoryLabel: string;
+  title: string;
+  shortName: string;
+  indication: string;
+  technique: string;
+  inpatientStay: string;
+  recoveryTimeline: string;
+  keyHighlights: string[];
+  description: string;
+  approved: boolean;
+}
+
 export interface AreaOfCare {
   id: string;
   slug: string;
@@ -84,13 +99,18 @@ export interface Testimonial {
 
 export interface EducationalVideo {
   id: string;
+  youtubeId: string;
+  youtubeUrl: string;
   title: string;
-  category: 'Doctor Introduction' | 'Patient Journey' | 'Doctor Education' | 'Treatment Education';
-  duration: string;
-  thumbnailPlaceholderText: string;
+  englishTitle?: string;
+  category: string;
+  duration?: string;
+  speaker: string;
   description: string;
-  videoUrl?: string;
-  transcriptAvailable: boolean;
+  thumbnailUrl: string;
+  instagramUrl?: string;
+  facebookUrl?: string;
+  uploadDate?: string;
   approved: boolean;
 }
 
@@ -114,7 +134,8 @@ export interface ClinicTiming {
 
 export const siteConfig = {
   domain: "https://bestortho.clinic",
-  brandName: "BestOrtho.clinic",
+  brandName: "Dr. Gaurav Sharma Orthopaedic Clinic",
+  portalDomain: "bestortho.clinic",
   practiceName: "Dr. Gaurav Sharma Orthopaedic Clinic",
   facilityName: "Dr. Sharma's Dental and Orthopaedic Speciality Clinic",
   tagline: "Orthopaedic Care, Built Around Your Recovery.",
@@ -135,6 +156,11 @@ export const siteConfig = {
     state: "Uttar Pradesh",
     postalCode: "282007",
     country: "India",
+  },
+  socialLinks: {
+    youtube: "https://youtu.be/LXH2a25uaQg",
+    instagram: "https://www.instagram.com/reel/DemOt09vxGa/?obrf=MWR0bDNobzVtZm80dQ==",
+    facebook: "https://www.facebook.com/share/v/1GigbxkjAP/",
   },
   timings: [
     { days: "Monday – Saturday (Morning)", hours: "10:00 AM – 02:00 PM" },
@@ -180,12 +206,14 @@ export const doctorProfile = {
   ],
   languages: ["Hindi", "English"],
   specialisations: [
-    "Joint Pain & Arthritis Management",
-    "Knee & Shoulder Arthroscopy",
-    "Fracture & Musculoskeletal Trauma Care",
-    "Sports Injury Assessment & Rehabilitation",
-    "Soft Tissue & Ligament Disorders",
-    "Spine & Postural Care Guidance",
+    "Primary & Partial Knee Replacement (TKR & UKA)",
+    "Total Hip Replacement (THR) & Bipolar Arthroplasty",
+    "Complex Knee & Revision Joint Reconstruction",
+    "Minimally Invasive Knee & Shoulder Arthroscopy (ACL/Meniscus/Rotator Cuff)",
+    "Complex Fracture Fixation (ORIF Locking Plates & Interlocking Nailing)",
+    "Back Pain, Spine & Lumbar Stiffness Evaluation",
+    "Sports Injury Assessment & Biological Joint Preservation (PRP / Viscosupplementation)",
+    "Daycare Hand & Nerve Surgeries (Carpal Tunnel & Trigger Finger)",
   ],
   credentials: [
     {
@@ -254,17 +282,89 @@ export const areasOfCare: AreaOfCare[] = [
     title: "Knee Pain & Joint Care",
     shortExplanation: "Comprehensive clinical evaluation for osteoarthritis, meniscus tears, patellar tracking issues, and age-related wear.",
     whoShouldConsider: [
-      "Pain during stair climbing or prolonged walking",
-      "Persistent swelling, morning stiffness, or joint locking",
+      "Pain during stair climbing, prolonged standing, or morning stiffness",
+      "Persistent swelling, grinding sensation (crepitus), or joint catching",
       "Patients seeking conservative management or second opinions before surgery",
     ],
     commonQuestions: [
       "Can knee arthritis be managed without immediate surgery?",
       "What exercises are safe during flare-ups?",
-      "When is an MRI necessary versus standard X-rays?",
+      "When is an MRI necessary versus weight-bearing X-rays?",
     ],
     approved: true,
     accentColor: "orange",
+  },
+  {
+    id: "joint-replacement",
+    slug: "joint-replacement-tkr-thr",
+    title: "Joint Replacement Surgeries (TKR & THR)",
+    shortExplanation: "Primary Total Knee Replacement (TKR) and Total Hip Replacement (THR) for end-stage arthritis, severe deformity, and avascular necrosis.",
+    whoShouldConsider: [
+      "Severe joint pain restricting normal walking despite medications and physical therapy",
+      "Advanced knee osteoarthritis with bone-on-bone friction or severe bowed-leg deformity",
+      "Advanced hip avascular necrosis (AVN) or secondary osteoarthritis restricting hip rotation",
+    ],
+    commonQuestions: [
+      "What is the difference between partial and total knee replacement?",
+      "What is the expected hospital stay and post-operative mobility timeline?",
+      "How long do modern ceramic and polyethylene implants last?",
+    ],
+    approved: true,
+    accentColor: "blue",
+  },
+  {
+    id: "complex-revision",
+    slug: "complex-knee-revision-surgeries",
+    title: "Complex Knee & Revision Surgeries",
+    shortExplanation: "Specialized reconstructive evaluation for severe angular knee deformities, post-traumatic bone loss, and failing older joint implants.",
+    whoShouldConsider: [
+      "Severe knee deformity (varus/valgus >15°), recurvatum, or fixed contractures",
+      "Pain, loosening, instability, or implant wear following an earlier joint replacement",
+      "Patients requiring revision TKR or revision THR workup",
+    ],
+    commonQuestions: [
+      "What causes a previous knee or hip replacement to become painful or loose?",
+      "How do we rule out low-grade infection before revision surgery?",
+      "What modular augments and stems are used in complex reconstruction?",
+    ],
+    approved: true,
+    accentColor: "pink",
+  },
+  {
+    id: "spine-back-pain",
+    slug: "spine-back-pain-stiffness",
+    title: "Back Pain, Spine & Lumbar Stiffness",
+    shortExplanation: "Targeted clinical workup for lumbar spondylosis, sciatica, herniated discs, postural muscle spasms, and severe morning spinal stiffness.",
+    whoShouldConsider: [
+      "Sharp pain, numbness, or tingling shooting down the buttock into the leg (sciatica)",
+      "Severe morning lower back stiffness that takes significant time to ease",
+      "Chronic posture strain aggravated by desk work or prolonged vehicle driving",
+    ],
+    commonQuestions: [
+      "Can lumbar disc herniation and sciatica recover without spinal surgery?",
+      "What core stabilization exercises are safe during an acute flare-up?",
+      "When is an MRI indicated for chronic back pain?",
+    ],
+    approved: true,
+    accentColor: "lavender",
+  },
+  {
+    id: "arthroscopy",
+    slug: "arthroscopy-minimally-invasive",
+    title: "Minimally Invasive Arthroscopy (Knee & Shoulder)",
+    shortExplanation: "Keyhole endoscopic diagnosis and repair for internal joint damage (meniscus tears, ACL/PCL reconstruction, rotator cuff tears, and Bankart lesions).",
+    whoShouldConsider: [
+      "Patients with mechanical joint catching, buckling, or giving way unresponsive to rest",
+      "Sports-related ligament tears (ACL/PCL) or painful meniscus tears",
+      "Rotator cuff tears or recurrent shoulder dislocations requiring anatomical repair",
+    ],
+    commonQuestions: [
+      "What are the recovery advantages of keyhole arthroscopic surgery?",
+      "How soon can patients resume sports and physical work after arthroscopy?",
+      "What is the role of diagnostic arthroscopy and arthroscopic joint lavage?",
+    ],
+    approved: true,
+    accentColor: "lime",
   },
   {
     id: "shoulder",
@@ -281,7 +381,7 @@ export const areasOfCare: AreaOfCare[] = [
       "What is the role of targeted physical therapy?",
     ],
     approved: true,
-    accentColor: "lime",
+    accentColor: "orange",
   },
   {
     id: "sports-acl",
@@ -316,22 +416,6 @@ export const areasOfCare: AreaOfCare[] = [
     ],
     approved: true,
     accentColor: "pink",
-  },
-  {
-    id: "arthroscopy",
-    slug: "arthroscopy-minimally-invasive",
-    title: "Minimally Invasive Arthroscopy",
-    shortExplanation: "Diagnostic and therapeutic keyhole examination for internal joint pathologies with minimal soft-tissue disruption.",
-    whoShouldConsider: [
-      "Patients with mechanical joint catching unresponsive to rest",
-      "Cartilage flaps or loose bodies causing recurrent effusions",
-    ],
-    commonQuestions: [
-      "What are the typical hospital stay expectations for arthroscopic procedures?",
-      "What is the timeline for resuming office work?",
-    ],
-    approved: true,
-    accentColor: "lavender",
   },
   {
     id: "rehabilitation",
@@ -457,43 +541,33 @@ export const testimonials: Testimonial[] = [
 
 export const educationalVideos: EducationalVideo[] = [
   {
-    id: "vid-1",
-    title: "Meet Dr. Gaurav Sharma & Welcome to the Clinic",
-    category: "Doctor Introduction",
-    duration: "2:45",
-    thumbnailPlaceholderText: "VIDEO: Doctor Introduction & Practice Philosophy",
-    description: "An overview of our outpatient orthopaedic consultation process, diagnostic workflow, and commitment to patient-centred recovery.",
-    transcriptAvailable: true,
+    id: "vid-tkr-precautions",
+    youtubeId: "LXH2a25uaQg",
+    youtubeUrl: "https://youtu.be/LXH2a25uaQg",
+    title: "नी-रिप्लेसमेंट सर्जरी के बाद 3 दिन, 3 सप्ताह और 3 महीने तक क्या रखें सावधानी? जानिए विशेषज्ञ की सलाह - Dr. Gaurav Sharma",
+    englishTitle: "Knee Replacement Recovery Timeline: Precautions for 3 Days, 3 Weeks & 3 Months",
+    category: "Knee Replacement Care",
+    duration: "Hindi Video Guide",
+    speaker: "Dr. Gaurav Sharma",
+    description: "टोटल नी रिप्लेसमेंट सर्जरी के बाद के 3 निर्णायक चरण—शुरुआती 3 दिन (अस्पताल में वॉकर चलना व सूजन प्रबंधन), 3 सप्ताह (घर पर सावधानियां व फिजियोथेरेपी), और 3 महीने (सीढ़ियां चढ़ना व पूर्ण दैनिक स्वतंत्रता)। डॉ. गौरव शर्मा से समझें घुटने की सुरक्षा और तेज रिकवरी के नियम।",
+    thumbnailUrl: "https://img.youtube.com/vi/LXH2a25uaQg/hqdefault.jpg",
+    instagramUrl: "https://www.instagram.com/reel/DemOt09vxGa/?obrf=MWR0bDNobzVtZm80dQ==",
+    facebookUrl: "https://www.facebook.com/share/v/1GigbxkjAP/",
+    uploadDate: "2024-12-01",
     approved: true,
   },
   {
-    id: "vid-2",
-    title: "Understanding Knee Osteoarthritis: Stages & Non-Surgical Options",
-    category: "Doctor Education",
-    duration: "4:12",
-    thumbnailPlaceholderText: "VIDEO: Knee Osteoarthritis Explained Clearly",
-    description: "Learn how joint cartilage changes over time, what symptoms signify different stages, and evidence-supported ways to preserve mobility.",
-    transcriptAvailable: true,
-    approved: true,
-  },
-  {
-    id: "vid-3",
-    title: "What to Do Immediately Following an Acute Sports Ankle or Knee Twist",
-    category: "Treatment Education",
-    duration: "3:30",
-    thumbnailPlaceholderText: "VIDEO: Acute Joint Twist First-Response Protocol",
-    description: "Safe initial response rules (PRICE guidelines), signs that require urgent clinical assessment, and common mistakes to avoid.",
-    transcriptAvailable: true,
-    approved: true,
-  },
-  {
-    id: "vid-4",
-    title: "The Patient Journey: From Consultation to Recovery Milestones",
-    category: "Patient Journey",
-    duration: "3:55",
-    thumbnailPlaceholderText: "VIDEO: How Structured Recovery Pathways Work",
-    description: "Walkthrough of how follow-up visits, rehabilitation check-ins, and mobility goals are coordinated at our clinic.",
-    transcriptAvailable: true,
+    id: "vid-winter-joint-pain",
+    youtubeId: "lSzQvGKidKo",
+    youtubeUrl: "https://youtu.be/lSzQvGKidKo",
+    title: "सर्दियों में बढ़ जाता है जोड़ों का दर्द? जानिए दर्द से बचने के लिए क्या करें और किन गलतियों से बचें - Dr. Gaurav Sharma",
+    englishTitle: "Why Joint Pain Increases in Winter: Prevention, Cold-Weather Care & Common Mistakes",
+    category: "Joint Care & Arthritis",
+    duration: "Hindi Video Guide",
+    speaker: "Dr. Gaurav Sharma",
+    description: "सर्दियों के मौसम में घुटनों और जोड़ों में दर्द, जकड़न और सुबह की अकड़न क्यों बढ़ जाती है? डॉ. गौरव शर्मा (वरिष्ठ ऑर्थोपेडिक सर्जन) बता रहे हैं कि तापमान गिरने पर जोड़ों के साइनोवियल फ्लूइड पर क्या असर होता है, सही सिकाई (हॉट फर्मेंटेशन) कैसे करें, और किन गलतियों से बचना जरूरी है।",
+    thumbnailUrl: "https://img.youtube.com/vi/lSzQvGKidKo/hqdefault.jpg",
+    uploadDate: "2024-11-15",
     approved: true,
   },
 ];
@@ -571,6 +645,230 @@ export const faqs: FAQItem[] = [
     category: "Recovery",
     question: "Are rehabilitation and physiotherapy exercises provided at the clinic?",
     answer: "Dr. Gaurav Sharma provides clear home exercise regimens and works in close coordination with qualified physical therapists in Agra to guide progressive strengthening protocols.",
+    approved: true,
+  },
+];
+
+
+/* ==========================================================================
+   SURGICAL PROCEDURES & RECONSTRUCTIVE CARE DATASET
+   ========================================================================== */
+
+export const surgicalProcedures: SurgicalProcedureItem[] = [
+  {
+    id: "tkr-primary",
+    category: "joint-replacement",
+    categoryLabel: "Joint Replacement",
+    title: "Total Knee Replacement (TKR)",
+    shortName: "Primary TKR",
+    indication: "End-stage tricompartmental osteoarthritis (Grade 4), bone-on-bone joint space collapse, severe pain during walking, and bowing deformity.",
+    technique: "High-precision anatomical joint resurfacing with durable cobalt-chrome / ceramic femoral components, titanium tibial baseplates, and ultra-high-molecular-weight polyethylene bearings.",
+    inpatientStay: "3 – 4 Days in Tertiary Hospital Surgical Suite",
+    recoveryTimeline: "Walker-assisted walking within 24 hours; independent stair negotiation by Week 3–4; full unassisted daily walking by Week 6–8.",
+    keyHighlights: [
+      "Precision ligament balancing for natural joint feel",
+      "Multimodal pain management allowing early Day-1 standing",
+      "Correction of severe bow-leg (varus) or knock-knee (valgus) angles",
+    ],
+    description: "Total Knee Replacement replaces worn, arthritic cartilage surfaces with smooth, biocompatible implants. Dr. Sharma performs detailed pre-operative templating to match your natural bone anatomy, restoring stability, leg alignment, and pain-free everyday movement.",
+    approved: true,
+  },
+  {
+    id: "uka-partial-knee",
+    category: "joint-replacement",
+    categoryLabel: "Joint Replacement",
+    title: "Partial / Unicondylar Knee Replacement (UKA)",
+    shortName: "Partial Knee (UKA)",
+    indication: "Isolated medial compartment osteoarthritis where lateral joint cartilage, kneecap, and anterior cruciate ligament (ACL) remain healthy.",
+    technique: "Minimally invasive bone-preserving resurfacing of only the worn inner compartment, completely preserving the patient's native cruciate ligaments.",
+    inpatientStay: "1 – 2 Days",
+    recoveryTimeline: "Weight-bearing within hours; faster range-of-motion recovery than total knee replacement; natural knee bending feel.",
+    keyHighlights: [
+      "Preserves 100% of native ACL, PCL, and healthy outer joint cartilage",
+      "Smaller incision with minimal surgical blood loss",
+      "Quicker return to walking, driving, and routine activities",
+    ],
+    description: "When arthritis is confined solely to the inner side of your knee, Partial Knee Replacement resurfaces only the damaged zone. Because your natural ligaments remain intact, the knee bends with a completely natural kinematic sensation.",
+    approved: true,
+  },
+  {
+    id: "thr-primary",
+    category: "joint-replacement",
+    categoryLabel: "Joint Replacement",
+    title: "Total Hip Replacement (THR)",
+    shortName: "Primary THR",
+    indication: "Advanced Avascular Necrosis (AVN Stage 3/4), severe primary/secondary osteoarthritis, post-traumatic arthritis, or ankylosing spondylitis with hip stiffness.",
+    technique: "Uncemented press-fit porous-coated titanium acetabular cup and femoral stem, paired with modern ceramic-on-crosslinked polyethylene or delta-ceramic low-friction bearings.",
+    inpatientStay: "3 – 4 Days",
+    recoveryTimeline: "Assisted walking on Day 1; limp-free gait restoration by Week 4–6; unrestricted hip rotation and pain relief.",
+    keyHighlights: [
+      "Anatomic leg length equalization during templating",
+      "Ceramic bearings minimizing wear for extended implant longevity",
+      "Immediate relief from deep groin pain and morning hip stiffness",
+    ],
+    description: "Total Hip Replacement replaces the arthritic femoral ball and pelvic socket with modern frictionless bearings. The procedure completely eliminates groin stiffness, restores equal leg length, and enables patients to sit, walk, and climb stairs comfortably.",
+    approved: true,
+  },
+  {
+    id: "complex-revision-arthroplasty",
+    category: "joint-replacement",
+    categoryLabel: "Joint Replacement",
+    title: "Complex & Revision Joint Replacement (TKR & THR)",
+    shortName: "Revision Arthroplasty",
+    indication: "Pain, mechanical loosening, implant wear, periprosthetic fracture, or structural instability after an earlier joint replacement performed years ago.",
+    technique: "Meticulous extraction of loose implants, restoration of bone defects using trabecular metal augments and cones, and modular constrained/hinged stems.",
+    inpatientStay: "4 – 6 Days",
+    recoveryTimeline: "Structured progressive protected weight-bearing tailored to reconstructive bone stability; monitored physical therapy.",
+    keyHighlights: [
+      "Specialized workup to rule out low-grade periprosthetic infection",
+      "Modular stems bypass bone loss for solid mechanical anchorage",
+      "Restores stable walking in previously failing artificial joints",
+    ],
+    description: "When an earlier joint replacement fails due to age, wear, or loosening, revision surgery reconstructs joint stability. Dr. Sharma utilizes modular revision systems and trabecular metal augments to anchor implants securely into healthy bone.",
+    approved: true,
+  },
+  {
+    id: "bipolar-hemiarthroplasty",
+    category: "joint-replacement",
+    categoryLabel: "Joint Replacement",
+    title: "Bipolar Hemiarthroplasty for Hip Fractures",
+    shortName: "Bipolar Hip Replacement",
+    indication: "Displaced intracapsular femoral neck fractures in elderly patients requiring immediate mobilization to avoid prolonged bed rest risks.",
+    technique: "Anatomical femoral stem fixation with a self-centering dual-mobility bipolar head articulating directly inside the patient's natural acetabulum.",
+    inpatientStay: "3 – 4 Days",
+    recoveryTimeline: "Full weight-bearing standing and walker mobilization within 24 to 48 hours post-surgery.",
+    keyHighlights: [
+      "Prevents prolonged bed-ridden state, bedsores, and chest congestion in senior citizens",
+      "Dual-mobility articulation minimizes post-operative dislocation risk",
+      "Rapid return to independent upright walking",
+    ],
+    description: "For elderly patients who suffer a broken hip from a slip or fall, Bipolar Hemiarthroplasty replaces the fractured femoral head with a dual-mobility prosthesis, enabling safe walking the very next day without waiting for fractured bone to heal.",
+    approved: true,
+  },
+  {
+    id: "acl-pcl-arthroscopy",
+    category: "arthroscopy",
+    categoryLabel: "Arthroscopy & Sports",
+    title: "Knee Arthroscopy & ACL / PCL Reconstruction",
+    shortName: "Keyhole ACL / PCL Reconstruction",
+    indication: "Complete ACL/PCL tears causing knee instability, pivoting giving-way, sports impact injuries, or accompanying multiligament laxity.",
+    technique: "Minimally invasive 4K high-definition keyhole arthroscopy using autologous hamstring tendon graft fixed with titanium cortical buttons and bio-absorbable interference screws.",
+    inpatientStay: "Daycare to 24 Hours",
+    recoveryTimeline: "Immediate quadriceps firing; brace-assisted walking on Day 1; running and sports-specific functional drills by Month 6–9.",
+    keyHighlights: [
+      "Anatomic tunnel placement restoring native rotational stability",
+      "Minimally invasive keyhole incisions with minimal tissue scarring",
+      "Structured sports rehabilitation protocol preventing re-injury",
+    ],
+    description: "ACL reconstruction rebuilds the crucial stabilizing ligament inside your knee through pencil-sized incisions. Using a high-definition arthroscope, Dr. Sharma anchors a strong tendon graft to restore joint stability and protect the knee from premature osteoarthritis.",
+    approved: true,
+  },
+  {
+    id: "meniscus-repair",
+    category: "arthroscopy",
+    categoryLabel: "Arthroscopy & Sports",
+    title: "Arthroscopic Meniscus Repair & Preservation",
+    shortName: "Meniscal Repair & Preservation",
+    indication: "Torn meniscus (bucket-handle, longitudinal, or radial tears) causing painful clicking, catching, joint-line tenderness, or knee locking.",
+    technique: "All-inside and inside-out bio-suture anchor devices repairing the tear back to the vascular joint capsule; selective trimming only for degenerative fragments.",
+    inpatientStay: "Daycare (Same Day Discharge)",
+    recoveryTimeline: "Protected partial weight-bearing with knee brace for 4 weeks; full knee bending and functional loading by Week 6–8.",
+    keyHighlights: [
+      "Prioritizes meniscus preservation over removal whenever viable",
+      "Protects native joint cartilage from long-term degenerative wear",
+      "Outpatient keyhole procedure with minimal recovery discomfort",
+    ],
+    description: "The meniscus is your knee's primary shock absorber. Whenever a tear is biologically repairable, Dr. Sharma stitches the meniscus using specialized keyhole suture anchors rather than cutting it away, preserving your joint cartilage for the long term.",
+    approved: true,
+  },
+  {
+    id: "shoulder-arthroscopy-rotator-cuff",
+    category: "arthroscopy",
+    categoryLabel: "Arthroscopy & Sports",
+    title: "Shoulder Arthroscopy: Rotator Cuff & Bankart Repair",
+    shortName: "Shoulder Arthroscopy",
+    indication: "Full-thickness rotator cuff tendon tears, recurrent shoulder dislocations (Bankart lesions), labral tears, or chronic subacromial impingement.",
+    technique: "Anatomical tendon footprint reattachment onto the humerus bone using bio-composite suture anchors under high-magnification fluid arthroscopic visualization.",
+    inpatientStay: "Daycare to 24 Hours",
+    recoveryTimeline: "Sling immobilization for 4 weeks; guided passive-to-active pendulum movements; progressive rotator cuff strengthening through Week 12.",
+    keyHighlights: [
+      "Keyhole repair eliminates large muscle-cutting shoulder incisions",
+      "Stops recurrent shoulder dislocations by securing torn labrum",
+      "Restores overhead reaching strength and restful sleep without pain",
+    ],
+    description: "Shoulder arthroscopy treats torn rotator cuff tendons and recurrent shoulder slipping through small keyhole ports. Dr. Sharma reattaches the tendon to its anatomical bone bed, eliminating deep night pain and restoring overhead arm power.",
+    approved: true,
+  },
+  {
+    id: "intra-articular-fracture-orif",
+    category: "trauma-fractures",
+    categoryLabel: "Trauma & Fractures",
+    title: "Intra-Articular Fracture Fixation (ORIF Locking Plates)",
+    shortName: "Complex Fracture Fixation (ORIF)",
+    indication: "Displaced bone fractures extending into joints (tibial plateau, distal radius, ankle, distal femur, proximal humerus) requiring exact articular restoration.",
+    technique: "Open reduction and anatomical joint reconstruction stabilized with low-profile titanium locking compression plates (LCP) and lag screws.",
+    inpatientStay: "2 – 4 Days",
+    recoveryTimeline: "Early joint range-of-motion exercises without heavy plaster; progressive weight-bearing confirmed by digital union X-rays.",
+    keyHighlights: [
+      "Restores millimeter-exact joint surface smoothness to prevent arthritis",
+      "Rigid internal fixation eliminates prolonged heavy plaster casts",
+      "Allows early joint movement preventing joint stiffness",
+    ],
+    description: "When a broken bone extends into a joint surface, even a 2mm step-off can cause early arthritis. Dr. Sharma aligns the articular joint surface under direct visualization and secures it with anatomical titanium locking plates for solid stability.",
+    approved: true,
+  },
+  {
+    id: "interlocking-nailing",
+    category: "trauma-fractures",
+    categoryLabel: "Trauma & Fractures",
+    title: "Closed Interlocking Nailing for Long Bone Fractures",
+    shortName: "Closed Interlocking Nailing",
+    indication: "Fractures of femur (thigh bone), tibia (shin bone), or humerus shaft resulting from vehicular accidents, falls, or sports trauma.",
+    technique: "Minimally invasive intramedullary nail insertion under intraoperative C-Arm fluoroscopy without opening the fracture hematoma, preserving natural healing biology.",
+    inpatientStay: "2 – 3 Days",
+    recoveryTimeline: "Early partial weight-bearing with walker within 48–72 hours; rapid secondary bone bridging callus formation.",
+    keyHighlights: [
+      "Closed technique protects the fracture's natural blood supply",
+      "Early weight-bearing accelerates bone healing and muscle tone",
+      "Minimal skin incisions reducing post-operative wound infection risks",
+    ],
+    description: "Closed interlocking nailing inserts a high-strength titanium or steel rod down the hollow center of a broken long bone under real-time X-ray guidance. Because the fracture site is not surgically opened, bone healing occurs rapidly and naturally.",
+    approved: true,
+  },
+  {
+    id: "carpal-tunnel-trigger-finger",
+    category: "daycare",
+    categoryLabel: "Daycare Procedures",
+    title: "Carpal Tunnel Release & Trigger Finger Decompression",
+    shortName: "Carpal Tunnel & Trigger Release",
+    indication: "Severe median nerve compression (hand tingling, numbness, nocturnal waking), or painful finger catching and locking unyielding to medication.",
+    technique: "Minimally invasive transverse carpal ligament division or A1 pulley release under local anesthesia through small palmar incisions.",
+    inpatientStay: "Daycare (Discharge in 2 to 3 Hours)",
+    recoveryTimeline: "Immediate gentle active finger movement; suture removal at Day 10–12; rapid relief of tingling and finger catching.",
+    keyHighlights: [
+      "Performed comfortably under local anesthesia in daycare setting",
+      "Immediate elimination of sleep-disrupting hand numbness",
+      "No overnight hospital stay required",
+    ],
+    description: "Carpal tunnel and trigger finger surgeries release constricted fibrous bands compressing nerves and tendons in the hand. Performed as a brief daycare procedure under local anesthesia, patients return home the very same afternoon with free finger movement.",
+    approved: true,
+  },
+  {
+    id: "de-quervain-tendon-release",
+    category: "daycare",
+    categoryLabel: "Daycare Procedures",
+    title: "De Quervain's Tenosynovitis & Tendon Decompressions",
+    shortName: "De Quervain's Tendon Release",
+    indication: "Severe thumb-side wrist pain during lifting, wringing, or writing (positive Finkelstein's test) failing conservative splints and injections.",
+    technique: "Micro-surgical decompression of the first dorsal compartment sheath, liberating the abductor pollicis longus and extensor pollicis brevis tendons.",
+    inpatientStay: "Daycare Outpatient Procedure",
+    recoveryTimeline: "Immediate light daily hand use; complete resolution of sharp thumb pinch pain within 10 to 14 days.",
+    keyHighlights: [
+      "Protects sensory nerve branches while ensuring complete tendon glide",
+      "Walk-in, walk-out outpatient procedure under local anesthesia",
+      "Permanent relief from chronic thumb-base pain",
+    ],
+    description: "De Quervain's tenosynovitis causes sharp pain at the base of the thumb whenever you lift or grasp. When rest and medication fail, a minor daycare release of the tight tendon sheath allows the tendons to glide freely without friction.",
     approved: true,
   },
 ];

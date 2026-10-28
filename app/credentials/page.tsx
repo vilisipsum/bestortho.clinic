@@ -105,7 +105,15 @@ export default function CredentialsPage() {
                       &quot;Diagnostic Arthroscopy of Knee Joint and Arthroscopic Lavage&quot;
                     </p>
                     <p className="text-xs text-slate-500 mt-1">
-                      Foundational scientific research establishing early clinical protocols in minimally invasive joint care and knee joint preservation.
+                      Foundational scientific thesis establishing clinical protocols in minimally invasive keyhole joint examination, cartilage assessment, and arthroscopic knee preservation.
+                    </p>
+                  </div>
+
+                  <div className="p-4 rounded-xl bg-white border border-slate-200/80">
+                    <p className="font-bold text-brand-950 text-base">Arthroplasty & Joint Replacement Academics</p>
+                    <p className="text-xs font-semibold text-brand-700 mt-0.5">Surgical Instruction & Postgraduate Case Conferences</p>
+                    <p className="text-xs text-slate-600 mt-2 leading-relaxed">
+                      Conducted postgraduate clinical instruction, surgical workshops, and clinical case conferences covering primary Total Knee Replacement (TKR), Total Hip Replacement (THR), and complex joint reconstructive biomechanics during medical college faculty tenure.
                     </p>
                   </div>
                 </div>
@@ -202,44 +210,64 @@ export default function CredentialsPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="card-medical p-5 bg-white">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="card-medical p-6 bg-white border border-slate-200">
+              <span className="text-xs font-bold text-brand-600 uppercase tracking-wider">Arthroplasty</span>
+              <h4 className="font-bold text-brand-950 text-base mt-1 mb-2 font-display">
+                Primary & Complex TKR Masterclass
+              </h4>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Comprehensive training covering measured resection, gap balancing, severe angular deformity correction (varus/valgus &gt;15°), and constrained condylar knee (CCK) systems.
+              </p>
+            </div>
+
+            <div className="card-medical p-6 bg-white border border-slate-200">
+              <span className="text-xs font-bold text-brand-600 uppercase tracking-wider">Hip Arthroplasty</span>
+              <h4 className="font-bold text-brand-950 text-base mt-1 mb-2 font-display">
+                Total Hip & Revision Arthroplasty
+              </h4>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Uncemented and cemented cup/stem positioning, offset and leg-length restoration for avascular necrosis (AVN), and modular revision stem techniques for loose implants.
+              </p>
+            </div>
+
+            <div className="card-medical p-6 bg-white border border-slate-200">
               <span className="text-xs font-bold text-brand-600 uppercase tracking-wider">Arthroscopy</span>
-              <h4 className="font-bold text-brand-950 text-sm mt-1 mb-2 font-display">
+              <h4 className="font-bold text-brand-950 text-base mt-1 mb-2 font-display">
                 Cadaveric Arthroscopy Workshop
               </h4>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Indian Arthroscopic Society (IAS), 5th Annual Conference, Kolkata. Advanced hands-on diagnostic and operative keyhole techniques.
+                Indian Arthroscopic Society (IAS), 5th Annual Conference, Kolkata. Advanced hands-on diagnostic and operative keyhole techniques for knee and shoulder reconstruction.
               </p>
             </div>
 
-            <div className="card-medical p-5 bg-white">
-              <span className="text-xs font-bold text-brand-600 uppercase tracking-wider">Trauma</span>
-              <h4 className="font-bold text-brand-950 text-sm mt-1 mb-2 font-display">
-                Fracture Neck Femur Workshop
+            <div className="card-medical p-6 bg-white border border-slate-200">
+              <span className="text-xs font-bold text-brand-600 uppercase tracking-wider">Trauma & Pelvis</span>
+              <h4 className="font-bold text-brand-950 text-base mt-1 mb-2 font-display">
+                Fracture Neck Femur & Complex Trauma
               </h4>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Indian Orthopaedic Association, 25th State Conference. Complex hip and lower extremity fracture stabilization.
+                Indian Orthopaedic Association, 25th State Conference. Complex hip, peri-articular, and lower extremity fracture stabilization and anatomical reduction.
               </p>
             </div>
 
-            <div className="card-medical p-5 bg-white">
-              <span className="text-xs font-bold text-brand-600 uppercase tracking-wider">Spine</span>
-              <h4 className="font-bold text-brand-950 text-sm mt-1 mb-2 font-display">
-                Spinal Instrumentation Workshop
+            <div className="card-medical p-6 bg-white border border-slate-200">
+              <span className="text-xs font-bold text-brand-600 uppercase tracking-wider">Spine Care</span>
+              <h4 className="font-bold text-brand-950 text-base mt-1 mb-2 font-display">
+                Spinal Instrumentation & Lumbar Decompression
               </h4>
               <p className="text-xs text-slate-600 leading-relaxed">
-                J.N. Medical College, AMU, Aligarh (UPOA). Modern posterior spinal fixation, pedicle screw instrumentation, and decompression.
+                J.N. Medical College, AMU, Aligarh (UPOA). Modern posterior spinal fixation, pedicle screw instrumentation, lumbar disc decompression, and sciatica triage.
               </p>
             </div>
 
-            <div className="card-medical p-5 bg-white">
+            <div className="card-medical p-6 bg-white border border-slate-200">
               <span className="text-xs font-bold text-brand-600 uppercase tracking-wider">International CME</span>
-              <h4 className="font-bold text-brand-950 text-sm mt-1 mb-2 font-display">
-                AAOS Education Program
+              <h4 className="font-bold text-brand-950 text-base mt-1 mb-2 font-display">
+                AAOS Comprehensive Curriculum
               </h4>
               <p className="text-xs text-slate-600 leading-relaxed">
-                American Academy of Orthopaedic Surgeons (AAOS). Trans-education curriculum covering international evidence-based surgical guidelines.
+                American Academy of Orthopaedic Surgeons (AAOS). Trans-education curriculum covering international evidence-based surgical guidelines and patient outcomes.
               </p>
             </div>
           </div>

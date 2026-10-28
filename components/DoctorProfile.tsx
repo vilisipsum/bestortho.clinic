@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, CheckCircle2, UserCheck, Calendar, Clock, Stethoscope } from 'lucide-react';
 import { doctorProfile } from '@/lib/content';
 import CredentialCards from './CredentialCards';
@@ -77,32 +78,45 @@ export default function DoctorProfile({
           {/* Authentic Portrait Card (Marked PHOTO NEEDED per strict instructions) */}
           <div className="lg:col-span-4">
             <div className="card-medical p-6 bg-white">
-              <div className="relative aspect-[4/5] rounded-2xl bg-slate-50 overflow-hidden p-6 flex flex-col justify-between mb-4">
+              <div className="relative aspect-[4/5] rounded-2xl bg-gradient-to-b from-brand-950 via-brand-900 to-slate-900 text-white overflow-hidden p-6 flex flex-col justify-between mb-4 shadow-elevated">
                 <div className="flex items-center justify-between">
-                  <span className="pill-badge bg-blue-50 text-brand-700 border-blue-200 text-xs">
-                    Doctor Headshot
+                  <span className="px-2.5 py-1 rounded-full bg-white/10 backdrop-blur-sm text-brand-200 text-xs font-medium border border-white/10">
+                    Lead Consultant Surgeon
                   </span>
-                  <span className="text-xs font-medium text-slate-500">Agra, UP</span>
+                  <span className="text-xs font-semibold text-emerald-400 flex items-center gap-1">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+                    Verified Practice
+                  </span>
                 </div>
 
-                <div className="my-auto text-center p-4 rounded-xl bg-white/80">
-                  <div className="w-12 h-12 mx-auto mb-2 rounded-xl bg-blue-50 flex items-center justify-center text-brand-700">
-                    <UserCheck className="w-6 h-6" />
+                <div className="my-auto text-center p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
+                  <div className="w-24 h-24 mx-auto mb-3 rounded-2xl bg-white p-2 flex items-center justify-center shadow-lg">
+                    <Image
+                      src="/images/logo/logo-icon-square.png"
+                      alt="Dr. Gaurav Sharma Orthopaedic Specialist Monogram"
+                      width={80}
+                      height={80}
+                      className="w-full h-full object-contain"
+                      priority
+                    />
                   </div>
-                  <span className="inline-block px-2.5 py-0.5 rounded bg-slate-800 text-white text-xs font-semibold tracking-wide mb-1">
-                    PHOTO NEEDED
-                  </span>
-                  <p className="text-xs font-bold text-slate-900">
-                    Verified Clinic Portrait
+                  <p className="text-xl font-bold text-white font-display tracking-tight">
+                    {doctorProfile.name}
                   </p>
-                  <p className="text-xs text-slate-500 mt-0.5">
-                    Authentic photograph reserved for verified clinic upload.
+                  <p className="text-xs text-brand-200 font-semibold mt-1">
+                    M.B.B.S., M.S. (Orthopaedics)
+                  </p>
+                  <p className="text-xs text-teal-300 font-medium mt-0.5">
+                    MS (Ortho) Gold Medalist • {doctorProfile.experienceYears}+ Yrs Exp
+                  </p>
+                  <p className="text-[11px] text-slate-300 mt-1">
+                    Senior Consultant Orthopaedics &amp; Joint Replacement
                   </p>
                 </div>
 
-                <div className="border-t border-slate-100 pt-3">
-                  <p className="font-bold text-sm text-brand-950 font-display">{doctorProfile.name}</p>
-                  <p className="text-xs text-brand-700 font-semibold">{doctorProfile.formalTitle}</p>
+                <div className="border-t border-white/10 pt-3 flex items-center justify-between text-xs text-brand-200">
+                  <span>Reg: 48757 (UPMC)</span>
+                  <span className="text-white font-medium">U.P. Medical Council</span>
                 </div>
               </div>
 

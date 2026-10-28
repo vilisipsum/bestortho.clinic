@@ -55,7 +55,7 @@ export default function PrivacyPage() {
                 2. Prohibition of Online Medical Record Uploads
               </h2>
               <p>
-                In strict accordance with clinical data ethics, BestOrtho.clinic explicitly does not allow users to upload diagnostic radiological records, MRI scans, CT scans, blood test reports, or surgical history through public web forms. Diagnostic materials are reviewed strictly in-person within the secure, private clinic consultation room in Sikandra, Agra.
+                In strict accordance with clinical data ethics, Dr. Gaurav Sharma Orthopaedic Clinic (bestortho.clinic) explicitly does not allow users to upload diagnostic radiological records, MRI scans, CT scans, blood test reports, or surgical history through public web forms. Diagnostic materials are reviewed strictly in-person within the secure, private clinic consultation room in Sikandra, Agra.
               </p>
             </div>
 

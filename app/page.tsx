@@ -3,21 +3,20 @@
 import React, { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
-import DoctorProfile from '@/components/DoctorProfile';
-import PracticePhilosophy from '@/components/PracticePhilosophy';
-import PatientJourney from '@/components/PatientJourney';
 import InteractiveBodyGuide from '@/components/InteractiveBodyGuide';
+import DoctorProfile from '@/components/DoctorProfile';
 import AreasOfCare from '@/components/AreasOfCare';
-import PatientStoriesSection from '@/components/PatientStoriesSection';
+import SurgicalProceduresSection from '@/components/SurgicalProceduresSection';
 import VideoSection from '@/components/VideoSection';
+import PatientJourney from '@/components/PatientJourney';
+import PatientStoriesSection from '@/components/PatientStoriesSection';
 import LocationCard from '@/components/LocationCard';
 import FAQAccordion from '@/components/FAQAccordion';
 import BookingCTA from '@/components/BookingCTA';
 import BookingModal from '@/components/BookingModal';
-import TestimonialCard from '@/components/TestimonialCard';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import { getFAQSchema } from '@/lib/seo';
+import { getFAQSchema, getVideoSchema } from '@/lib/seo';
 
 export default function HomePage() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
@@ -25,6 +24,7 @@ export default function HomePage() {
   const [bookingArea, setBookingArea] = useState('Knee');
 
   const faqSchema = getFAQSchema();
+  const videoSchema = getVideoSchema();
 
   const handleOpenBooking = (reason?: string, area?: string) => {
     if (reason) setBookingReason(reason);
@@ -49,40 +49,43 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      {/* Sticky Header */}
+      {/* VideoObject Schema Graph for Google Video Rich Results */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(videoSchema) }}
+      />
+
+      {/* Sticky Header with Official Logo */}
       <Header onOpenBooking={() => handleOpenBooking()} />
 
-      {/* 1. HERO SECTION */}
+      {/* 1. HERO SECTION (With Fast OPD Schedule & Clinic Access Card) */}
       <Hero onOpenBooking={() => handleOpenBooking()} />
 
-      {/* 2. DOCTOR INTRODUCTION */}
-      <DoctorProfile onOpenBooking={() => handleOpenBooking()} />
-
-      {/* 3. PRACTICE PHILOSOPHY */}
-      <PracticePhilosophy />
-
-      {/* 4. 3-STEP PATIENT JOURNEY (What to Expect) */}
-      <PatientJourney onOpenBooking={() => handleOpenBooking()} />
-
-      {/* 5. INTERACTIVE SYMPTOM NAVIGATOR (Where Does It Hurt?) */}
+      {/* 2. INTERACTIVE SYMPTOM NAVIGATOR (Elevated to top for immediate patient engagement) */}
       <InteractiveBodyGuide onOpenBooking={(reason, area) => handleOpenBooking(reason, area)} />
 
-      {/* 6. AREAS OF CARE */}
+      {/* 3. MEET DR. GAURAV SHARMA (Sole dedicated doctor authority & credentials showcase) */}
+      <DoctorProfile onOpenBooking={() => handleOpenBooking()} />
+
+      {/* 4. CLINICAL SPECIALITIES & AREAS OF CARE */}
       <AreasOfCare onOpenBooking={() => handleOpenBooking()} />
 
-      {/* 7. PATIENT STORIES (Consent-Guarded) */}
-      <PatientStoriesSection maxItems={3} showAllLink={true} />
+      {/* 5. DEDICATED SURGICAL PROCEDURES & RECONSTRUCTIVE CARE */}
+      <SurgicalProceduresSection onOpenBooking={(reason, area) => handleOpenBooking(reason, area)} />
 
-      {/* 8. TESTIMONIALS (Approved Reviews) */}
-      <TestimonialCard />
-
-      {/* 9. EDUCATIONAL VIDEOS */}
+      {/* 6. DOCTOR VIDEO GUIDANCE (Real Authentic Hindi Video Advice) */}
       <VideoSection />
 
-      {/* 11. CLINIC / LOCATION */}
+      {/* 7. 3-STEP PATIENT JOURNEY & CLINICAL PROCESS */}
+      <PatientJourney onOpenBooking={() => handleOpenBooking()} />
+
+      {/* 7. PATIENT RECOVERY STORIES (Single consolidated, consent-guarded social proof) */}
+      <PatientStoriesSection maxItems={3} showAllLink={true} />
+
+      {/* 8. CLINIC LOCATION, OPD TIMINGS & DIRECTIONS */}
       <LocationCard onOpenBooking={() => handleOpenBooking()} />
 
-      {/* 12. FAQS SECTION */}
+      {/* 9. FREQUENTLY ASKED QUESTIONS */}
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
@@ -107,11 +110,11 @@ export default function HomePage() {
             </Link>
           </div>
 
-          <FAQAccordion limit={6} />
+          <FAQAccordion limit={4} />
         </div>
       </section>
 
-      {/* 14. BOOKING CTA */}
+      {/* 10. FINAL CONSULTATION BOOKING CTA */}
       <BookingCTA onOpenBooking={() => handleOpenBooking()} />
 
       {/* Interactive Booking Modal */}

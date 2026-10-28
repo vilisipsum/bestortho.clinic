@@ -2,7 +2,19 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ShieldCheck, MapPin, BookOpen, Calendar, ArrowRight, UserCheck, Stethoscope, Clock, CheckCircle2, Award } from 'lucide-react';
+import { 
+  ShieldCheck, 
+  MapPin, 
+  BookOpen, 
+  Calendar, 
+  ArrowRight, 
+  Stethoscope, 
+  Clock, 
+  Award,
+  Phone,
+  MessageCircle,
+  Activity
+} from 'lucide-react';
 import { siteConfig, doctorProfile } from '@/lib/content';
 
 interface HeroProps {
@@ -83,7 +95,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
 
             {/* Factual, Trust-Building Supporting Copy */}
             <p className="text-lg sm:text-xl text-slate-600 leading-relaxed max-w-2xl mb-8 font-normal">
-              Meet Dr. Gaurav Sharma and learn about his orthopaedic practice, qualifications, areas of care, clinic timings in Sikandra, and patient educational resources. Structured around thorough clinical examination, transparent options, and measurable recovery milestones.
+              Consultant orthopaedic and joint replacement care in Sikandra, Agra by Dr. Gaurav Sharma. Structured around in-depth clinical examination, transparent non-surgical and surgical options, and measurable recovery milestones.
             </p>
 
             {/* Action Buttons */}
@@ -97,12 +109,11 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                 <span>Book Consultation</span>
                 <ArrowRight className="w-4 h-4 ml-1" />
               </button>
-
               <Link
                 href="/about"
                 className="btn-secondary text-base sm:text-lg py-3.5 px-7 flex items-center gap-2"
               >
-                <span>Meet Dr. Gaurav Sharma</span>
+                <span>Doctor Credentials</span>
               </Link>
             </div>
 
@@ -117,7 +128,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                     20+ Years Experience
                   </span>
                   <p className="text-xs text-slate-500">
-                    Orthopaedic & Joint Care
+                    Orthopaedic &amp; Joint Care
                   </p>
                 </div>
               </div>
@@ -145,7 +156,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                     Patient Education
                   </span>
                   <p className="text-xs text-slate-500">
-                    Condition & Rehab Guides
+                    Condition &amp; Rehab Guides
                   </p>
                 </div>
               </div>
@@ -153,64 +164,116 @@ export default function Hero({ onOpenBooking }: HeroProps) {
 
           </div>
 
-          {/* Right Column: Doctor Portrait Clean Single-Layer Card */}
+          {/* Right Column: High-Utility Fast OPD Schedule & Clinic Access Card */}
           <div className="lg:col-span-5">
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
-              {/* Main Medical Specialist Single-Layer Card */}
               <div className="bg-white rounded-3xl border border-slate-200/90 shadow-card p-6 sm:p-7 flex flex-col justify-between">
                 
-                {/* Status Header */}
-                <div className="flex justify-between items-center pb-4 mb-4 border-b border-slate-100">
-                  <span className="px-3 py-1 rounded-full text-xs font-semibold bg-brand-50 border border-brand-200 text-brand-900">
-                    Consultant Orthopaedic Specialist
-                  </span>
-                  <span className="w-7 h-7 rounded-full bg-emerald-100 border border-emerald-300 flex items-center justify-center text-xs font-bold text-emerald-800">
-                    ✓
-                  </span>
-                </div>
-
-                {/* Reserved Portrait Area */}
-                <div className="py-10 px-4 rounded-2xl bg-slate-50 text-center mb-5">
-                  <div className="w-14 h-14 mx-auto mb-3 rounded-2xl bg-blue-100/70 flex items-center justify-center text-brand-700">
-                    <UserCheck className="w-7 h-7" />
+                {/* Status & Live Badge Header */}
+                <div className="flex justify-between items-center pb-4 mb-5 border-b border-slate-100">
+                  <div className="flex items-center gap-2">
+                    <span className="flex h-2.5 w-2.5 relative">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                    </span>
+                    <span className="text-xs font-bold text-slate-900 tracking-wide uppercase">
+                      Clinic OPD Schedule
+                    </span>
                   </div>
-                  <span className="inline-block px-2.5 py-0.5 rounded bg-slate-800 text-white text-xs font-semibold tracking-wide mb-1.5">
-                    Official Clinic Portrait
+                  <span className="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-50 border border-emerald-200 text-emerald-800">
+                    Sikandra, Agra
                   </span>
-                  <p className="text-sm font-bold text-slate-900">
-                    Reserved for Dr. Gaurav Sharma
-                  </p>
-                  <p className="text-xs text-slate-500 max-w-xs mx-auto mt-1">
-                    Authentic clinic photography only. No synthetic or stock doctor imagery used.
-                  </p>
                 </div>
 
-                {/* Doctor Bio Details */}
-                <div className="pt-2">
-                  <h2 className="text-xl font-bold text-brand-950 font-display leading-tight">
-                    {doctorProfile.name}
-                  </h2>
-                  <p className="text-xs font-semibold text-brand-700 mt-0.5">
-                    {doctorProfile.formalTitle}
-                  </p>
-                  <p className="text-xs text-slate-500 mt-1">
-                    Sikandra, Agra • Consultation by Prior Appointment
-                  </p>
+                {/* Consultation Timings Cards */}
+                <div className="space-y-3 mb-5">
+                  <div className="p-3.5 rounded-2xl bg-slate-50/80 border border-slate-100 flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-xl bg-blue-100/70 flex items-center justify-center text-brand-700 shrink-0 mt-0.5">
+                      <Clock className="w-4 h-4" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-bold text-slate-900">Monday – Saturday</span>
+                        <span className="text-[10px] font-semibold text-brand-700 bg-brand-50 px-2 py-0.5 rounded-full">Primary OPD</span>
+                      </div>
+                      <p className="text-xs text-slate-600 mt-1">
+                        Morning: <span className="font-semibold text-slate-800">10:00 AM – 02:00 PM</span>
+                      </p>
+                      <p className="text-xs text-slate-600">
+                        Evening: <span className="font-semibold text-slate-800">06:00 PM – 08:30 PM</span>
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="p-3.5 rounded-2xl bg-slate-50/80 border border-slate-100 flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-xl bg-amber-100/70 flex items-center justify-center text-amber-700 shrink-0 mt-0.5">
+                      <Calendar className="w-4 h-4" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-bold text-slate-900">Sunday Consultations</span>
+                        <span className="text-[10px] font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-full">Prior Booking</span>
+                      </div>
+                      <p className="text-xs text-slate-600 mt-1">
+                        Timing: <span className="font-semibold text-slate-800">10:30 AM – 01:30 PM</span>
+                      </p>
+                    </div>
+                  </div>
                 </div>
 
-                {/* Sub-card badges */}
-                <div className="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-medium text-slate-600">
-                  <span className="flex items-center gap-1.5 text-emerald-700 font-semibold">
-                    <Clock className="w-3.5 h-3.5" />
-                    OPD Mon–Sat & Sun
+                {/* Key Surgical & Clinical Focus Badges */}
+                <div className="mb-6">
+                  <span className="block text-[11px] font-semibold text-slate-500 uppercase tracking-wider mb-2">
+                    Core Clinical Specialities
                   </span>
-                  <Link
-                    href="/about"
-                    className="text-brand-700 hover:text-brand-900 font-semibold flex items-center gap-1"
+                  <div className="flex flex-wrap gap-1.5">
+                    <span className="px-2.5 py-1 rounded-lg bg-brand-50 text-brand-900 text-xs font-medium border border-brand-100">
+                      Total Knee Replacement (TKR)
+                    </span>
+                    <span className="px-2.5 py-1 rounded-lg bg-brand-50 text-brand-900 text-xs font-medium border border-brand-100">
+                      Total Hip Replacement (THR)
+                    </span>
+                    <span className="px-2.5 py-1 rounded-lg bg-teal-50 text-teal-900 text-xs font-medium border border-teal-100">
+                      Complex Knee &amp; Revision Surgery
+                    </span>
+                    <span className="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-800 text-xs font-medium border border-slate-200">
+                      Arthroscopy &amp; Sports Injury
+                    </span>
+                    <span className="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-800 text-xs font-medium border border-slate-200">
+                      Spine &amp; Back Pain Care
+                    </span>
+                  </div>
+                </div>
+
+                {/* Direct Action Row: 1-Tap Call & WhatsApp */}
+                <div className="grid grid-cols-2 gap-2.5 mb-4">
+                  <a
+                    href={`tel:${siteConfig.phone}`}
+                    className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition-colors"
                   >
-                    <span>View Qualifications</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <Phone className="w-3.5 h-3.5 text-brand-700" />
+                    <span>Call Clinic</span>
+                  </a>
+                  <a
+                    href={`https://wa.me/${siteConfig.whatsappNumber}?text=Hello%20Dr.%20Gaurav%20Sharma%20Clinic,%20I%20would%20like%20to%20inquire%20about%20an%20OPD%20appointment.`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold transition-colors border border-emerald-200"
+                  >
+                    <MessageCircle className="w-3.5 h-3.5 text-emerald-600" />
+                    <span>WhatsApp</span>
+                  </a>
+                </div>
+
+                {/* Landmark Footer */}
+                <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
+                  <span className="flex items-center gap-1 truncate max-w-[260px]">
+                    <MapPin className="w-3 h-3 text-brand-600 shrink-0" />
+                    <span className="truncate">{siteConfig.primaryAddress.street}, {siteConfig.primaryAddress.city}</span>
+                  </span>
+                  <Link href="/clinic" className="text-brand-700 hover:underline font-semibold shrink-0">
+                    Map &amp; Directions
                   </Link>
                 </div>
 

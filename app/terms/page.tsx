@@ -30,7 +30,7 @@ export default function TermsPage() {
             <div className="p-4 rounded-xl bg-amber-50/80 flex items-start gap-3">
               <AlertTriangle className="w-5 h-5 text-amber-700 flex-shrink-0 mt-0.5" />
               <div className="text-xs sm:text-sm text-slate-800">
-                <strong>CRITICAL MEDICAL NOTICE:</strong> Content on BestOrtho.clinic is for general health literacy and outpatient practice coordination. It is not an online diagnostic service, emergency triage channel, or prescription generator.
+                <strong>CRITICAL MEDICAL NOTICE:</strong> Content on this web portal (bestortho.clinic) is for general health literacy and outpatient practice coordination. It is not an online diagnostic service, emergency triage channel, or prescription generator.
               </div>
             </div>
 
@@ -75,7 +75,7 @@ export default function TermsPage() {
                 5. Intellectual Property & Brand Integrity
               </h2>
               <p>
-                The domain name <strong>BestOrtho.clinic</strong>, brand layout, logos, written educational materials, and practice designs are the exclusive property of Dr. Gaurav Sharma Orthopaedic Clinic and may not be reproduced, copied, or used for commercial medical promotion without written authorization.
+                The domain name <strong>bestortho.clinic</strong> is registered strictly as an operational digital web portal and does not constitute a superlative, comparative, or promotional medical claim under NMC Ethics Regulations. All content, educational materials, and practice designs are the intellectual property of Dr. Gaurav Sharma Orthopaedic Clinic.
               </p>
             </div>
 

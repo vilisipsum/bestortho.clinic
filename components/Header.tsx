@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Phone, Calendar, ArrowRight, Stethoscope } from 'lucide-react';
 import { siteConfig } from '@/lib/content';
@@ -26,8 +27,9 @@ export default function Header({ onOpenBooking }: HeaderProps) {
   const navLinks = [
     { label: 'About', href: '/about' },
     { label: 'Doctor', href: '/credentials' },
-    { label: 'Areas of Care', href: '/#areas-of-care' },
-    { label: 'Patient Stories', href: '/patient-stories' },
+    { label: 'Specialities', href: '/#areas-of-care' },
+    { label: 'Surgeries', href: '/#surgeries' },
+    { label: 'Stories', href: '/patient-stories' },
     { label: 'Clinic', href: '/clinic' },
     { label: 'FAQs', href: '/faq' },
     { label: 'Contact', href: '/contact' },
@@ -66,21 +68,28 @@ export default function Header({ onOpenBooking }: HeaderProps) {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between gap-2 sm:gap-4">
-            {/* BRAND LOGO - EXACT STRING BestOrtho.clinic */}
+            {/* OFFICIAL BRAND LOGO */}
             <Link
               href="/"
               className="group flex items-center gap-2.5 sm:gap-3 focus:outline-none focus:ring-2 focus:ring-brand-500 rounded-lg shrink-0"
-              aria-label="BestOrtho.clinic Home"
+              aria-label="Dr. Gaurav Sharma Orthopaedic Clinic Home"
             >
-              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-brand-700 flex items-center justify-center font-bold text-white shadow-sm group-hover:bg-brand-800 transition-colors shrink-0">
-                <Stethoscope className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white border border-slate-200/80 p-0.5 flex items-center justify-center shadow-sm group-hover:border-brand-500 transition-colors shrink-0 overflow-hidden">
+                <Image
+                  src="/images/logo/logo-icon-square.png"
+                  alt="Dr. Gaurav Sharma Orthopaedic Clinic Monogram"
+                  width={44}
+                  height={44}
+                  className="w-full h-full object-contain"
+                  priority
+                />
               </div>
               <div className="flex flex-col">
-                <span className="text-lg sm:text-xl xl:text-2xl font-bold tracking-tight text-brand-950 group-hover:text-brand-700 transition-colors select-none font-display whitespace-nowrap leading-none mb-0.5">
-                  BestOrtho.clinic
+                <span className="text-base sm:text-lg xl:text-xl font-bold tracking-tight text-brand-950 group-hover:text-brand-700 transition-colors select-none font-display whitespace-nowrap leading-tight">
+                  Dr. Gaurav Sharma
                 </span>
-                <span className="text-[11px] sm:text-xs font-medium text-slate-500 hidden sm:block whitespace-nowrap leading-tight">
-                  Dr. Gaurav Sharma • Sikandra, Agra
+                <span className="text-[10px] sm:text-[11px] font-semibold text-brand-700 whitespace-nowrap leading-tight flex items-center gap-1">
+                  Orthopaedics &amp; Joint Replacement <span className="text-slate-400 font-normal hidden sm:inline">| bestortho.clinic</span>
                 </span>
               </div>
             </Link>
@@ -167,12 +176,23 @@ export default function Header({ onOpenBooking }: HeaderProps) {
             <div>
               <div className="flex items-center justify-between pb-5 border-b border-slate-200">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-lg bg-brand-700 flex items-center justify-center font-bold text-white shadow-sm">
-                    <Stethoscope className="w-4 h-4 text-white" />
+                  <div className="w-9 h-9 rounded-xl bg-white border border-slate-200 p-0.5 flex items-center justify-center shadow-sm shrink-0 overflow-hidden">
+                    <Image
+                      src="/images/logo/logo-icon-square.png"
+                      alt="Dr. Gaurav Sharma Orthopaedic Clinic Monogram"
+                      width={36}
+                      height={36}
+                      className="w-full h-full object-contain"
+                    />
                   </div>
-                  <span className="text-xl font-bold text-brand-950 font-display">
-                    BestOrtho.clinic
-                  </span>
+                  <div className="flex flex-col">
+                    <span className="text-base font-bold text-brand-950 font-display leading-tight">
+                      Dr. Gaurav Sharma
+                    </span>
+                    <span className="text-xs text-brand-700 font-medium">
+                      Orthopaedics &amp; Joint Replacement
+                    </span>
+                  </div>
                 </div>
                 <button
                   onClick={() => setMobileMenuOpen(false)}

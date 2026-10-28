@@ -39,7 +39,7 @@ export default function ConsentPolicyPage() {
                 1. Informed Consent Requirements
               </h2>
               <p className="mb-3">
-                Prior to publishing any patient story, recovery photograph, audio statement, or educational video featuring a patient on BestOrtho.clinic, the clinic requires:
+                Prior to publishing any patient story, recovery photograph, audio statement, or educational video featuring a patient on the clinic website (bestortho.clinic), the clinic requires:
               </p>
               <ul className="list-disc list-inside space-y-1.5 pl-2">
                 <li>A signed physical Informed Consent Form on clinic record</li>

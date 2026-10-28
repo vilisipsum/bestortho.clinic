@@ -16,7 +16,7 @@
 - **Wound Dressing & Suture Removal**: Standard in-clinic nursing & minor surgical care rate.
 
 ## 3. Inpatient Surgical Care & Hospital Admissions
-- **Surgical Procedures**: Including Arthroscopy (Knee / Shoulder), Open Reduction & Internal Fixation (ORIF) for fractures, and Joint Reconstruction.
+- **Surgical Procedures**: Including Primary Total Knee Replacement (TKR), Total Hip Replacement (THR), Complex Knee Replacement, Revision Arthroplasty, Minimally Invasive Arthroscopy (ACL / Meniscus / Rotator Cuff), and Open Reduction & Internal Fixation (ORIF) for fractures.
 - **Facility**: Elective and emergency surgical care is coordinated through accredited partner tertiary hospitals in Agra based on patient requirements and empanelment.
 - **Pricing**: Transparent surgical package estimation provided prior to admission based on room category, implant type, and hospital stay duration.
 
