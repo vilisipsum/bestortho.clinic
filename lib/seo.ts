@@ -266,8 +266,8 @@ export function getClinicSchema() {
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: "27.2183", // Sikandra, Agra coordinates
-      longitude: "77.9482",
+      latitude: "27.21834", // Sikandra, Agra 5-decimal precision
+      longitude: "77.94821",
     },
     openingHoursSpecification: [
       {
@@ -294,6 +294,16 @@ export function getClinicSchema() {
     paymentAccepted: "Cash, UPI, Credit Card, Debit Card",
     isAcceptingNewPatients: true,
     hasMap: siteConfig.googleMapsUrl,
+    areaServed: [
+      { "@type": "AdministrativeArea", name: "Sikandra, Agra" },
+      { "@type": "AdministrativeArea", name: "Bodla, Agra" },
+      { "@type": "AdministrativeArea", name: "Dayalbagh, Agra" },
+      { "@type": "AdministrativeArea", name: "Shastripuram, Agra" },
+      { "@type": "AdministrativeArea", name: "Kamla Nagar, Agra" },
+      { "@type": "AdministrativeArea", name: "Khandari, Agra" },
+      { "@type": "City", name: "Agra" },
+      { "@type": "State", name: "Uttar Pradesh" },
+    ],
     contactPoint: {
       "@type": "ContactPoint",
       telephone: siteConfig.phone,

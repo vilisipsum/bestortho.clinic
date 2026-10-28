@@ -1,6 +1,16 @@
 import React from 'react';
-import Header from '@/components/Header';
+import type { Metadata } from 'next';
 import { siteConfig } from '@/lib/content';
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy | Dr. Gaurav Sharma Orthopaedic Clinic',
+  description: 'Privacy policy and patient data security standards for Dr. Gaurav Sharma Orthopaedic Clinic in Sikandra, Agra.',
+  alternates: {
+    canonical: `${siteConfig.domain}/privacy`,
+  },
+};
+
+import Header from '@/components/Header';
 import { ShieldCheck, Lock, EyeOff, FileText, UserCheck } from 'lucide-react';
 
 export default function PrivacyPage() {

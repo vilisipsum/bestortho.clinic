@@ -1,6 +1,16 @@
 import React from 'react';
-import Header from '@/components/Header';
+import type { Metadata } from 'next';
 import { siteConfig } from '@/lib/content';
+
+export const metadata: Metadata = {
+  title: 'Terms of Use & Medical Disclaimer | Dr. Gaurav Sharma Practice',
+  description: 'Terms of use, clinical consultation policies, and medical disclaimer for BestOrtho.clinic (Dr. Gaurav Sharma Practice, Agra).',
+  alternates: {
+    canonical: `${siteConfig.domain}/terms`,
+  },
+};
+
+import Header from '@/components/Header';
 import { AlertTriangle, ShieldCheck, Scale } from 'lucide-react';
 
 export default function TermsPage() {

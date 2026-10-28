@@ -1,6 +1,16 @@
 import React from 'react';
-import Header from '@/components/Header';
+import type { Metadata } from 'next';
 import { siteConfig } from '@/lib/content';
+
+export const metadata: Metadata = {
+  title: 'Patient Media & Informed Consent Policy | Dr. Gaurav Sharma Clinic',
+  description: 'Informed consent protocols and patient privacy ethics governing case recordings and educational media.',
+  alternates: {
+    canonical: `${siteConfig.domain}/consent`,
+  },
+};
+
+import Header from '@/components/Header';
 import { ShieldCheck, FileCheck, EyeOff, AlertCircle, HeartHandshake } from 'lucide-react';
 
 export default function ConsentPolicyPage() {
